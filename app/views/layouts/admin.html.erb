@@ -14,9 +14,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render "flashes" -%>
+  <%= render "layouts/admin/flashes" -%>
   <%= yield %>
-  <%= render "javascript" %>
-  <%= render "css_overrides" %>
+  <%= render "layouts/admin/javascript" %>
+  <%= render "layouts/admin/css_overrides" %>
 </body>
 </html>
