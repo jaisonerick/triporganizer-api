@@ -21,6 +21,7 @@ gem "suspenders"
 gem "title"
 gem "uglifier"
 gem "bootstrap-sass", "~> 3.3.0"
+gem "devise"
 
 group :development do
   gem "listen"
