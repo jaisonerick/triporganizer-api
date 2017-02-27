@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Cpf</th>
+      <th>Birthday</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_users.each do |admin_user| %>
+      <tr>
+        <td><%= admin_user.email %></td>
+        <td><%= admin_user.name %></td>
+        <td><%= admin_user.picture_url %></td>
+        <td><%= admin_user.cpf %></td>
+        <td><%= admin_user.birthday %></td>
+        <td><%= admin_user.address %></td>
+        <td><%= admin_user.phone %></td>
+        <td><%= link_to 'Show', [:admin, admin_user] %></td>
+        <td><%= link_to 'Edit', edit_admin_user_path(admin_user) %></td>
+        <td><%= link_to 'Destroy', [:admin, admin_user], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin User', new_admin_user_path %>
