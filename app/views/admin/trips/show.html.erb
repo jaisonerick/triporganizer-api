@@ -1,24 +1,53 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1><%= @trip.name %> </h1>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @trip.name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#">Detalhes</a></li>
+      <li role="presentation">
+        <%= link_to 'Clientes', admin_trip_registrations_path(@trip) %>
+      </li>
+      <li role="presentation"><a href="#">Destinos</a></li>
+    </ul>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @trip.description %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="tab-content">
+      <div class="tab-pane active">
+        <p>
+          <strong>Name:</strong>
+          <%= @trip.name %>
+        </p>
 
-<p>
-  <strong>Starts at:</strong>
-  <%= @trip.starts_at %>
-</p>
+        <p>
+          <strong>Description:</strong>
+          <%= @trip.description %>
+        </p>
 
-<p>
-  <strong>Ends at:</strong>
-  <%= @trip.ends_at %>
-</p>
+        <p>
+          <strong>Starts at:</strong>
+          <%= @trip.starts_at %>
+        </p>
 
-<%= link_to 'Edit', edit_admin_trip_path(@trip) %> |
-<%= link_to 'Back', admin_trips_path %>
+        <p>
+          <strong>Ends at:</strong>
+          <%= @trip.ends_at %>
+        </p>
+
+
+        <div class="btn-group" role="group">
+          <%= link_to 'Edit', edit_admin_trip_path(@trip), class: 'btn btn-primary', role: 'button' %>
+          <%= link_to 'Back', admin_trips_path, class: 'btn btn-default', role: 'button' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

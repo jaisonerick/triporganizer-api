@@ -1,33 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to 'Cadastrar', new_admin_trip_path, class: 'btn btn-primary pull-right', role: 'button' %>
 
-<h1>Trips</h1>
+      <h1>Viagens </h1>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Starts at</th>
-      <th>Ends at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row">
+  <div class="col-md-3">
     <% @trips.each do |trip| %>
-      <tr>
-        <td><%= trip.name %></td>
-        <td><%= trip.description %></td>
-        <td><%= trip.starts_at %></td>
-        <td><%= trip.ends_at %></td>
-        <td><%= link_to 'Show', [:admin, trip] %></td>
-        <td><%= link_to 'Edit', edit_admin_trip_path(trip) %></td>
-        <td><%= link_to 'Destroy', [:admin, trip], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <article class="trip-widget">
+        <h1><%= trip.name %></h1>
+        <p><%= trip.description %></p>
+        <div class="btn-group" role="group">
+          <%= link_to 'Acessar', [:admin, trip], class: 'btn btn-primary', role: 'button' %>
+          <%= link_to 'Editar', edit_admin_trip_path(trip), class: 'btn btn-default', role: 'button' %>
+          <%= link_to 'Remover', [:admin, trip], method: :delete, class: 'btn btn-danger', role: 'button' %>
+        </div>
+      </article>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Trip', new_admin_trip_path %>

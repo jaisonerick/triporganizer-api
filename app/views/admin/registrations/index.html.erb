@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1><%= @trip.name %> </h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation">
+        <%= link_to 'Detalhes', [:admin, @trip] %>
+      </li>
+      <li role="presentation" class="active">
+        <a href="#">Clientes</a>
+      </li>
+      <li role="presentation"><a href="#">Destinos</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= simple_form_for([:admin, @registration]) do |f| %>
+      <%= f.association :user %>
+      <%= f.submit 'Cadastrar', class: 'btn btn-primary' %>
+    <% end %>
+
+    <% @registrations.each do |user| %>
+      <p>
+        <%= user.name %>
+        <%= link_to 'Remover', admin_trip_registration_path(@trip, user), method: :delete %>
+      </p>
+    <% end %>
+  </div>
+</div>

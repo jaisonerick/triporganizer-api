@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :trip_registration do
+    trip nil
+    user nil
+  end
   factory :destination do
     name "MyString"
     description "MyString"

@@ -34,7 +34,7 @@ class Admin::UsersController < ::Admin::ApplicationController
   # PATCH/PUT /admin/users/1
   def update
     if @admin_user.update(admin_user_params)
-      redirect_to @admin_user, notice: 'User was successfully updated.'
+      redirect_to [:admin, @admin_user], notice: 'User was successfully updated.'
     else
       render :edit
     end

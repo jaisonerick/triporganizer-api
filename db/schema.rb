@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227012306) do
+ActiveRecord::Schema.define(version: 20170227014312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,16 @@ ActiveRecord::Schema.define(version: 20170227012306) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "trip_registrations", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.integer  "user_id"
+    t.boolean  "confirmed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_trip_registrations_on_trip_id", using: :btree
+    t.index ["user_id"], name: "index_trip_registrations_on_user_id", using: :btree
+  end
+
   create_table "trips", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -125,4 +135,6 @@ ActiveRecord::Schema.define(version: 20170227012306) do
   end
 
   add_foreign_key "destinations", "trips"
+  add_foreign_key "trip_registrations", "trips"
+  add_foreign_key "trip_registrations", "users"
 end
