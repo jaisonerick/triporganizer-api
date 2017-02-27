@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @destination.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @destination.description %>
+</p>
+
+<p>
+  <strong>Starts at:</strong>
+  <%= @destination.starts_at %>
+</p>
+
+<p>
+  <strong>Ends at:</strong>
+  <%= @destination.ends_at %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @destination.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @destination.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @destination.longitude %>
+</p>
+
+<p>
+  <strong>Google places:</strong>
+  <%= @destination.google_places_id %>
+</p>
+
+<p>
+  <strong>Picture url:</strong>
+  <%= @destination.picture_url %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @destination.order %>
+</p>
+
+<p>
+  <strong>Trip:</strong>
+  <%= @destination.trip.name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_trip_destination_path(@destination) %> |
+<%= link_to 'Back', admin_trip_destinations_path(@destination.trip) %>

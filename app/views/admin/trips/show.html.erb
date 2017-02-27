@@ -20,5 +20,5 @@
   <%= @trip.ends_at %>
 </p>
 
-<%= link_to 'Edit', edit_trip_path([:admin, @trip]) %> |
+<%= link_to 'Edit', edit_admin_trip_path(@trip) %> |
 <%= link_to 'Back', admin_trips_path %>

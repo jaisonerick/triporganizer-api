@@ -1,0 +1,20 @@
+<%= simple_form_for([:admin, @destination.trip, @destination]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :starts_at %>
+    <%= f.input :ends_at %>
+    <%= f.input :address %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :google_places_id %>
+    <%= f.input :picture_url %>
+    <%= f.input :order %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

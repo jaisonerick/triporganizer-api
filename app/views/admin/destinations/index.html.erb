@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Destinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Google places</th>
+      <th>Picture url</th>
+      <th>Order</th>
+      <th>Trip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @destinations.each do |destination| %>
+      <tr>
+        <td><%= destination.name %></td>
+        <td><%= destination.description %></td>
+        <td><%= destination.starts_at %></td>
+        <td><%= destination.ends_at %></td>
+        <td><%= destination.address %></td>
+        <td><%= destination.latitude %></td>
+        <td><%= destination.longitude %></td>
+        <td><%= destination.google_places_id %></td>
+        <td><%= destination.picture_url %></td>
+        <td><%= destination.order %></td>
+        <td><%= destination.trip.name %></td>
+        <td><%= link_to 'Show', [:admin, destination.trip, destination] %></td>
+        <td><%= link_to 'Edit', edit_admin_trip_destination_path(destination.trip_id, destination) %></td>
+        <td><%= link_to 'Destroy', [:admin, destination.trip, destination], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Destination', new_admin_trip_destination_path(@trip) %>

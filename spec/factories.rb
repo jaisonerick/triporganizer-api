@@ -1,4 +1,17 @@
 FactoryGirl.define do
+  factory :destination do
+    name "MyString"
+    description "MyString"
+    starts_at "2017-02-26 22:23:06"
+    ends_at "2017-02-26 22:23:06"
+    address "MyString"
+    latitude "9.99"
+    longitude "9.99"
+    google_places_id "MyString"
+    picture_url "MyString"
+    order 1
+    trip nil
+  end
   factory :trip do
     name "MyString"
     description "MyString"
