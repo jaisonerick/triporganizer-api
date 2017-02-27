@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="nav navbar-nav navbar-right">
             <li role="presentation"><a href="#">Viagens </a></li>
-            <li role="presentation"><a href="#">Clientes </a></li>
+            <li role="presentation"><%= link_to 'Clientes', admin_users_path %></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Cadastros <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><a href="#">Companhias Aereas</a></li>
@@ -32,10 +32,10 @@
                 <li role="presentation"><a href="#">Destinos </a></li>
               </ul>
             </li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Jaison Erick <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><%= current_admin.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li role="presentation"><a href="#">Meus Dados</a></li>
-                <li role="presentation"><a href="#">Administração</a></li>
+                <li role="presentation"><%= link_to 'Meus Dados', edit_admin_admin_path(current_admin) %></li>
+                <li role="presentation"><%= link_to 'Administração', admin_admins_path %></li>
                 <li role="presentation"><%= link_to 'Sair', destroy_admin_session_path, method: :delete %></li>
               </ul>
             </li>

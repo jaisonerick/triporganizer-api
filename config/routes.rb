@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :users
-  end
   devise_for :users
   devise_for :admins
 
@@ -10,6 +7,8 @@ Rails.application.routes.draw do
       root to: "dashboard#index"
 
       resources :users
+      resources :admins
+      resources :airlines
     end
 
     root to: redirect("/admins/sign_in")

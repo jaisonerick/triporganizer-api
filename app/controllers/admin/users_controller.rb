@@ -3,7 +3,7 @@ class Admin::UsersController < ::Admin::ApplicationController
 
   # GET /admin/users
   def index
-    @admin_users = Admin::User.all
+    @admin_users = User.all
   end
 
   # GET /admin/users/1
@@ -12,7 +12,7 @@ class Admin::UsersController < ::Admin::ApplicationController
 
   # GET /admin/users/new
   def new
-    @admin_user = Admin::User.new
+    @admin_user = User.new
   end
 
   # GET /admin/users/1/edit
@@ -21,7 +21,7 @@ class Admin::UsersController < ::Admin::ApplicationController
 
   # POST /admin/users
   def create
-    @admin_user = Admin::User.new(admin_user_params)
+    @admin_user = User.new(admin_user_params)
     @admin_user.password = Devise.friendly_token.first(8)
 
     if @admin_user.save
@@ -49,7 +49,7 @@ class Admin::UsersController < ::Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_user
-      @admin_user = Admin::User.find(params[:id])
+      @admin_user = User.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

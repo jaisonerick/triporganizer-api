@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Airlines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Openflight</th>
+      <th>Name</th>
+      <th>Alias</th>
+      <th>Iata</th>
+      <th>Icao</th>
+      <th>Callsign</th>
+      <th>Country</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airlines.each do |airline| %>
+      <tr>
+        <td><%= airline.openflight_id %></td>
+        <td><%= airline.name %></td>
+        <td><%= airline.name_alias %></td>
+        <td><%= airline.iata %></td>
+        <td><%= airline.icao %></td>
+        <td><%= airline.callsign %></td>
+        <td><%= airline.country %></td>
+        <td><%= airline.active %></td>
+        <td><%= link_to 'Show', [:admin, airline] %></td>
+        <td><%= link_to 'Edit', edit_admin_airline_path(airline) %></td>
+        <td><%= link_to 'Destroy', [:admin, airline], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Airline', new_admin_airline_path %>

@@ -23,6 +23,7 @@ gem "uglifier"
 gem "bootstrap-sass", "~> 3.3.0"
 gem "devise"
 gem "ionicons-rails"
+gem "country_select"
 
 group :development do
   gem "listen"
