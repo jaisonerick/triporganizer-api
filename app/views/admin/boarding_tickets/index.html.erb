@@ -3,7 +3,7 @@
     <%= link_to 'New Boarding Ticket', new_admin_trip_registration_boarding_ticket_path(@trip, @registration), class: 'btn btn-primary pull-right' %>
 
     <div class="page-header">
-      <h1><%= @trip.name %> &gt; <%= @registration.user.name %> </h1>
+      <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> </h1>
     </div>
   </div>
 </div>
@@ -11,14 +11,14 @@
 <div class="row">
   <div class="col-md-12">
     <ul class="nav nav-tabs">
+      <li role="presentation">
+        <%= link_to 'Detalhes', [:admin, @trip, @registration] %>
+      </li>
       <li role="presentation" class="active">
         <a href="#">Passagens Aéreas</a>
       </li>
       <li role="presentation">
-        <a href="#">Hospedagem</a>
-      </li>
-      <li role="presentation">
-        <a href="#">Mensagens</a>
+        <%= link_to 'Hospedagem', admin_trip_registration_hotel_reservations_path(@trip, @registration) %>
       </li>
     </ul>
   </div>

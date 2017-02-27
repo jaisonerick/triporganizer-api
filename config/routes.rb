@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         resources :destinations
         resources :registrations, only: [:index, :show, :create, :destroy] do
           resources :boarding_tickets
+          resources :hotel_reservations
         end
         resources :flights
         resources :trip_hotels

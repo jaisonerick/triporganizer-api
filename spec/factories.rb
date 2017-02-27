@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :hotel_reservation do
+    registration nil
+    trip_hotel nil
+    room "MyString"
+    notes "MyText"
+  end
   factory :trip_hotel do
     hotel nil
     trip nil

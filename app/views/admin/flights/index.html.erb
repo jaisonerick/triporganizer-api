@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
+      <%= link_to 'New Flight', new_admin_trip_flight_path(@trip), class: 'btn btn-primary pull-right' %>
+
       <h1><%= @trip.name %> </h1>
     </div>
   </div>
@@ -16,7 +18,7 @@
         <%= link_to 'Clientes', admin_trip_registrations_path(@trip) %>
       </li>
       <li role="presentation">
-        <%= link_to 'Clientes', admin_trip_destinations_path(@trip) %>
+        <%= link_to 'Destinos', admin_trip_destinations_path(@trip) %>
       </li>
       <li role="presentation" class="active"><a href="#">Voos</a></li>
       <li role="presentation">
@@ -64,7 +66,3 @@
     </table>
   </div>
 </div>
-
-<br>
-
-<%= link_to 'New Flight', new_admin_trip_flight_path(@trip) %>

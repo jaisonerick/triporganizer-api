@@ -1,0 +1,13 @@
+<%= simple_form_for([:admin, @trip, @registration, @hotel_reservation]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :trip_hotel %>
+    <%= f.input :room %>
+    <%= f.input :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
