@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     authenticated :admin do
       root to: "dashboard#index"
 
+      resources :trips
+
       resources :users
       resources :admins
       resources :airlines

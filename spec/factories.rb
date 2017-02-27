@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :trip do
+    name "MyString"
+    description "MyString"
+    starts_at "2017-02-26"
+    ends_at "2017-02-26"
+  end
   factory :hotel do
     name "MyString"
     address "MyString"
