@@ -45,7 +45,7 @@ class Admin::DestinationsController < ::Admin::ApplicationController
   # DELETE /destinations/1
   def destroy
     @destination.destroy
-    redirect_to admin_destinations_url, notice: 'Destination was successfully destroyed.'
+    redirect_to admin_trip_destinations_path(@trip), notice: 'Destination was successfully destroyed.'
   end
 
   private

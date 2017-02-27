@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Airline:</strong>
+  <%= @flight.airline %>
+</p>
+
+<p>
+  <strong>Departure at:</strong>
+  <%= @flight.departure_at %>
+</p>
+
+<p>
+  <strong>Arrives at:</strong>
+  <%= @flight.arrives_at %>
+</p>
+
+<p>
+  <strong>Flight number:</strong>
+  <%= @flight.flight_number %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @flight.origin %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @flight.destination %>
+</p>
+
+<p>
+  <strong>Boarding gate:</strong>
+  <%= @flight.boarding_gate %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @flight.phone %>
+</p>
+
+<%= link_to 'Edit', edit_admin_trip_flight_path(@flight) %> |
+<%= link_to 'Back', admin_trip_flights_path(@trip) %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :trips do
         resources :destinations
         resources :registrations, only: [:index, :show, :create, :destroy]
+        resources :flights
       end
 
       resources :users

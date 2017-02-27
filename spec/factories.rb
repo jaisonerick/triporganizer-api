@@ -1,4 +1,14 @@
 FactoryGirl.define do
+  factory :flight do
+    airline nil
+    departure_at "2017-02-27 13:13:01"
+    arrives_at "2017-02-27 13:13:01"
+    flight_number "MyString"
+    origin "MyString"
+    destination "MyString"
+    boarding_gate "MyString"
+    phone "MyString"
+  end
   factory :trip_registration do
     trip nil
     user nil
