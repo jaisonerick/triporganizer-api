@@ -1,10 +1,14 @@
 class Admin::RegistrationsController < ::Admin::ApplicationController
-  before_action :set_registration, only: :destroy
+  before_action :set_registration, only: [:show, :destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
     @registrations = @trip.users
     @registration = @trip.trip_registrations.build
+  end
+
+  def show
+
   end
 
   # POST /hotels

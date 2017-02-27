@@ -23,10 +23,11 @@ class Admin::DestinationsController < ::Admin::ApplicationController
 
   # POST /destinations
   def create
-    @destination = Trip.find(params[:trip_id]).destinations.build(destination_params)
+    @trip = Trip.find(params[:trip_id])
+    @destination = @trip.destinations.build(destination_params)
 
     if @destination.save
-      redirect_to [:admin, @destination], notice: 'Destination was successfully created.'
+      redirect_to admin_trip_destinations_path(@trip), notice: 'Destination was successfully created.'
     else
       render :new
     end
