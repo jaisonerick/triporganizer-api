@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :users
       resources :admins
       resources :airlines
+      resources :hotels
     end
 
     root to: redirect("/admins/sign_in")

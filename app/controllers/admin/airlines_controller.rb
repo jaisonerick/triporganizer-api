@@ -24,7 +24,7 @@ class Admin::AirlinesController < ::Admin::ApplicationController
     @airline = Airline.new(airline_params)
 
     if @airline.save
-      redirect_to @airline, notice: 'Airline was successfully created.'
+      redirect_to [:admin, @airline], notice: 'Airline was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::AirlinesController < ::Admin::ApplicationController
   # PATCH/PUT /airlines/1
   def update
     if @airline.update(airline_params)
-      redirect_to @airline, notice: 'Airline was successfully updated.'
+      redirect_to [:admin, @airline], notice: 'Airline was successfully updated.'
     else
       render :edit
     end
