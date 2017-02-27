@@ -12,6 +12,7 @@ Rails.application.routes.draw do
           resources :boarding_tickets
         end
         resources :flights
+        resources :trip_hotels
       end
 
       resources :users

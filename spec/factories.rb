@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :trip_hotel do
+    hotel nil
+    trip nil
+    notes "MyText"
+    starts_at "2017-02-27"
+    ends_at "2017-02-27"
+  end
   factory :boarding_ticket do
     registration nil
     flight nil
