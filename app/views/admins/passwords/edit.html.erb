@@ -1,0 +1,26 @@
+<div class="login-clean">
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="illustration">
+      Altere sua senha
+    </div>
+
+    <%= f.error_notification %>
+
+    <%= f.input :reset_password_token, as: :hidden %>
+    <%= f.full_error :reset_password_token %>
+
+    <div class="form-inputs">
+      <%= f.input :password, placeholder: "Nova Senha", required: true, autofocus: true, label: false %>
+      <%= f.input :password_confirmation, placeholder: "Confirme sua nova senha", required: true, label: false %>
+    </div>
+
+    <div class="form-actions">
+      <div class="form-group">
+        <%= f.button :submit, "Alterar minha senha", class: "btn-primary btn-block" %>
+      </div>
+
+      <%= link_to "Entrar", new_session_path(resource_name), class: 'forgot' %>
+    </div>
+
+  <% end %>
+</div>
