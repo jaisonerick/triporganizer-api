@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     authenticated :admin do
-      root to: "dashboard#index"
+      root to: "trips#index"
 
       resources :trips do
         resources :destinations
