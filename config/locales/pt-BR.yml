@@ -1,5 +1,84 @@
 pt-BR:
   activerecord:
+    models:
+      admin:
+        one: Administrador
+        other: Administradores
+      airline:
+        one: Companhia Aérea
+        other: Companhias Aéreas
+      boarding_ticket:
+        one: Passagem
+        other: Passagens
+      destination: Destino
+      flight: Voo
+      hotel_reservation: Reserva
+      hotel:
+        one: Hotel
+        other: Hotéis
+      registration: Registro
+      trip_hotel:
+        one: Hospedagem
+        other: Hospedagens
+      user: Cliente
+    attributes:
+      admin:
+        name: Nome
+      airline:
+        name: Nome
+        name_alias: Apelido
+        iata: IATA
+        icao: ICAO
+        callsign: CallSign
+        country: País
+        active: Ativa
+      boarding_ticket:
+        flight_class: Classe
+        seat: Assento
+        notes: Notas
+      destination:
+        name: Nome
+        description: Descrição
+        starts_at: Início
+        ends_at: Fim
+        address: Endereço
+        picture_url: Imagem
+        order: Ordem
+      flight:
+        departure_at: Saída
+        arrives_at: Chegada
+        flight_number: Número do Voo
+        origin: Origem
+        destination: Destino
+        boarding_gate: Portão de Embarque
+        phone: Telefone de Contato
+      hotel_reservation:
+        room: Quarto
+        notes: Notas
+      hotel:
+        name: Nome
+        address: Endereço
+        city: Cidade
+        country: País
+        phone: Telefone
+      registration:
+        confirmed: Confirmado
+      trip_hotel:
+        notes: Notas
+        starts_at: Entrada
+        ends_at: Saída
+      trip:
+        name: Nome
+        description: Descrição
+        starts_at: Saída
+        ends_at: Retorno
+      user:
+        name: Nome
+        picture_url: Foto
+        cpf: CPF
+        birthday: Aniversário
+        address: Endereço
+        phone: Telefone
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

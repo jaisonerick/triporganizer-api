@@ -24,7 +24,7 @@ class Admin::AirlinesController < ::Admin::ApplicationController
     @airline = Airline.new(airline_params)
 
     if @airline.save
-      redirect_to [:admin, @airline], notice: 'Airline was successfully created.'
+      redirect_to [:admin, @airline], notice: 'Companhia aérea criada com sucesso.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::AirlinesController < ::Admin::ApplicationController
   # PATCH/PUT /airlines/1
   def update
     if @airline.update(airline_params)
-      redirect_to [:admin, @airline], notice: 'Airline was successfully updated.'
+      redirect_to [:admin, @airline], notice: 'Companhia aérea atualizada com sucesso.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::AirlinesController < ::Admin::ApplicationController
   # DELETE /airlines/1
   def destroy
     @airline.destroy
-    redirect_to airlines_url, notice: 'Airline was successfully destroyed.'
+    redirect_to airlines_url, notice: 'Companhia aérea removida com sucesso.'
   end
 
   private

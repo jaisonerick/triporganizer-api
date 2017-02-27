@@ -27,7 +27,7 @@ class Admin::FlightsController < ::Admin::ApplicationController
     @flight = @trip.flights.build(flight_params)
 
     if @flight.save
-      redirect_to admin_trip_flights_path(@trip), notice: 'Flight was successfully created.'
+      redirect_to admin_trip_flights_path(@trip), notice: 'Voo adicionado com sucesso.'
     else
       render :new
     end
@@ -36,7 +36,7 @@ class Admin::FlightsController < ::Admin::ApplicationController
   # PATCH/PUT /flights/1
   def update
     if @flight.update(flight_params)
-      redirect_to [:admin, @trip, @flight], notice: 'Flight was successfully updated.'
+      redirect_to [:admin, @trip, @flight], notice: 'Voo atualizado com sucesso.'
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class Admin::FlightsController < ::Admin::ApplicationController
   # DELETE /flights/1
   def destroy
     @flight.destroy
-    redirect_to admin_trip_flights_path(@trip), notice: 'Flight was successfully destroyed.'
+    redirect_to admin_trip_flights_path(@trip), notice: 'Voo removido com sucesso.'
   end
 
   private

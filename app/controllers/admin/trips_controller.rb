@@ -24,7 +24,7 @@ class Admin::TripsController < ::Admin::ApplicationController
     @trip = Trip.new(trip_params)
 
     if @trip.save
-      redirect_to [:admin, @trip], notice: 'Trip was successfully created.'
+      redirect_to [:admin, @trip], notice: 'Viagem criada com sucesso.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::TripsController < ::Admin::ApplicationController
   # PATCH/PUT /trips/1
   def update
     if @trip.update(trip_params)
-      redirect_to [:admin, @trip], notice: 'Trip was successfully updated.'
+      redirect_to [:admin, @trip], notice: 'Viagem atualizada com sucesso.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::TripsController < ::Admin::ApplicationController
   # DELETE /trips/1
   def destroy
     @trip.destroy
-    redirect_to admin_trips_url, notice: 'Trip was successfully destroyed.'
+    redirect_to admin_trips_url, notice: 'Viagem removida com sucesso.'
   end
 
   private

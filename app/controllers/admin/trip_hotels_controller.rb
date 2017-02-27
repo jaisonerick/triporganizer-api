@@ -25,7 +25,7 @@ class Admin::TripHotelsController < ::Admin::ApplicationController
     @trip_hotel = @trip.trip_hotels.build(trip_hotel_params)
 
     if @trip_hotel.save
-      redirect_to admin_trip_trip_hotels_path, notice: 'Trip hotel was successfully created.'
+      redirect_to admin_trip_trip_hotels_path, notice: 'Hospedagem vinculada a viagem com sucesso.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::TripHotelsController < ::Admin::ApplicationController
   # PATCH/PUT /trip_hotels/1
   def update
     if @trip_hotel.update(trip_hotel_params)
-      redirect_to admin_trip_trip_hotels_path, notice: 'Trip hotel was successfully updated.'
+      redirect_to admin_trip_trip_hotels_path, notice: 'Hospedagem atualizada com sucesso.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Admin::TripHotelsController < ::Admin::ApplicationController
   # DELETE /trip_hotels/1
   def destroy
     @trip_hotel.destroy
-    redirect_to admin_trip_trip_hotels_path, notice: 'Trip hotel was successfully destroyed.'
+    redirect_to admin_trip_trip_hotels_path, notice: 'Hospedagem removida com sucesso.'
   end
 
   private

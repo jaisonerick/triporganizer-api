@@ -25,7 +25,7 @@ class Admin::UsersController < ::Admin::ApplicationController
     @admin_user.password = Devise.friendly_token.first(8)
 
     if @admin_user.save
-      redirect_to [:admin, @admin_user], notice: 'User was successfully created.'
+      redirect_to [:admin, @admin_user], notice: 'Cliente criado com sucesso.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::UsersController < ::Admin::ApplicationController
   # PATCH/PUT /admin/users/1
   def update
     if @admin_user.update(admin_user_params)
-      redirect_to [:admin, @admin_user], notice: 'User was successfully updated.'
+      redirect_to [:admin, @admin_user], notice: 'Cliente atualizado com sucesso.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Admin::UsersController < ::Admin::ApplicationController
   # DELETE /admin/users/1
   def destroy
     @admin_user.destroy
-    redirect_to admin_users_url, notice: 'User was successfully destroyed.'
+    redirect_to admin_users_url, notice: 'Cliente removido com sucesso.'
   end
 
   private

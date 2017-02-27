@@ -1,5 +1,17 @@
-<h1>New Admin User</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_users_path, class: 'btn btn-default' %>
+      </div>
+      <h1>Novo Cliente</h1>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', admin_user: @admin_user %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form', admin_user: @admin_user %>
+  </div>
+</div>
 
-<%= link_to 'Back', admin_users_path %>

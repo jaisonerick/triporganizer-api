@@ -16,16 +16,16 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
     @registration = @trip.registrations.build(registration_params)
 
     if @registration.save
-      redirect_to admin_trip_registrations_path(@trip), notice: 'Trip Registration was successfully created.'
+      redirect_to admin_trip_registrations_path(@trip), notice: 'Cliente adicionado com sucesso a viagem'
     else
-      redirect_to admin_trip_registrations_path(@trip), error: 'Failed to create a new trip registration'
+      redirect_to admin_trip_registrations_path(@trip), error: 'Ocorreu um problema ao adicionar o cliente a viagem'
     end
   end
 
   # DELETE /hotels/1
   def destroy
     @registration.destroy
-    redirect_to admin_trip_registrations_path(@trip), notice: 'Registration was successfully destroyed.'
+    redirect_to admin_trip_registrations_path(@trip), notice: 'Cliente removido com sucesso da viagem'
   end
 
   private

@@ -27,7 +27,7 @@ class Admin::DestinationsController < ::Admin::ApplicationController
     @destination = @trip.destinations.build(destination_params)
 
     if @destination.save
-      redirect_to admin_trip_destinations_path(@trip), notice: 'Destination was successfully created.'
+      redirect_to admin_trip_destinations_path(@trip), notice: 'Destino criado com sucesso.'
     else
       render :new
     end
@@ -36,7 +36,7 @@ class Admin::DestinationsController < ::Admin::ApplicationController
   # PATCH/PUT /destinations/1
   def update
     if @destination.update(destination_params)
-      redirect_to [:admin, @destination], notice: 'Destination was successfully updated.'
+      redirect_to [:admin, @destination], notice: 'Destino atualizado com sucesso.'
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class Admin::DestinationsController < ::Admin::ApplicationController
   # DELETE /destinations/1
   def destroy
     @destination.destroy
-    redirect_to admin_trip_destinations_path(@trip), notice: 'Destination was successfully destroyed.'
+    redirect_to admin_trip_destinations_path(@trip), notice: 'Destino removido com sucesso.'
   end
 
   private

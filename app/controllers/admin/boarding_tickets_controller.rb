@@ -32,7 +32,7 @@ class Admin::BoardingTicketsController < ::Admin::ApplicationController
     @boarding_ticket = @registration.boarding_tickets.build(boarding_ticket_params)
 
     if @boarding_ticket.save
-      redirect_to admin_trip_registration_boarding_tickets_path(@trip, @registration), notice: 'Boarding ticket was successfully created.'
+      redirect_to admin_trip_registration_boarding_tickets_path(@trip, @registration), notice: 'Passagem aérea criada com sucesso.'
     else
       render :new
     end
@@ -41,7 +41,7 @@ class Admin::BoardingTicketsController < ::Admin::ApplicationController
   # PATCH/PUT /boarding_tickets/1
   def update
     if @boarding_ticket.update(boarding_ticket_params)
-      redirect_to admin_trip_registration_boarding_tickets_path(@trip, @registration), notice: 'Boarding ticket was successfully updated.'
+      redirect_to admin_trip_registration_boarding_tickets_path(@trip, @registration), notice: 'Passagem aérea atualizada com sucesso.'
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class Admin::BoardingTicketsController < ::Admin::ApplicationController
   # DELETE /boarding_tickets/1
   def destroy
     @boarding_ticket.destroy
-    redirect_to admin_trip_registration_boarding_tickets_path(@trip, @registration), notice: 'Boarding ticket was successfully destroyed.'
+    redirect_to admin_trip_registration_boarding_tickets_path(@trip, @registration), notice: 'Passagem aérea removida com sucesso.'
   end
 
   private

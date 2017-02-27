@@ -25,7 +25,7 @@ class Admin::HotelReservationsController < ::Admin::ApplicationController
     @hotel_reservation = @registration.hotel_reservations.build(hotel_reservation_params)
 
     if @hotel_reservation.save
-      redirect_to admin_trip_registration_hotel_reservations_path(@trip, @registration), notice: 'Hotel reservation was successfully created.'
+      redirect_to admin_trip_registration_hotel_reservations_path(@trip, @registration), notice: 'Reserva criada com sucesso.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::HotelReservationsController < ::Admin::ApplicationController
   # PATCH/PUT /hotel_reservations/1
   def update
     if @hotel_reservation.update(hotel_reservation_params)
-      redirect_to admin_trip_registration_hotel_reservations_path(@trip, @registration), notice: 'Hotel reservation was successfully updated.'
+      redirect_to admin_trip_registration_hotel_reservations_path(@trip, @registration), notice: 'Reserva criada com sucesso.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Admin::HotelReservationsController < ::Admin::ApplicationController
   # DELETE /hotel_reservations/1
   def destroy
     @hotel_reservation.destroy
-    redirect_to admin_trip_registration_hotel_reservations_path(@trip, @registration), notice: 'Hotel reservation was successfully destroyed.'
+    redirect_to admin_trip_registration_hotel_reservations_path(@trip, @registration), notice: 'Reserva removida com sucesso.'
   end
 
   private

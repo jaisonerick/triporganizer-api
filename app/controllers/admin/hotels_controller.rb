@@ -24,7 +24,7 @@ class Admin::HotelsController < ::Admin::ApplicationController
     @hotel = Hotel.new(hotel_params)
 
     if @hotel.save
-      redirect_to [:admin, @hotel], notice: 'Hotel was successfully created.'
+      redirect_to [:admin, @hotel], notice: 'Hotel criado com sucesso.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::HotelsController < ::Admin::ApplicationController
   # PATCH/PUT /hotels/1
   def update
     if @hotel.update(hotel_params)
-      redirect_to [:admin, @hotel], notice: 'Hotel was successfully updated.'
+      redirect_to [:admin, @hotel], notice: 'Hotel atualizado com sucesso.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::HotelsController < ::Admin::ApplicationController
   # DELETE /hotels/1
   def destroy
     @hotel.destroy
-    redirect_to admin_hotels_url, notice: 'Hotel was successfully destroyed.'
+    redirect_to admin_hotels_url, notice: 'Hotel removido com sucesso.'
   end
 
   private
