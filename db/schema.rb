@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227161301) do
+ActiveRecord::Schema.define(version: 20170227165101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 20170227161301) do
     t.boolean  "active"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "boarding_tickets", force: :cascade do |t|
+    t.integer  "registration_id"
+    t.integer  "flight_id"
+    t.string   "flight_class"
+    t.string   "seat"
+    t.text     "qr_code"
+    t.text     "notes"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["flight_id"], name: "index_boarding_tickets_on_flight_id", using: :btree
+    t.index ["registration_id"], name: "index_boarding_tickets_on_registration_id", using: :btree
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -108,14 +121,14 @@ ActiveRecord::Schema.define(version: 20170227161301) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "trip_registrations", force: :cascade do |t|
+  create_table "registrations", force: :cascade do |t|
     t.integer  "trip_id"
     t.integer  "user_id"
     t.boolean  "confirmed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["trip_id"], name: "index_trip_registrations_on_trip_id", using: :btree
-    t.index ["user_id"], name: "index_trip_registrations_on_user_id", using: :btree
+    t.index ["trip_id"], name: "index_registrations_on_trip_id", using: :btree
+    t.index ["user_id"], name: "index_registrations_on_user_id", using: :btree
   end
 
   create_table "trips", force: :cascade do |t|
@@ -150,9 +163,11 @@ ActiveRecord::Schema.define(version: 20170227161301) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "boarding_tickets", "flights"
+  add_foreign_key "boarding_tickets", "registrations"
   add_foreign_key "destinations", "trips"
   add_foreign_key "flights", "airlines"
   add_foreign_key "flights", "trips"
-  add_foreign_key "trip_registrations", "trips"
-  add_foreign_key "trip_registrations", "users"
+  add_foreign_key "registrations", "trips"
+  add_foreign_key "registrations", "users"
 end

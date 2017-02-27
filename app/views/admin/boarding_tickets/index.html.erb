@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'New Boarding Ticket', new_admin_trip_registration_boarding_ticket_path(@trip, @registration), class: 'btn btn-primary pull-right' %>
+
+    <div class="page-header">
+      <h1><%= @trip.name %> &gt; <%= @registration.user.name %> </h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+        <a href="#">Passagens Aéreas</a>
+      </li>
+      <li role="presentation">
+        <a href="#">Hospedagem</a>
+      </li>
+      <li role="presentation">
+        <a href="#">Mensagens</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table>
+      <thead>
+        <tr>
+          <th>Trip registration</th>
+          <th>Flight</th>
+          <th>Flight class</th>
+          <th>Seat</th>
+          <th>Qr code</th>
+          <th>Notes</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @boarding_tickets.each do |boarding_ticket| %>
+          <tr>
+            <td><%= boarding_ticket.registration.user.name %></td>
+            <td><%= boarding_ticket.flight.flight_number %></td>
+            <td><%= boarding_ticket.flight_class %></td>
+            <td><%= boarding_ticket.seat %></td>
+            <td><%= boarding_ticket.qr_code %></td>
+            <td><%= boarding_ticket.notes %></td>
+            <td><%= link_to 'Show', [:admin, @trip, @registration, boarding_ticket] %></td>
+            <td><%= link_to 'Edit', edit_admin_trip_registration_boarding_ticket_path(@trip, @registration, boarding_ticket) %></td>
+            <td><%= link_to 'Destroy', [:admin, @trip, @registration, boarding_ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+

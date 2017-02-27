@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
       resources :trips do
         resources :destinations
-        resources :registrations, only: [:index, :show, :create, :destroy]
+        resources :registrations, only: [:index, :show, :create, :destroy] do
+          resources :boarding_tickets
+        end
         resources :flights
       end
 

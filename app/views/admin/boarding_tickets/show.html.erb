@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Trip registration:</strong>
+  <%= @boarding_ticket.registration.user.name %>
+</p>
+
+<p>
+  <strong>Flight:</strong>
+  <%= @boarding_ticket.flight.flight_number %>
+</p>
+
+<p>
+  <strong>Flight class:</strong>
+  <%= @boarding_ticket.flight_class %>
+</p>
+
+<p>
+  <strong>Seat:</strong>
+  <%= @boarding_ticket.seat %>
+</p>
+
+<p>
+  <strong>Qr code:</strong>
+  <%= @boarding_ticket.qr_code %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @boarding_ticket.notes %>
+</p>
+
+<%= link_to 'Edit', edit_admin_trip_registration_boarding_ticket_path(@trip, @registration, @boarding_ticket) %> |
+<%= link_to 'Back', admin_trip_registration_boarding_tickets_path(@trip, @registration) %>

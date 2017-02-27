@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :boarding_ticket do
+    registration nil
+    flight nil
+    flight_class "MyString"
+    seat "MyString"
+    qr_code "MyText"
+    notes "MyText"
+  end
   factory :flight do
     airline nil
     departure_at "2017-02-27 13:13:01"
@@ -9,7 +17,7 @@ FactoryGirl.define do
     boarding_gate "MyString"
     phone "MyString"
   end
-  factory :trip_registration do
+  factory :registration do
     trip nil
     user nil
   end
