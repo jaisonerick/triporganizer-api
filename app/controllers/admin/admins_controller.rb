@@ -25,7 +25,7 @@ class Admin::AdminsController < ::Admin::ApplicationController
     @admin.password = Devise.friendly_token.first(8)
 
     if @admin.save
-      redirect_to [:admin, @admin], notice: 'Administrador cadastrado com sucesso'
+      redirect_to admin_admins_path, notice: 'Administrador cadastrado com sucesso'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::AdminsController < ::Admin::ApplicationController
   # PATCH/PUT /admin/admins/1
   def update
     if @admin.update(admin_params)
-      redirect_to [:admin, @admin], notice: 'Administrador atualizado com sucesso'
+      redirect_to admin_admins_path, notice: 'Administrador atualizado com sucesso'
     else
       render :edit
     end

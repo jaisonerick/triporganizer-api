@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
+      <div class="btn-group pull-right" role="group">
+        <%= link_to 'Voltar', admin_trip_path(@trip), class: 'btn btn-default', role: 'button' %>
+      </div>
+
       <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> </h1>
     </div>
   </div>
@@ -23,7 +27,7 @@
 <div class="row">
   <div class="col-md-12">
     <p>
-      <strong>Name:</strong>
+      <strong>Nome:</strong>
       <%= @registration.user.name %>
     </p>
   </div>

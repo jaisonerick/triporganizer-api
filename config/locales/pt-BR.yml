@@ -20,6 +20,9 @@ pt-BR:
       trip_hotel:
         one: Hospedagem
         other: Hospedagens
+      trip:
+        one: Viagem
+        other: Viagens
       user: Cliente
     attributes:
       admin:
@@ -33,6 +36,7 @@ pt-BR:
         country: País
         active: Ativa
       boarding_ticket:
+        flight: Voo
         flight_class: Classe
         seat: Assento
         notes: Notas
@@ -45,6 +49,7 @@ pt-BR:
         picture_url: Imagem
         order: Ordem
       flight:
+        airline: Companhia Aérea
         departure_at: Saída
         arrives_at: Chegada
         flight_number: Número do Voo
@@ -53,6 +58,7 @@ pt-BR:
         boarding_gate: Portão de Embarque
         phone: Telefone de Contato
       hotel_reservation:
+        trip_hotel: Hospedagem
         room: Quarto
         notes: Notas
       hotel:
@@ -62,6 +68,7 @@ pt-BR:
         country: País
         phone: Telefone
       registration:
+        user: Cliente
         confirmed: Confirmado
       trip_hotel:
         notes: Notas
@@ -70,7 +77,7 @@ pt-BR:
       trip:
         name: Nome
         description: Descrição
-        starts_at: Saída
+        starts_at: Partida
         ends_at: Retorno
       user:
         name: Nome
@@ -293,7 +300,7 @@ pt-BR:
   time:
     am: ''
     formats:
-      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      default: "%d de %B de %Y, %H:%M"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''

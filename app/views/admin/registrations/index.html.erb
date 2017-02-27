@@ -30,17 +30,30 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= simple_form_for([:admin, @trip, @registration]) do |f| %>
-      <%= f.association :user %>
-      <%= f.submit 'Cadastrar', class: 'btn btn-primary' %>
+    <%= simple_form_for([:admin, @trip, @registration], wrapper: :inline_form, html: { class: 'form-inline' }) do |f| %>
+      <%= f.association :user, prompt: "Escolha um cliente" %>
+      <%= f.submit 'Registrar', class: 'btn btn-primary' %>
     <% end %>
 
-    <% @registrations.each do |registration| %>
-      <p>
-        <%= registration.user.name %>
-        <%= link_to 'Show', admin_trip_registration_path(@trip, registration) %>
-        <%= link_to 'Remover', admin_trip_registration_path(@trip, registration), method: :delete %>
-      </p>
-    <% end %>
+    <table class="table">
+      <thead>
+        <th>Nome</th>
+        <th>&nbsp;</td>
+      </thead>
+
+      <tbody>
+        <% @registrations.each do |registration| %>
+          <tr>
+            <td><%= registration.user.name %></td>
+            <td class="text-right">
+              <div class="btn-group">
+                <%= link_to 'Acessar', admin_trip_registration_path(@trip, registration), class: 'btn btn-default' %>
+                <%= link_to 'Remover', admin_trip_registration_path(@trip, registration), method: :delete, class: 'btn btn-default' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

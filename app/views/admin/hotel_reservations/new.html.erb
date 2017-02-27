@@ -1,5 +1,17 @@
-<h1>New Hotel Reservation</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_trip_registration_hotel_reservations_path(@trip, @registration), class: 'btn btn-default' %>
+      </div>
 
-<%= render 'form', hotel_reservation: @hotel_reservation %>
+      <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> - Nova Reserva</h1>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Back', admin_trip_registration_hotel_reservations_path(@trip, @registration) %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form', hotel_reservation: @hotel_reservation %>
+  </div>
+</div>

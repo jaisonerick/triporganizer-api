@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
+      <div class="btn-group pull-right" role="group">
+        <%= link_to 'Editar', edit_admin_trip_path(@trip), class: 'btn btn-default', role: 'button' %>
+        <%= link_to 'Voltar', admin_trips_path, class: 'btn btn-default', role: 'button' %>
+      </div>
+
       <h1><%= @trip.name %> </h1>
     </div>
   </div>
@@ -31,30 +36,25 @@
     <div class="tab-content">
       <div class="tab-pane active">
         <p>
-          <strong>Name:</strong>
+          <strong>Nome:</strong>
           <%= @trip.name %>
         </p>
 
         <p>
-          <strong>Description:</strong>
+          <strong>Descrição:</strong>
           <%= @trip.description %>
         </p>
 
         <p>
-          <strong>Starts at:</strong>
-          <%= @trip.starts_at %>
+          <strong>Partida:</strong>
+          <%= l @trip.starts_at %>
         </p>
 
         <p>
-          <strong>Ends at:</strong>
-          <%= @trip.ends_at %>
+          <strong>Retorno:</strong>
+          <%= l @trip.ends_at %>
         </p>
 
-
-        <div class="btn-group" role="group">
-          <%= link_to 'Edit', edit_admin_trip_path(@trip), class: 'btn btn-primary', role: 'button' %>
-          <%= link_to 'Back', admin_trips_path, class: 'btn btn-default', role: 'button' %>
-        </div>
       </div>
     </div>
   </div>

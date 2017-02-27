@@ -1,6 +1,18 @@
-<h1>Editing Hotel Reservation</h1>
 
-<%= render 'form', hotel_reservation: @hotel_reservation %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_trip_registration_hotel_reservations_path(@trip, @registration), class: 'btn btn-default' %>
+      </div>
 
-<%= link_to 'Show', [:admin, @trip, @registration, @hotel_reservation] %> |
-<%= link_to 'Back', admin_trip_registration_hotel_reservations_path(@trip, @registration) %>
+      <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> - Editando Reserva</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form', hotel_reservation: @hotel_reservation %>
+  </div>
+</div>

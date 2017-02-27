@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <%= link_to 'New Boarding Ticket', new_admin_trip_registration_boarding_ticket_path(@trip, @registration), class: 'btn btn-primary pull-right' %>
+    <%= link_to 'Nova Passagem Aérea', new_admin_trip_registration_boarding_ticket_path(@trip, @registration), class: 'btn btn-primary pull-right' %>
 
     <div class="page-header">
       <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> </h1>
@@ -26,15 +26,14 @@
 
 <div class="row">
   <div class="col-md-12">
-    <table>
+    <table class="table">
       <thead>
         <tr>
-          <th>Trip registration</th>
-          <th>Flight</th>
-          <th>Flight class</th>
-          <th>Seat</th>
-          <th>Qr code</th>
-          <th>Notes</th>
+          <th>Voo</th>
+          <th>Classe</th>
+          <th>Assento</th>
+          <th>QR Code</th>
+          <th>Notas</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -42,15 +41,17 @@
       <tbody>
         <% @boarding_tickets.each do |boarding_ticket| %>
           <tr>
-            <td><%= boarding_ticket.registration.user.name %></td>
-            <td><%= boarding_ticket.flight.flight_number %></td>
+            <td><%= boarding_ticket.flight.name %></td>
             <td><%= boarding_ticket.flight_class %></td>
             <td><%= boarding_ticket.seat %></td>
             <td><%= boarding_ticket.qr_code %></td>
             <td><%= boarding_ticket.notes %></td>
-            <td><%= link_to 'Show', [:admin, @trip, @registration, boarding_ticket] %></td>
-            <td><%= link_to 'Edit', edit_admin_trip_registration_boarding_ticket_path(@trip, @registration, boarding_ticket) %></td>
-            <td><%= link_to 'Destroy', [:admin, @trip, @registration, boarding_ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class="text-right">
+              <div class="btn-group">
+                <%= link_to 'Editar', edit_admin_trip_registration_boarding_ticket_path(@trip, @registration, boarding_ticket), class: 'btn btn-default' %>
+                <%= link_to 'Remover', [:admin, @trip, @registration, boarding_ticket], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>

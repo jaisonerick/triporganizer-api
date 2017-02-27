@@ -36,7 +36,6 @@
             <td><%= admin_user.phone %></td>
             <td class="text-right">
               <div class="btn-group" role="group">
-                <%= link_to 'Ver', [:admin, admin_user], class: 'btn btn-default' %>
                 <%= link_to 'Editar', edit_admin_user_path(admin_user), class: 'btn btn-default' %>
                 <%= link_to 'Remover', [:admin, admin_user], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
               </div>

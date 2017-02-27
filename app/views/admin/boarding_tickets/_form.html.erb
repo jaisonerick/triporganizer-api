@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :flight, label_method: :flight_number %>
+    <%= f.association :flight %>
     <%= f.input :flight_class %>
     <%= f.input :seat %>
     <%= f.input :qr_code %>
@@ -10,6 +10,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>

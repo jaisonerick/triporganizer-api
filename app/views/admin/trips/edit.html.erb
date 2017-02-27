@@ -1,6 +1,18 @@
-<h1>Editing Trip</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Acessar', [:admin, @trip], class: 'btn btn-default' %>
+        <%= link_to 'Voltar', admin_trips_path, class: 'btn btn-default' %>
+      </div>
 
-<%= render 'form', trip: @trip %>
+      <h1>Editando - <%= @trip.name %></h1>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Show', [:admin, @trip] %> |
-<%= link_to 'Back', admin_trips_path %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form', trip: @trip %>
+  </div>
+</div>

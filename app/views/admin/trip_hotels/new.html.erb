@@ -1,5 +1,18 @@
-<h1>New Trip Hotel</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="pull-right">
+        <%= link_to 'Voltar', admin_trip_trip_hotels_path(@trip), class: 'btn btn-default' %>
+      </div>
 
-<%= render 'form', trip_hotel: @trip_hotel %>
+      <h1><%= @trip.name %> - Cadastrar Hospedagem </h1>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Back', admin_trip_trip_hotels_path(@trip) %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form', trip_hotel: @trip_hotel %>
+  </div>
+</div>
+
