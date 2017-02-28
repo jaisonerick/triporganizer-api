@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_trip_destination_events_path(@trip, @destination), class: 'btn btn-default' %>
+        <%= link_to 'Ver', [:admin, @trip, @destination, @event], class: 'btn btn-default' %>
+      </div>
+
+      <h1>Editando event</h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form' %>
+  </div>
+</div>

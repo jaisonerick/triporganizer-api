@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :event do
+    destination nil
+    name "MyString"
+    description "MyString"
+    starts_at "2017-02-28 17:47:30"
+    ends_at "2017-02-28 17:47:30"
+    type ""
+  end
   factory :hotel_reservation do
     registration nil
     destination nil

@@ -1,0 +1,15 @@
+<%= simple_form_for([:admin, @trip, @destination, @event]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :starts_at %>
+    <%= f.input :ends_at %>
+    <%= f.input :event_type %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

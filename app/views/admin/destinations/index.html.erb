@@ -53,6 +53,7 @@
             <td><%= destination.hotel.name %></td>
             <td class="text-right">
               <div class="btn-group" role="group">
+                <%= link_to 'Eventos', admin_trip_destination_events_path(destination.trip_id, destination), class: 'btn btn-default' %>
                 <%= link_to 'Editar', edit_admin_trip_destination_path(destination.trip_id, destination), class: 'btn btn-default' %>
                 <%= link_to 'Remover', [:admin, destination.trip, destination], method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-default' %>
               </div>

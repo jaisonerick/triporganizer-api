@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to 'Novo Evento', new_admin_trip_destination_event_path(@trip, @destination), class: 'btn btn-primary pull-right' %>
+
+      <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; Eventos em <%= @destination.name %> </h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Começa em</th>
+          <th>Finaliza em</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.event_type %></td>
+            <td><%= event.name %></td>
+            <td><%= event.description %></td>
+            <td><%= event.starts_at %></td>
+            <td><%= event.ends_at %></td>
+            <td class="text-right">
+              <div class="btn-group" role="group">
+                <%= link_to 'Ver', [:admin, @trip, @destination, event], class: 'btn btn-default' %>
+                <%= link_to 'Editar', edit_admin_trip_destination_event_path(@trip, @destination, event), class: 'btn btn-default' %>
+                <%= link_to 'Remover', [:admin, @trip, @destination, event], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

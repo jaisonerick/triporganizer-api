@@ -7,11 +7,15 @@ Rails.application.routes.draw do
       root to: "trips#index"
 
       resources :trips do
-        resources :destinations
+        resources :destinations do
+          resources :events
+        end
+
         resources :registrations, only: [:index, :show, :create, :destroy] do
           resources :boarding_tickets
           resources :hotel_reservations
         end
+
         resources :flights
       end
 
