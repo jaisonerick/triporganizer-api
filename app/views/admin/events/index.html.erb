@@ -15,6 +15,7 @@
         <tr>
           <th>Tipo</th>
           <th>Nome</th>
+          <th>Empresa</th>
           <th>Descrição</th>
           <th>Começa em</th>
           <th>Finaliza em</th>
@@ -27,6 +28,7 @@
           <tr>
             <td><%= event.event_type %></td>
             <td><%= event.name %></td>
+            <td><%= event.company.try(:name) %></td>
             <td><%= event.description %></td>
             <td><%= event.starts_at %></td>
             <td><%= event.ends_at %></td>

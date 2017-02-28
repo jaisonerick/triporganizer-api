@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228204730) do
+ActiveRecord::Schema.define(version: 20170228212345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20170228204730) do
     t.index ["registration_id"], name: "index_boarding_tickets_on_registration_id", using: :btree
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "address"
+    t.string   "phone"
+    t.integer  "company_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -102,6 +112,8 @@ ActiveRecord::Schema.define(version: 20170228204730) do
     t.string   "event_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_events_on_company_id", using: :btree
     t.index ["destination_id"], name: "index_events_on_destination_id", using: :btree
   end
 
@@ -192,6 +204,7 @@ ActiveRecord::Schema.define(version: 20170228204730) do
   add_foreign_key "boarding_tickets", "registrations"
   add_foreign_key "destinations", "hotels"
   add_foreign_key "destinations", "trips"
+  add_foreign_key "events", "companies"
   add_foreign_key "events", "destinations"
   add_foreign_key "flights", "airlines"
   add_foreign_key "flights", "trips"

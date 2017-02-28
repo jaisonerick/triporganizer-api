@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
       resources :users
       resources :admins
+      resources :companies
       resources :airlines
       resources :hotels
     end

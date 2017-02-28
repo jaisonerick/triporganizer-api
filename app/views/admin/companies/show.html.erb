@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_companies_path, class: 'btn btn-default' %>
+        <%= link_to 'Editar', edit_admin_company_path(@company), class: 'btn btn-default' %>
+      </div>
+
+      <h1>Visualizando company</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%= @company.name %></dd>
+
+      <dt>Description:</dt>
+      <dd><%= @company.description %></dd>
+
+      <dt>Address:</dt>
+      <dd><%= @company.address %></dd>
+
+      <dt>Phone:</dt>
+      <dd><%= @company.phone %></dd>
+
+      <dt>Company type:</dt>
+      <dd><%= @company.company_type %></dd>
+
+    </dl>
+  </div>
+</div>

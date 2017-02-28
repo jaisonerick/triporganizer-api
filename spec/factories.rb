@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :company do
+    name "MyString"
+    description "MyString"
+    address "MyString"
+    phone "MyString"
+    company_type 1
+  end
   factory :event do
     destination nil
     name "MyString"
