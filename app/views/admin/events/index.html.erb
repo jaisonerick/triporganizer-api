@@ -30,7 +30,7 @@
       <tbody>
         <% @events.each do |event| %>
           <tr>
-            <td><%= event.event_type %></td>
+            <td><%= event.label %></td>
             <td><%= event.name %></td>
             <td><%= event.company.try(:name) %></td>
             <td><%= event.place.try(:name) %></td>

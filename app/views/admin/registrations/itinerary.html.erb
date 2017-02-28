@@ -33,13 +33,20 @@
   <div class="col-md-8">
     <h1>Roteiro</h1>
     <% @trip.destinations.order(starts_at: :asc).each do |destination| %>
-      <h2><%= destination.name %> - <%= l destination.starts_at, format: :short %></h2>
+      <h2><%= destination.name %> - <%= l destination.starts_at.to_date, format: :short %></h2>
 
       <ul>
+        <li>
+          <strong>Hotel: </strong> <%= destination.hotel.name %><br />
+          <%= simple_format destination.hotel.address, wrapper_tag: :address %>
+        </li>
         <% destination.events.order(starts_at: :asc).each do |event| %>
-          <li><strong><%= event.name %></strong> - <%= l event.starts_at, format: :short %> a <%= l event.ends_at, format: :short %><br />
-            <%= event.event_type %><br />
-            <%= event.description %></li>
+          <li>
+            <strong><%= event.name %></strong><br />
+            <%= l event.starts_at, format: :short %> a <%= l event.ends_at, format: :short %><br />
+            <%= event.label %><br />
+            <%= simple_format event.description %>
+          </li>
         <% end %>
       </ul>
     <% end %>
@@ -47,8 +54,45 @@
 
   <div class="col-md-4">
     <h1>Transportes</h2>
+
     <% @trip.transports.order(departure_at: :asc).each do |transport| %>
-      <h2><%= transport.name %><h2>
+      <h2><%= transport.name %></h2>
+      <dl class="dl-horizontal">
+        <dt>Empresa</dt>
+        <dd>
+          <strong><%= transport.company.name %></strong><br />
+          <%= simple_format transport.company.address, wrapper_tag: :address %>
+        </dd>
+
+        <dt>Meio</dt>
+        <dd><%= transport.mean_label %></dd>
+
+        <dt>Partida</dt>
+        <dd><%= transport.origin %> (<%= l transport.departure_at, format: :short %>)</dd>
+
+        <dt>Chegada</dt>
+        <dd><%= transport.destination %> (<%= l transport.arrives_at, format: :short %>)</dd>
+
+        <% if transport.attachment_url.present? %>
+          <dt>Anexo do Transporte</dt>
+          <dd><%= link_to transport.attachment_url %></dd>
+        <% end %>
+
+        <% transport.details.each do |key, value| %>
+          <dt><%= key %></dt>
+          <dd><%= value %></dd>
+        <% end %>
+
+        <% if transport.transit(@registration).present? %>
+          <dt>Assento</dt>
+          <dd><%= transport.transit(@registration).seat %></dd>
+
+          <% if transport.transit(@registration).attachment_url.present? %>
+            <dt>Anexo do Passageiro</dt>
+            <dd><%= transport.transit(@registration).attachment_url %></dd>
+          <% end %>
+        <% end %>
+      </dl>
     <% end %>
   </div>
 </div>
