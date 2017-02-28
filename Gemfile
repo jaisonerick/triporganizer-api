@@ -25,6 +25,7 @@ gem "devise"
 gem "ionicons-rails"
 gem "country_select"
 gem "select2-rails"
+gem "bootstrap-generators", "~> 3.3.4"
 
 group :development do
   gem "listen"

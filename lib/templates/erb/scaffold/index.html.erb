@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%%= link_to 'Novo <%= singular_table_name %>', new_admin_<%= singular_table_name %>_path, class: 'btn btn-primary pull-right' %>
+
+      <h1>Listing <%= plural_table_name %></h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+      <% attributes.each do |attribute| -%>
+          <th><%= attribute.human_name %></th>
+      <% end -%>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+          <tr>
+        <% attributes.each do |attribute| -%>
+            <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+        <% end -%>
+            <td class="text-right">
+              <div class="btn-group" role="group">
+                <%%= link_to 'Ver', [:admin, <%= singular_table_name %>], class: 'btn btn-default' %>
+                <%%= link_to 'Editar', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-default' %>
+                <%%= link_to 'Remover', [:admin, <%= singular_table_name %>], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+              </div>
+            </td>
+          </tr>
+        <%% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
