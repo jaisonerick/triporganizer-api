@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_trip_registration_transits_path(@trip, @registration), class: 'btn btn-default' %>
+      </div>
+      <h1>Novo transit</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form' %>
+  </div>
+</div>

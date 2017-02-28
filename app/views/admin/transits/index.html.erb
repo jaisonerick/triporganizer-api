@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to 'Nova Passagem', new_admin_trip_registration_transit_path(@trip, @registration), class: 'btn btn-primary pull-right' %>
+
+      <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> </h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation">
+        <%= link_to 'Detalhes', [:admin, @trip, @registration] %>
+      </li>
+      <li role="presentation" class="active"><a href="#">Passagens</a></li>
+      <li role="presentation">
+        <%= link_to 'Hospedagem', admin_trip_registration_hotel_reservations_path(@trip, @registration) %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Transporte</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @transits.each do |transit| %>
+          <tr>
+            <td><%= transit.transport.name %></td>
+            <td class="text-right">
+              <div class="btn-group" role="group">
+                <%= link_to 'Editar', edit_admin_trip_registration_transit_path(@trip, @registration, transit), class: 'btn btn-default' %>
+                <%= link_to 'Remover', [:admin, @trip, @registration, transit], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

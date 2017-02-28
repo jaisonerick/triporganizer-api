@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_trip_registration_transits_path(@trip, @registration), class: 'btn btn-default' %>
+        <%= link_to 'Editar', edit_admin_trip_registration_transit_path(@trip, @registration, @transit), class: 'btn btn-default' %>
+      </div>
+
+      <h1>Visualizando transit</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Registration:</dt>
+      <dd><%= @transit.registration %></dd>
+
+      <dt>Transport:</dt>
+      <dd><%= @transit.transport %></dd>
+
+      <dt>Specifics:</dt>
+      <dd><%= @transit.specifics %></dd>
+
+    </dl>
+  </div>
+</div>

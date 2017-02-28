@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-12">
-    <%= link_to 'Nova Reserva', new_admin_trip_registration_hotel_reservation_path(@trip, @registration), class: 'btn btn-primary pull-right' %>
-
     <div class="page-header">
+      <%= link_to 'Nova Reserva', new_admin_trip_registration_hotel_reservation_path(@trip, @registration), class: 'btn btn-primary pull-right' %>
+
       <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> </h1>
     </div>
   </div>
@@ -15,7 +15,7 @@
         <%= link_to 'Detalhes', [:admin, @trip, @registration] %>
       </li>
       <li role="presentation">
-        <%= link_to 'Passagens Aéreas', admin_trip_registration_boarding_tickets_path(@trip, @registration) %>
+        <%= link_to 'Passagens', admin_trip_registration_transits_path(@trip, @registration) %>
       </li>
       <li role="presentation" class="active">
         <a href="#">Hospedagem</a>

@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :transit do
+    registration nil
+    transport nil
+    specifics ""
+  end
   factory :transport do
     trip nil
     departure_at "2017-02-28 18:52:33"
