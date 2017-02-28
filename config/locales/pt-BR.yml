@@ -32,7 +32,7 @@ pt-BR:
         picture_url: Imagem
         order: Ordem
       hotel_reservation:
-        trip_hotel: Hospedagem
+        destination: Destino
         room: Quarto
         notes: Notas
       hotel:
