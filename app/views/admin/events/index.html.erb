@@ -1,7 +1,10 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
-      <%= link_to 'Novo Evento', new_admin_trip_destination_event_path(@trip, @destination), class: 'btn btn-primary pull-right' %>
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_trip_destinations_path(@trip, @destination), class: 'btn btn-default' %>
+        <%= link_to 'Novo Evento', new_admin_trip_destination_event_path(@trip, @destination), class: 'btn btn-primary' %>
+      </div>
 
       <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; Eventos em <%= @destination.name %> </h1>
     </div>
@@ -36,7 +39,6 @@
             <td><%= event.ends_at %></td>
             <td class="text-right">
               <div class="btn-group" role="group">
-                <%= link_to 'Ver', [:admin, @trip, @destination, event], class: 'btn btn-default' %>
                 <%= link_to 'Editar', edit_admin_trip_destination_event_path(@trip, @destination, event), class: 'btn btn-default' %>
                 <%= link_to 'Remover', [:admin, @trip, @destination, event], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
               </div>

@@ -20,6 +20,7 @@ pt-BR:
         one: Lugar
         other: Lugares
       company: Empresa
+      event: Eventos
     attributes:
       admin:
         name: Nome
@@ -82,6 +83,14 @@ pt-BR:
         address: Endereço
         phone: Telefone
         company_type: Tipo
+      event:
+        name: Nome
+        description: Descrição
+        place: Lugar
+        starts_at: Início
+        ends_at: Fim
+        event_type: Tipo
+        company: Empresa
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

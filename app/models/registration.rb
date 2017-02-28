@@ -6,4 +6,5 @@ class Registration < ApplicationRecord
   has_many :transits
 
   validates :user, :trip, presence: true
+  validates :user, uniqueness: { scope: :trip, message: 'já registrado' }
 end

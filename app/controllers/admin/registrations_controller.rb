@@ -18,7 +18,7 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
     if @registration.save
       redirect_to admin_trip_registrations_path(@trip), notice: 'Cliente adicionado com sucesso a viagem'
     else
-      redirect_to admin_trip_registrations_path(@trip), error: 'Ocorreu um problema ao adicionar o cliente a viagem'
+      redirect_to admin_trip_registrations_path(@trip), alert: @registration.errors.full_messages.first
     end
   end
 
