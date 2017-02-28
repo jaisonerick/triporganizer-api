@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
-      <%= link_to 'Novo company', new_admin_company_path, class: 'btn btn-primary pull-right' %>
+      <%= link_to 'Nova Empresa', new_admin_company_path, class: 'btn btn-primary pull-right' %>
 
-      <h1>Listing companies</h1>
+      <h1>Listando Empresas</h1>
     </div>
   </div>
 </div>
@@ -13,24 +13,22 @@
     <table class="table">
       <thead>
         <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Company type</th>
-                <th></th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Endereço</th>
+          <th>Telefone</th>
+          <th></th>
         </tr>
       </thead>
 
       <tbody>
         <% @companies.each do |company| %>
           <tr>
-                    <td><%= company.name %></td>
-                    <td><%= company.description %></td>
-                    <td><%= company.address %></td>
-                    <td><%= company.phone %></td>
-                    <td><%= company.company_type %></td>
-                    <td class="text-right">
+            <td><%= company.name %></td>
+            <td><%= company.description %></td>
+            <td><%= company.address %></td>
+            <td><%= company.phone %></td>
+            <td class="text-right">
               <div class="btn-group" role="group">
                 <%= link_to 'Ver', [:admin, company], class: 'btn btn-default' %>
                 <%= link_to 'Editar', edit_admin_company_path(company), class: 'btn btn-default' %>

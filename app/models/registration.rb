@@ -4,4 +4,6 @@ class Registration < ApplicationRecord
 
   has_many :hotel_reservations
   has_many :transits
+
+  validates :user, :trip, presence: true
 end

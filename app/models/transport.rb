@@ -5,6 +5,8 @@ class Transport < ApplicationRecord
 
   enum mean: [:plane, :train, :ship, :bus]
 
+  validates :trip, :company, :mean, :departure_at, :arrives_at, :origin, :destination, presence: true
+
   def name
     case mean
     when "plane"

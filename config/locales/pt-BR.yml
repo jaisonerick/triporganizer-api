@@ -16,6 +16,10 @@ pt-BR:
       user: Cliente
       transport: Transporte
       transit: Passagem
+      place:
+        one: Lugar
+        other: Lugares
+      company: Empresa
     attributes:
       admin:
         name: Nome
@@ -67,6 +71,17 @@ pt-BR:
         transport: Transporte
         attachment_url: Anexo
         seat: Assento
+      place:
+        name: Nome
+        description: Descrição
+        picture_url: Imagem
+        address: Endereço
+      company:
+        name: Nome
+        description: Descrição
+        address: Endereço
+        phone: Telefone
+        company_type: Tipo
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

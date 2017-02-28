@@ -6,7 +6,7 @@
         <%= link_to 'Editar', edit_admin_place_path(@place), class: 'btn btn-default' %>
       </div>
 
-      <h1>Visualizando place</h1>
+      <h1>Visualizando Lugar</h1>
     </div>
   </div>
 </div>
@@ -14,25 +14,16 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Name:</dt>
+      <dt>Nome:</dt>
       <dd><%= @place.name %></dd>
 
-      <dt>Description:</dt>
+      <dt>Descrição:</dt>
       <dd><%= @place.description %></dd>
 
-      <dt>Google places:</dt>
-      <dd><%= @place.google_places_id %></dd>
-
-      <dt>Latitude:</dt>
-      <dd><%= @place.latitude %></dd>
-
-      <dt>Longitude:</dt>
-      <dd><%= @place.longitude %></dd>
-
-      <dt>Picture url:</dt>
+      <dt>Imagem:</dt>
       <dd><%= @place.picture_url %></dd>
 
-      <dt>Address:</dt>
+      <dt>Endereço:</dt>
       <dd><%= @place.address %></dd>
 
     </dl>

@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :trips, through: :registrations
   has_many :registrations
+
+  validates :name, presence: true
 end
