@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228223055) do
+ActiveRecord::Schema.define(version: 20170228225443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,32 +31,6 @@ ActiveRecord::Schema.define(version: 20170228223055) do
     t.string   "name"
     t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "airlines", force: :cascade do |t|
-    t.integer  "openflight_id"
-    t.string   "name"
-    t.string   "name_alias"
-    t.string   "iata"
-    t.string   "icao"
-    t.string   "callsign"
-    t.string   "country"
-    t.boolean  "active"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "boarding_tickets", force: :cascade do |t|
-    t.integer  "registration_id"
-    t.integer  "flight_id"
-    t.string   "flight_class"
-    t.string   "seat"
-    t.text     "qr_code"
-    t.text     "notes"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["flight_id"], name: "index_boarding_tickets_on_flight_id", using: :btree
-    t.index ["registration_id"], name: "index_boarding_tickets_on_registration_id", using: :btree
   end
 
   create_table "companies", force: :cascade do |t|
@@ -117,22 +91,6 @@ ActiveRecord::Schema.define(version: 20170228223055) do
     t.index ["company_id"], name: "index_events_on_company_id", using: :btree
     t.index ["destination_id"], name: "index_events_on_destination_id", using: :btree
     t.index ["place_id"], name: "index_events_on_place_id", using: :btree
-  end
-
-  create_table "flights", force: :cascade do |t|
-    t.integer  "airline_id"
-    t.datetime "departure_at"
-    t.datetime "arrives_at"
-    t.string   "flight_number"
-    t.string   "origin"
-    t.string   "destination"
-    t.string   "boarding_gate"
-    t.string   "phone"
-    t.integer  "trip_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["airline_id"], name: "index_flights_on_airline_id", using: :btree
-    t.index ["trip_id"], name: "index_flights_on_trip_id", using: :btree
   end
 
   create_table "hotel_reservations", force: :cascade do |t|
@@ -241,15 +199,11 @@ ActiveRecord::Schema.define(version: 20170228223055) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "boarding_tickets", "flights"
-  add_foreign_key "boarding_tickets", "registrations"
   add_foreign_key "destinations", "hotels"
   add_foreign_key "destinations", "trips"
   add_foreign_key "events", "companies"
   add_foreign_key "events", "destinations"
   add_foreign_key "events", "places"
-  add_foreign_key "flights", "airlines"
-  add_foreign_key "flights", "trips"
   add_foreign_key "hotel_reservations", "destinations"
   add_foreign_key "hotel_reservations", "registrations"
   add_foreign_key "registrations", "trips"

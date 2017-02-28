@@ -43,24 +43,6 @@ FactoryGirl.define do
     room "MyString"
     notes "MyText"
   end
-  factory :boarding_ticket do
-    registration nil
-    flight nil
-    flight_class "MyString"
-    seat "MyString"
-    qr_code "MyText"
-    notes "MyText"
-  end
-  factory :flight do
-    airline nil
-    departure_at "2017-02-27 13:13:01"
-    arrives_at "2017-02-27 13:13:01"
-    flight_number "MyString"
-    origin "MyString"
-    destination "MyString"
-    boarding_gate "MyString"
-    phone "MyString"
-  end
   factory :registration do
     trip nil
     user nil
@@ -95,16 +77,6 @@ FactoryGirl.define do
     phone "MyString"
     email "MyString"
     google_places_id "MyString"
-  end
-  factory :airline do
-    openflight_id ""
-    name "MyString"
-    name_alias "MyString"
-    iata "MyString"
-    icao "MyString"
-    callsign "MyString"
-    country "MyString"
-    active false
   end
 
   factory :admin do

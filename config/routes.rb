@@ -12,19 +12,16 @@ Rails.application.routes.draw do
         end
 
         resources :registrations, only: [:index, :show, :create, :destroy] do
-          resources :boarding_tickets
           resources :hotel_reservations
           resources :transits
         end
 
-        resources :flights
         resources :transports
       end
 
       resources :users
       resources :admins
       resources :companies
-      resources :airlines
       resources :hotels
       resources :places
     end
