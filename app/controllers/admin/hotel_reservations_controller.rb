@@ -59,6 +59,6 @@ class Admin::HotelReservationsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def hotel_reservation_params
-      params.require(:hotel_reservation).permit(:registration_id, :trip_hotel_id, :room, :notes)
+      params.require(:hotel_reservation).permit(:registration_id, :destination_id, :room, :notes)
     end
 end

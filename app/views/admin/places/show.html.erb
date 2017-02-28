@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_places_path, class: 'btn btn-default' %>
+        <%= link_to 'Editar', edit_admin_place_path(@place), class: 'btn btn-default' %>
+      </div>
+
+      <h1>Visualizando place</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%= @place.name %></dd>
+
+      <dt>Description:</dt>
+      <dd><%= @place.description %></dd>
+
+      <dt>Google places:</dt>
+      <dd><%= @place.google_places_id %></dd>
+
+      <dt>Latitude:</dt>
+      <dd><%= @place.latitude %></dd>
+
+      <dt>Longitude:</dt>
+      <dd><%= @place.longitude %></dd>
+
+      <dt>Picture url:</dt>
+      <dd><%= @place.picture_url %></dd>
+
+      <dt>Address:</dt>
+      <dd><%= @place.address %></dd>
+
+    </dl>
+  </div>
+</div>

@@ -41,9 +41,9 @@
       <tbody>
         <% @hotel_reservations.each do |hotel_reservation| %>
           <tr>
-            <td><%= hotel_reservation.trip_hotel.name %></td>
-            <td><%= l hotel_reservation.trip_hotel.starts_at %></td>
-            <td><%= l hotel_reservation.trip_hotel.ends_at %></td>
+            <td><%= hotel_reservation.destination.try(:name) %></td>
+            <td><%= hotel_reservation.destination ? l(hotel_reservation.destination.starts_at) : nil %></td>
+            <td><%= hotel_reservation.destination ? l(hotel_reservation.destination.ends_at) : nil %></td>
             <td><%= hotel_reservation.room %></td>
             <td><%= hotel_reservation.notes %></td>
             <td class="text-right">

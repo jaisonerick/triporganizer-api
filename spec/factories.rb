@@ -1,4 +1,13 @@
 FactoryGirl.define do
+  factory :place do
+    name "MyString"
+    description "MyString"
+    google_places_id "MyString"
+    latitude "9.99"
+    longitude "9.99"
+    picture_url "MyString"
+    address "MyString"
+  end
   factory :company do
     name "MyString"
     description "MyString"

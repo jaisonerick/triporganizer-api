@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resources :companies
       resources :airlines
       resources :hotels
+      resources :places
     end
 
     root to: redirect("/admins/sign_in")

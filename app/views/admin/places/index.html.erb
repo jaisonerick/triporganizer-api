@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to 'Novo place', new_admin_place_path, class: 'btn btn-primary pull-right' %>
+
+      <h1>Listing places</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Google places</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Picture url</th>
+                <th>Address</th>
+                <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @places.each do |place| %>
+          <tr>
+                    <td><%= place.name %></td>
+                    <td><%= place.description %></td>
+                    <td><%= place.google_places_id %></td>
+                    <td><%= place.latitude %></td>
+                    <td><%= place.longitude %></td>
+                    <td><%= place.picture_url %></td>
+                    <td><%= place.address %></td>
+                    <td class="text-right">
+              <div class="btn-group" role="group">
+                <%= link_to 'Ver', [:admin, place], class: 'btn btn-default' %>
+                <%= link_to 'Editar', edit_admin_place_path(place), class: 'btn btn-default' %>
+                <%= link_to 'Remover', [:admin, place], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

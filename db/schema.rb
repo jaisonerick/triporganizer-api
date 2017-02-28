@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228212345) do
+ActiveRecord::Schema.define(version: 20170228213310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,12 +109,14 @@ ActiveRecord::Schema.define(version: 20170228212345) do
     t.string   "description"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.string   "event_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "company_id"
+    t.integer  "place_id"
+    t.integer  "event_type"
     t.index ["company_id"], name: "index_events_on_company_id", using: :btree
     t.index ["destination_id"], name: "index_events_on_destination_id", using: :btree
+    t.index ["place_id"], name: "index_events_on_place_id", using: :btree
   end
 
   create_table "flights", force: :cascade do |t|
@@ -154,6 +156,18 @@ ActiveRecord::Schema.define(version: 20170228212345) do
     t.string   "phone"
     t.string   "email"
     t.string   "google_places_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "google_places_id"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "picture_url"
+    t.string   "address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -206,6 +220,7 @@ ActiveRecord::Schema.define(version: 20170228212345) do
   add_foreign_key "destinations", "trips"
   add_foreign_key "events", "companies"
   add_foreign_key "events", "destinations"
+  add_foreign_key "events", "places"
   add_foreign_key "flights", "airlines"
   add_foreign_key "flights", "trips"
   add_foreign_key "hotel_reservations", "destinations"
