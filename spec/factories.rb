@@ -1,4 +1,13 @@
 FactoryGirl.define do
+  factory :transport do
+    trip nil
+    departure_at "2017-02-28 18:52:33"
+    arrives_at "2017-02-28 18:52:33"
+    origin "MyString"
+    destination "MyString"
+    attachment_url "MyString"
+    specifics ""
+  end
   factory :place do
     name "MyString"
     description "MyString"

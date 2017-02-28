@@ -21,6 +21,7 @@ pt-BR:
         one: Viagem
         other: Viagens
       user: Cliente
+      transport: Transporte
     attributes:
       admin:
         name: Nome
@@ -79,6 +80,17 @@ pt-BR:
         birthday: Aniversário
         address: Endereço
         phone: Telefone
+      transport:
+        company: Empresa
+        departure_at: Partida
+        arrives_at: Chegada
+        origin: Origem
+        destination: Destino
+        attachment_url: Anexo
+        mean: Meio
+        boarding_gate: Portão de Embarque
+        flight_number: Número do Voo
+        platform: Plataforma
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

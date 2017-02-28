@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_trip_transports_path(@trip), class: 'btn btn-default' %>
+        <%= link_to 'Editar', edit_admin_trip_transport_path(@trip, @transport), class: 'btn btn-default' %>
+      </div>
+
+      <h1>Visualizando transport</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Trip:</dt>
+      <dd><%= @transport.trip %></dd>
+
+      <dt>Departure at:</dt>
+      <dd><%= @transport.departure_at %></dd>
+
+      <dt>Arrives at:</dt>
+      <dd><%= @transport.arrives_at %></dd>
+
+      <dt>Origin:</dt>
+      <dd><%= @transport.origin %></dd>
+
+      <dt>Destination:</dt>
+      <dd><%= @transport.destination %></dd>
+
+      <dt>Attachment url:</dt>
+      <dd><%= @transport.attachment_url %></dd>
+
+      <dt>Specifics:</dt>
+      <dd><%= @transport.specifics %></dd>
+
+    </dl>
+  </div>
+</div>

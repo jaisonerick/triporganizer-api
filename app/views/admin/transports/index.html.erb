@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to 'Novo Transporte', new_admin_trip_transport_path(@trip), class: 'btn btn-primary pull-right' %>
+
+      <h1>Transportes</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation">
+        <%= link_to 'Detalhes', [:admin, @trip] %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'Clientes', admin_trip_registrations_path(@trip) %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'Destinos', admin_trip_destinations_path(@trip) %>
+      </li>
+      <li role="presentation" class="active"><a href="#">Transportes</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Meio</th>
+          <th>Partida</th>
+          <th>Chegada</th>
+          <th>Origem</th>
+          <th>Destino</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @transports.each do |transport| %>
+          <tr>
+            <td><%= transport.mean %></td>
+            <td><%= transport.departure_at %></td>
+            <td><%= transport.arrives_at %></td>
+            <td><%= transport.origin %></td>
+            <td><%= transport.destination %></td>
+            <td class="text-right">
+              <div class="btn-group" role="group">
+                <%= link_to 'Editar', edit_admin_trip_transport_path(@trip, transport), class: 'btn btn-default' %>
+                <%= link_to 'Remover', [:admin, @trip, transport], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

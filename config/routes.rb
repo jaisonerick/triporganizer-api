@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         end
 
         resources :flights
+        resources :transports
       end
 
       resources :users
