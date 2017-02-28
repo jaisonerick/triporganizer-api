@@ -21,9 +21,6 @@
       <li role="presentation">
         <%= link_to 'Voos', admin_trip_flights_path(@trip) %>
       </li>
-      <li role="presentation">
-        <%= link_to 'Hotéis', admin_trip_trip_hotels_path(@trip) %>
-      </li>
     </ul>
   </div>
 </div>
@@ -39,6 +36,7 @@
           <th>Fim</th>
           <th>Endereço</th>
           <th>Imagem</th>
+          <th>Hotel</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -52,6 +50,7 @@
             <td><%= l destination.ends_at %></td>
             <td><%= destination.address %></td>
             <td><%= destination.picture_url %></td>
+            <td><%= destination.hotel.name %></td>
             <td class="text-right">
               <div class="btn-group" role="group">
                 <%= link_to 'Editar', edit_admin_trip_destination_path(destination.trip_id, destination), class: 'btn btn-default' %>

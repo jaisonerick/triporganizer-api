@@ -1,16 +1,9 @@
 FactoryGirl.define do
   factory :hotel_reservation do
     registration nil
-    trip_hotel nil
+    destination nil
     room "MyString"
     notes "MyText"
-  end
-  factory :trip_hotel do
-    hotel nil
-    trip nil
-    notes "MyText"
-    starts_at "2017-02-27"
-    ends_at "2017-02-27"
   end
   factory :boarding_ticket do
     registration nil
@@ -46,6 +39,7 @@ FactoryGirl.define do
     picture_url "MyString"
     order 1
     trip nil
+    hotel nil
   end
   factory :trip do
     name "MyString"

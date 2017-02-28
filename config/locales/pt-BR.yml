@@ -17,9 +17,6 @@ pt-BR:
         one: Hotel
         other: Hotéis
       registration: Registro
-      trip_hotel:
-        one: Hospedagem
-        other: Hospedagens
       trip:
         one: Viagem
         other: Viagens
@@ -70,10 +67,6 @@ pt-BR:
       registration:
         user: Cliente
         confirmed: Confirmado
-      trip_hotel:
-        notes: Notas
-        starts_at: Entrada
-        ends_at: Saída
       trip:
         name: Nome
         description: Descrição

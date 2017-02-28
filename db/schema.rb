@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227171629) do
+ActiveRecord::Schema.define(version: 20170228195305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20170227171629) do
     t.integer  "trip_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "hotel_id"
+    t.index ["hotel_id"], name: "index_destinations_on_hotel_id", using: :btree
     t.index ["trip_id"], name: "index_destinations_on_trip_id", using: :btree
   end
 
@@ -109,13 +111,13 @@ ActiveRecord::Schema.define(version: 20170227171629) do
 
   create_table "hotel_reservations", force: :cascade do |t|
     t.integer  "registration_id"
-    t.integer  "trip_hotel_id"
     t.string   "room"
     t.text     "notes"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "destination_id"
+    t.index ["destination_id"], name: "index_hotel_reservations_on_destination_id", using: :btree
     t.index ["registration_id"], name: "index_hotel_reservations_on_registration_id", using: :btree
-    t.index ["trip_hotel_id"], name: "index_hotel_reservations_on_trip_hotel_id", using: :btree
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -140,18 +142,6 @@ ActiveRecord::Schema.define(version: 20170227171629) do
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_registrations_on_trip_id", using: :btree
     t.index ["user_id"], name: "index_registrations_on_user_id", using: :btree
-  end
-
-  create_table "trip_hotels", force: :cascade do |t|
-    t.integer  "hotel_id"
-    t.integer  "trip_id"
-    t.text     "notes"
-    t.date     "starts_at"
-    t.date     "ends_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["hotel_id"], name: "index_trip_hotels_on_hotel_id", using: :btree
-    t.index ["trip_id"], name: "index_trip_hotels_on_trip_id", using: :btree
   end
 
   create_table "trips", force: :cascade do |t|
@@ -188,13 +178,12 @@ ActiveRecord::Schema.define(version: 20170227171629) do
 
   add_foreign_key "boarding_tickets", "flights"
   add_foreign_key "boarding_tickets", "registrations"
+  add_foreign_key "destinations", "hotels"
   add_foreign_key "destinations", "trips"
   add_foreign_key "flights", "airlines"
   add_foreign_key "flights", "trips"
+  add_foreign_key "hotel_reservations", "destinations"
   add_foreign_key "hotel_reservations", "registrations"
-  add_foreign_key "hotel_reservations", "trip_hotels"
   add_foreign_key "registrations", "trips"
   add_foreign_key "registrations", "users"
-  add_foreign_key "trip_hotels", "hotels"
-  add_foreign_key "trip_hotels", "trips"
 end

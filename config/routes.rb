@@ -13,7 +13,6 @@ Rails.application.routes.draw do
           resources :hotel_reservations
         end
         resources :flights
-        resources :trip_hotels
       end
 
       resources :users
