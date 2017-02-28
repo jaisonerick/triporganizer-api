@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right" role="group">
+        <%= link_to 'Voltar', admin_trip_path(@trip), class: 'btn btn-default', role: 'button' %>
+      </div>
+
+      <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> </h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation">
+        <%= link_to 'Detalhes', [:admin, @trip, @registration] %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'Passagens', admin_trip_registration_transits_path(@trip, @registration) %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'Hospedagem', admin_trip_registration_hotel_reservations_path(@trip, @registration) %>
+      </li>
+      <li role="presentation" class="active">
+        <a href="#">Roteiro</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <h1>Roteiro</h1>
+    <% @trip.destinations.order(starts_at: :asc).each do |destination| %>
+      <h2><%= destination.name %> - <%= l destination.starts_at, format: :short %></h2>
+
+      <ul>
+        <% destination.events.order(starts_at: :asc).each do |event| %>
+          <li><strong><%= event.name %></strong> - <%= l event.starts_at, format: :short %> a <%= l event.ends_at, format: :short %><br />
+            <%= event.event_type %><br />
+            <%= event.description %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <h1>Transportes</h2>
+    <% @trip.transports.order(departure_at: :asc).each do |transport| %>
+      <h2><%= transport.name %><h2>
+    <% end %>
+  </div>
+</div>

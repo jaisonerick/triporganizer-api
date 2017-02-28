@@ -1,5 +1,6 @@
 class Admin::RegistrationsController < ::Admin::ApplicationController
-  before_action :set_registration, only: [:show, :destroy]
+  before_action :set_trip
+  before_action :set_registration, only: [:show, :itinerary, :destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
@@ -8,6 +9,9 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
   end
 
   def show
+  end
+
+  def itinerary
   end
 
   # POST /hotels
@@ -29,9 +33,12 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
   end
 
   private
+    def set_trip
+      @trip = Trip.find(params[:trip_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_registration
-      @trip = Trip.find(params[:trip_id])
       @registration = @trip.registrations.find(params[:id])
     end
 

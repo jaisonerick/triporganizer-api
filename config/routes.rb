@@ -14,6 +14,10 @@ Rails.application.routes.draw do
         resources :registrations, only: [:index, :show, :create, :destroy] do
           resources :hotel_reservations
           resources :transits
+
+          member do
+            get :itinerary
+          end
         end
 
         resources :transports
