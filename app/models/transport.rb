@@ -16,7 +16,7 @@ class Transport < ApplicationRecord
   def name
     case mean
     when "plane"
-      "#{mean_label} - #{flight_number} - #{origin} a #{destination} - #{I18n.l departure_at, :short}"
+      "#{mean_label} - #{flight_number} - #{origin} a #{destination} - #{I18n.l departure_at, format: :short}"
     else
       "#{mean_label} - #{origin} a #{destination} - #{I18n.l departure_at}"
     end
