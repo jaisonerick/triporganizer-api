@@ -31,10 +31,8 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Descrição</th>
           <th>Início</th>
           <th>Fim</th>
-          <th>Endereço</th>
           <th>Imagem</th>
           <th>Hotel</th>
           <th colspan="3"></th>
@@ -45,11 +43,9 @@
         <% @destinations.each do |destination| %>
           <tr>
             <td><%= destination.name %></td>
-            <td><%= destination.description %></td>
             <td><%= l destination.starts_at %></td>
             <td><%= l destination.ends_at %></td>
-            <td><%= destination.address %></td>
-            <td><%= destination.picture_url %></td>
+            <td><%= destination.picture_url.present? ? image_tag(destination.picture_url, class: 'place-image') : nil %></td>
             <td><%= destination.hotel.name %></td>
             <td class="text-right">
               <div class="btn-group" role="group">

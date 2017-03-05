@@ -75,3 +75,25 @@
   text-decoration:none;
 }
 
+
+.place-images {
+  .thumbnail {
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+}
+
+.place-image {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.places-map {
+  width: 100%;
+  height: 300px;
+}
+
