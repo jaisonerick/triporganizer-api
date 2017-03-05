@@ -27,6 +27,10 @@ class Admin::DestinationsController < ::Admin::ApplicationController
     @destination = @trip.destinations.build(destination_params)
 
     if @destination.save
+      @trip.registrations.each do |registration|
+        @destination.hotel_reservations.create(registration: registration)
+      end
+
       redirect_to admin_trip_destinations_path(@trip), notice: 'Destino criado com sucesso.'
     else
       render :new

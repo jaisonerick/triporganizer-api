@@ -3,7 +3,7 @@ class Transport < ApplicationRecord
   belongs_to :company
   store_accessor :specifics, :boarding_gate, :flight_number, :platform
 
-  has_many :transits
+  has_many :transits, dependent: :destroy
 
   enum mean: [:plane, :train, :ship, :bus]
 

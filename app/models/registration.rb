@@ -2,8 +2,8 @@ class Registration < ApplicationRecord
   belongs_to :trip
   belongs_to :user
 
-  has_many :hotel_reservations
-  has_many :transits
+  has_many :hotel_reservations, dependent: :destroy
+  has_many :transits, dependent: :destroy
 
   validates :user, :trip, presence: true
   validates :user, uniqueness: { scope: :trip, message: 'já registrado' }

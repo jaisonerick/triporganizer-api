@@ -25,6 +25,10 @@ class Admin::TransportsController < ::Admin::ApplicationController
     @transport = @trip.transports.build(transport_params)
 
     if @transport.save
+      @trip.registrations.each do |registration|
+        @transport.transits.create(registration: registration)
+      end
+
       redirect_to admin_trip_transports_path(@trip), notice: 'Transport was successfully created.'
     else
       render :new

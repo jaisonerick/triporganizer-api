@@ -32,15 +32,15 @@
 <div class="row">
   <div class="col-md-8">
     <h1>Roteiro</h1>
-    <% @trip.destinations.order(starts_at: :asc).each do |destination| %>
-      <h2><%= destination.name %> - <%= l destination.starts_at.to_date, format: :short %></h2>
+    <% @reservations.each do |reservation| %>
+      <h2><%= reservation.destination_name %> - <%= l reservation.starts_at.to_date, format: :short %></h2>
 
       <ul>
         <li>
-          <strong>Hotel: </strong> <%= destination.hotel.name %><br />
-          <%= simple_format destination.hotel.address, wrapper_tag: :address %>
+          <strong>Hotel: </strong> <%= reservation.hotel_name %><br />
+          <%= simple_format reservation.hotel_address, wrapper_tag: :address %>
         </li>
-        <% destination.events.order(starts_at: :asc).each do |event| %>
+        <% reservation.events.each do |event| %>
           <li>
             <strong><%= event.name %></strong><br />
             <%= l event.starts_at, format: :short %> a <%= l event.ends_at, format: :short %><br />
@@ -55,42 +55,42 @@
   <div class="col-md-4">
     <h1>Transportes</h2>
 
-    <% @trip.transports.order(departure_at: :asc).each do |transport| %>
-      <h2><%= transport.name %></h2>
+    <% @transits.each do |transit| %>
+      <h2><%= transit.transport_name %></h2>
       <dl class="dl-horizontal">
         <dt>Empresa</dt>
         <dd>
-          <strong><%= transport.company.name %></strong><br />
-          <%= simple_format transport.company.address, wrapper_tag: :address %>
+          <strong><%= transit.company_name %></strong><br />
+          <%= simple_format transit.company_address, wrapper_tag: :address %>
         </dd>
 
         <dt>Meio</dt>
-        <dd><%= transport.mean_label %></dd>
+        <dd><%= transit.mean_label %></dd>
 
         <dt>Partida</dt>
-        <dd><%= transport.origin %> (<%= l transport.departure_at, format: :short %>)</dd>
+        <dd><%= transit.origin %> (<%= l transit.departure_at, format: :short %>)</dd>
 
         <dt>Chegada</dt>
-        <dd><%= transport.destination %> (<%= l transport.arrives_at, format: :short %>)</dd>
+        <dd><%= transit.destination %> (<%= l transit.arrives_at, format: :short %>)</dd>
 
-        <% if transport.attachment_url.present? %>
+        <% if transit.transport.attachment_url.present? %>
           <dt>Anexo do Transporte</dt>
-          <dd><%= link_to transport.attachment_url %></dd>
+          <dd><%= link_to transit.transport.attachment_url %></dd>
         <% end %>
 
-        <% transport.details.each do |key, value| %>
+        <% transit.transport.details.each do |key, value| %>
           <dt><%= key %></dt>
           <dd><%= value %></dd>
         <% end %>
 
-        <% if transport.transit(@registration).present? %>
+        <% if transit.seat.present? %>
           <dt>Assento</dt>
-          <dd><%= transport.transit(@registration).seat %></dd>
+          <dd><%= transit.seat %></dd>
+        <% end %>
 
-          <% if transport.transit(@registration).attachment_url.present? %>
-            <dt>Anexo do Passageiro</dt>
-            <dd><%= transport.transit(@registration).attachment_url %></dd>
-          <% end %>
+        <% if transit.attachment_url.present? %>
+          <dt>Anexo do Passageiro</dt>
+          <dd><%= transit.attachment_url %></dd>
         <% end %>
       </dl>
     <% end %>

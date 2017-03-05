@@ -12,6 +12,8 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
   end
 
   def itinerary
+    @reservations = @registration.hotel_reservations.includes(destination: [:hotel, :events]).joins(:destination).order('destinations.starts_at asc')
+    @transits = @registration.transits.includes(transport: [:company]).joins(:transport).order('transports.departure_at asc')
   end
 
   # POST /hotels
@@ -20,6 +22,14 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
     @registration = @trip.registrations.build(registration_params)
 
     if @registration.save
+      @trip.transports.each do |transport|
+        @registration.transits.create(transport: transport)
+      end
+
+      @trip.destinations.each do |destination|
+        @registration.hotel_reservations.create(destination: destination)
+      end
+
       redirect_to admin_trip_registrations_path(@trip), notice: 'Cliente adicionado com sucesso a viagem'
     else
       redirect_to admin_trip_registrations_path(@trip), alert: @registration.errors.full_messages.first
