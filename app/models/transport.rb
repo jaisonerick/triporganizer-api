@@ -4,6 +4,7 @@ class Transport < ApplicationRecord
   store_accessor :specifics, :boarding_gate, :flight_number, :platform
 
   has_many :transits, dependent: :destroy
+  accepts_nested_attributes_for :transits
 
   enum mean: [:plane, :train, :ship, :bus]
 

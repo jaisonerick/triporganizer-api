@@ -24,6 +24,39 @@
     </div>
   </div>
 
+  <% unless @transport.new_record? %>
+    <div class="form-inputs">
+      <%= field_set_tag 'Passageiros' do %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Passageiro</th>
+              <th>Anexo</th>
+              <th>Assento</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @transport.transits.each do |transit| %>
+              <%= f.simple_fields_for "transits_attributes[]", transit do |transit_fields| %>
+                <%= transit_fields.input :id, as: :hidden %>
+                <tr>
+                  <td><%= transit.registration.user.name %></td>
+                  <td>
+                    <%= transit_fields.input :attachment_url, label: false %>
+                  </td>
+                  <td>
+                    <%= transit_fields.input :seat, label: false %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
