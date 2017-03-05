@@ -61,6 +61,7 @@ class Admin::DestinationsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def destination_params
-      params.require(:destination).permit(:name, :description, :starts_at, :ends_at, :address, :latitude, :longitude, :google_places_id, :picture_url, :hotel_id)
+      params.require(:destination).permit(:name, :description, :starts_at, :ends_at, :address, :latitude, :longitude, :google_places_id, :picture_url, :hotel_id,
+                                          hotel_reservations_attributes: [:id, :room, :notes])
     end
 end

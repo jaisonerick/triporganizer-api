@@ -11,6 +11,39 @@
     <%= f.association :hotel %>
   </div>
 
+  <% unless @destination.new_record? %>
+    <div class="form-inputs">
+      <%= field_set_tag 'Passageiros' do %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Passageiro</th>
+              <th>Quarto</th>
+              <th>Notas</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @destination.hotel_reservations.each do |hotel_reservation| %>
+              <%= f.simple_fields_for "hotel_reservations_attributes[]", hotel_reservation do |reservation_fields| %>
+                <%= reservation_fields.input :id, as: :hidden %>
+                <tr>
+                  <td><%= hotel_reservation.registration.user.name %></td>
+                  <td>
+                    <%= reservation_fields.input :room, label: false %>
+                  </td>
+                  <td>
+                    <%= reservation_fields.input :notes, label: false %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
