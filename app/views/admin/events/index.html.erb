@@ -35,8 +35,8 @@
             <td><%= event.company.try(:name) %></td>
             <td><%= event.place.try(:name) %></td>
             <td><%= event.description %></td>
-            <td><%= event.starts_at %></td>
-            <td><%= event.ends_at %></td>
+            <td><%= l event.starts_at, format: :short %></td>
+            <td><%= l event.ends_at, format: :short %></td>
             <td class="text-right">
               <div class="btn-group" role="group">
                 <%= link_to 'Editar', edit_admin_trip_destination_event_path(@trip, @destination, event), class: 'btn btn-default' %>
