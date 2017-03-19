@@ -14,8 +14,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render "layouts/application/flashes" -%>
-  <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
   <%= yield %>
   <%= render "layouts/application/javascript" %>
   <%= render "layouts/application/css_overrides" %>

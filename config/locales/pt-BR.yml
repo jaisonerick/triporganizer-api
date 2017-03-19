@@ -309,3 +309,14 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d/%m/%Y %H:%M"
     pm: ''
+
+  date_range:
+    long:
+      different_months_same_year: "%{from_day} de %{from_month} %{sep} %{until_day} de %{until_month}"
+      different_years: "%{from_day} de %{from_month} de %{from_year} %{sep} %{until_day} de %{until_month} de %{until_year}"
+      same_month: "%{from_day} %{sep} %{until_day} de %{month}"
+    short:
+      different_months_same_year: "%{from_day}/%{from_month} %{sep} %{until_day}/%{until_month}"
+      different_years: "%{from_month} %{from_day}, %{from_year} %{sep} %{until_month} %{until_day}, %{until_year}"
+      different_years: "%{from_day}/%{from_month}/%{from_year} %{sep} %{until_day}/%{until_month}/%{until_year}"
+      same_month: "%{from_day} %{sep} %{until_day} de %{month}"

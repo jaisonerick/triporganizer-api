@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+$primary-color: #3647AB;
+
 @import "normalize-rails";
 
 @import "bourbon/bourbon";
@@ -7,3 +11,318 @@
 
 @import "base/base";
 @import "refills/flashes";
+
+@import "components/global";
+
+$gutter-width: 1.5rem !default;
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
+
+$card-padding: 16px !default;
+$card-bg-color: #fff !default;
+
+
+.main-header {
+  background: $primary-color;
+  @extend .z-depth-1;
+  color: white;
+  width: 100%;
+  line-height: 1.2;
+  position: relative;
+
+
+  a {
+    &, &:visited, &:active, &:hover {
+      color: white;
+    }
+  }
+}
+
+.main-header__bar {
+  h1 {
+    font-size: 18px;
+    padding: 16px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0px;
+  }
+
+  &.with-back {
+    padding-left: 54px;
+  }
+}
+
+.main-header__top-panel {
+  padding: $card-padding;
+  border-bottom: 1px solid #4F5EB6;
+  font-size: 14px;
+}
+
+.trip-top-bar {
+  @extend .z-depth-1;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.trip-top-bar__contents {
+  display: flex;
+  padding: 16px;
+  height: 225px;
+  background-color: rgba(0,0,0,.4);
+}
+
+.trip-top-bar__back {
+  flex: 0 0 54px;
+  padding-right: 16px;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.card-listing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  margin: $card-padding;
+  background-color: $card-bg-color;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+  @extend .z-depth-1;
+  flex: 0 1 516px;
+}
+
+.card__block-link {
+  &, &:active, &:hover, &:visited {
+    color: inherit;
+  }
+}
+
+.card__header {
+  border-radius: 2px 2px 0 0;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  height: 220px;
+  position: relative;
+}
+
+.card__header-content {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .1));
+  padding: 16px;
+}
+
+.card__body {
+  padding: 16px;
+  border-radius: 0 0 2px 2px;
+
+}
+
+.card.card--trip {
+  .card__body {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $primary-color;
+  }
+}
+
+
+
+.trip-header {
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0px;
+  }
+
+  h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0px;
+    margin-top: 5px;
+  }
+}
+
+.itinerary {
+}
+
+.itinerary__day {
+}
+
+.itinerary-day__header {
+  background-color: #628BD7;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 16px 8px 70px;
+
+  @extend .z-depth-1;
+}
+
+.itinerary__day-contents {
+  padding: 17px 0px 0px 0px;
+}
+
+.itinerary-item {
+  position: relative;
+  display: flex;
+  margin-top: -2px;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #d8d8d8;
+    bottom: 8px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+  }
+
+  &.no-line:after {
+    display: none;
+  }
+}
+
+.itinerary-item__when {
+  flex: 0 0 70px;
+  text-align: center;
+  line-height: 1;
+  padding-top: 5px;
+
+  .title {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .time {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.itinerary-item__icon {
+  flex: 0 0 45px;
+  height: 45px;
+  background: #A7CF4A;
+  border-radius: 45px;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 3;
+  padding-top: 14px;
+}
+
+.itinerary-item__content {
+  margin-left: -27px;
+  padding-left: 46px;
+  border-left: 9px solid #A7CF4A;
+  margin-top: 5px;
+  padding-bottom: 22px;
+  padding-right: 16px;
+  position: relative;
+  z-index: 1;
+
+  &.color-2-link {
+    border-left-color: #628BD7;
+  }
+
+  &.last {
+    border-left: 0px;
+    padding-left: 54px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 15px;
+    color: #555;
+
+    line-height: 1.2;
+    margin: 0px;
+  }
+}
+
+.itinerary-details {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.2;
+}
+
+.itinerary-item--marker {
+  .itinerary-item__icon {
+    margin-left: 77px;
+    margin-right: 8px;
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 30px;
+  }
+}
+
+.itinerary-item--color-2 {
+  .itinerary-item__icon {
+    background: #628BD7;
+  }
+}
+
+.main-header__tabs {
+  display: flex;
+}
+.main-header__tab {
+  flex: 1;
+
+  display: block;
+  position: relative;
+  padding: 16px;
+  text-align: center;
+
+  font-size: 16px;
+  font-weight: bold;
+  opacity: .8;
+  text-transform: uppercase;
+
+  &, &:visited, &:active, &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+
+  &:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    height: 4px;
+    background: #A7CF4A;
+    bottom: 0px;
+    width: 100%;
+    visibility: hidden;
+    left: 0px;
+  }
+
+  &.is-selected {
+    opacity: 1;
+    &:after {
+      visibility: visible;
+    }
+  }
+}

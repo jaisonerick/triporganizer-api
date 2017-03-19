@@ -12,4 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.adaptive-backgrounds
 //= require_tree ./application
+//= require_self
+
+$(function() {
+  $.adaptiveBackground.run({
+    normalizeTextColor: true,
+    normalizedTextColors: {
+      light: '#fff',
+      dark: '#333'
+    }
+  });
+});
