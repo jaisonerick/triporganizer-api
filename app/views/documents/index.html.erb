@@ -1,0 +1,21 @@
+<header class="main-header">
+  <div class="main-header__top-panel">
+    <div>Bem Vindo</div>
+    <div class="large"><%= current_user.name %></div>
+    <div class="small"><%= link_to 'Sair', destroy_user_session_path, method: :delete %></div>
+  </div>
+
+  <div class="main-header__tabs">
+    <%= link_to trips_path, class: 'main-header__tab' do %>
+      Minhas <br />Viagens
+    <% end %>
+
+    <%= link_to documents_path, class: 'main-header__tab is-selected' do %>
+      Meus <br />Documentos
+    <% end %>
+  </div>
+</header>
+
+<div class="empty-state">
+  <h1>Nada por aqui ainda.</h1>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   devise_for :admins
 
@@ -34,5 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: [:index, :show]
+  resources :documents, only: :index
+
   root to: "trips#index"
 end
