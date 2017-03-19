@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       root to: "trips#index"
 
       resources :trips do
+        resources :appointments
+
         resources :destinations do
           resources :events
         end

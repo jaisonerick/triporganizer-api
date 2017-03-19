@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :appointment do
+    trip nil
+    type ""
+    description "MyText"
+    scheduled_at "2017-03-19 19:39:28"
+    details ""
+  end
   factory :transit do
     registration nil
     transport nil

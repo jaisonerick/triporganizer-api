@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
   has_many :registrations
   has_many :users, through: :registrations
   has_many :transports
+  has_many :appointments
 
   scope :visible, -> { where('ends_at >= ?', Time.zone.now) }
   scope :nearest_order, -> { order(starts_at: :asc) }

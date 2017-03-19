@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319141227) do
+ActiveRecord::Schema.define(version: 20170319223928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20170319141227) do
     t.string   "name"
     t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "scheduled_at"
+    t.jsonb    "details"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["trip_id"], name: "index_appointments_on_trip_id", using: :btree
   end
 
   create_table "companies", force: :cascade do |t|
@@ -198,6 +209,7 @@ ActiveRecord::Schema.define(version: 20170319141227) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "appointments", "trips"
   add_foreign_key "destinations", "hotels"
   add_foreign_key "destinations", "trips"
   add_foreign_key "events", "companies"
