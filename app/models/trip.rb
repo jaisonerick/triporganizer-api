@@ -9,4 +9,6 @@ class Trip < ApplicationRecord
   scope :nearest_order, -> { order(starts_at: :asc) }
 
   validates :name, :starts_at, :ends_at, :image, :description, presence: true
+
+  attr_accessor :place
 end

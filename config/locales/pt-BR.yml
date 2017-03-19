@@ -47,9 +47,10 @@ pt-BR:
         confirmed: Confirmado
       trip:
         name: Nome
-        description: Descrição
+        description: Subtítulo
         starts_at: Partida
         ends_at: Retorno
+        place: Procure um lugar para a imagem
       user:
         name: Nome
         picture_url: Foto

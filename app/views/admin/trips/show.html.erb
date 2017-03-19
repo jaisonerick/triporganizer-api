@@ -6,7 +6,7 @@
         <%= link_to 'Voltar', admin_trips_path, class: 'btn btn-default', role: 'button' %>
       </div>
 
-      <h1><%= @trip.name %> </h1>
+      <h1><%= @trip.name %> <small><%= @trip.description %> (<%= date_range @trip.starts_at, @trip.ends_at %>)</small></h1>
     </div>
   </div>
 </div>
@@ -18,40 +18,14 @@
       <li role="presentation">
         <%= link_to 'Clientes', admin_trip_registrations_path(@trip) %>
       </li>
-      <li role="presentation">
-        <%= link_to 'Destinos', admin_trip_destinations_path(@trip) %>
-      </li>
-      <li role="presentation">
-        <%= link_to 'Transportes', admin_trip_transports_path(@trip) %>
-      </li>
     </ul>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="tab-content">
-      <div class="tab-pane active">
-        <p>
-          <strong>Nome:</strong>
-          <%= @trip.name %>
-        </p>
-
-        <p>
-          <strong>Descrição:</strong>
-          <%= @trip.description %>
-        </p>
-
-        <p>
-          <strong>Partida:</strong>
-          <%= l @trip.starts_at %>
-        </p>
-
-        <p>
-          <strong>Retorno:</strong>
-          <%= l @trip.ends_at %>
-        </p>
-
+<div class="tab-content">
+  <div class="tab-pane active">
+    <div class="row">
+      <div class="col-md-12">
       </div>
     </div>
   </div>
