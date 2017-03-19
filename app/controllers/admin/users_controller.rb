@@ -25,6 +25,8 @@ class Admin::UsersController < ::Admin::ApplicationController
     @admin_user.password = Devise.friendly_token.first(8)
 
     if @admin_user.save
+      @admin_user.send_reset_password_instructions
+
       redirect_to [:admin, @admin_user], notice: 'Cliente criado com sucesso.'
     else
       render :new

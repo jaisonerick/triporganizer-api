@@ -22,7 +22,6 @@ class Admin::AdminsController < ::Admin::ApplicationController
   # POST /admin/admins
   def create
     @admin = Admin.new(admin_params)
-    @admin.password = Devise.friendly_token.first(8)
 
     if @admin.save
       redirect_to admin_admins_path, notice: 'Administrador cadastrado com sucesso'
@@ -33,6 +32,8 @@ class Admin::AdminsController < ::Admin::ApplicationController
 
   # PATCH/PUT /admin/admins/1
   def update
+    params[:admin].delete(:password) if params.dig(:admin, :password).blank?
+
     if @admin.update(admin_params)
       redirect_to admin_admins_path, notice: 'Administrador atualizado com sucesso'
     else
@@ -54,6 +55,6 @@ class Admin::AdminsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def admin_params
-      params.require(:admin).permit(:email, :name)
+      params.require(:admin).permit(:email, :name, :password)
     end
 end
