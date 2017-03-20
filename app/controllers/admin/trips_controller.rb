@@ -8,6 +8,9 @@ class Admin::TripsController < ::Admin::ApplicationController
 
   # GET /trips/1
   def show
+    @trip_dates = @trip.appointments.includes(:milestones).order(scheduled_at: :asc).group_by do |item|
+      item.scheduled_at.to_date
+    end
   end
 
   # GET /trips/new

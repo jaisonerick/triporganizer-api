@@ -1,0 +1,143 @@
+.itinerary {
+}
+
+.itinerary__day {
+}
+
+.itinerary-day__header {
+  background-color: #628BD7;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 16px 8px 70px;
+
+  @extend .z-depth-1;
+}
+
+.itinerary__day-contents {
+  padding: 17px 0px 0px 0px;
+}
+
+.itinerary-item {
+  position: relative;
+  display: flex;
+  margin-top: -2px;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #d8d8d8;
+    bottom: 8px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+  }
+
+  &.no-line:after {
+    display: none;
+  }
+}
+
+.itinerary-item__when {
+  flex: 0 0 70px;
+  text-align: center;
+  line-height: 1;
+  padding-top: 5px;
+
+  .title {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .time {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.itinerary-item__icon {
+  flex: 0 0 45px;
+  height: 45px;
+  background: #A7CF4A;
+  border-radius: 45px;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 3;
+  padding-top: 14px;
+}
+
+.itinerary-item__content {
+  margin-left: -27px;
+  padding-left: 46px;
+  border-left: 9px solid #A7CF4A;
+  margin-top: 5px;
+  padding-bottom: 22px;
+  padding-right: 16px;
+  position: relative;
+  z-index: 1;
+  min-height: 60px;
+
+  &.color-2-link {
+    border-left-color: #628BD7;
+  }
+
+  &.last {
+    border-left: 0px;
+    padding-left: 54px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 15px;
+    color: #555;
+
+    line-height: 1.2;
+    margin: 0px;
+  }
+}
+
+.itinerary-details {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.2;
+}
+
+.itinerary-item--marker {
+  .itinerary-item__icon {
+    margin-left: 77px;
+    margin-right: 8px;
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 30px;
+  }
+
+  .itinerary-item__content {
+    min-height: 40px;
+  }
+}
+
+.itinerary-item--color-2 {
+  .itinerary-item__icon {
+    background: #628BD7;
+  }
+}
+
+
+.itinerary-item {
+  .btn-group {
+    visibility: hidden;
+  }
+
+  &:hover .btn-group {
+    visibility: visible;
+  }
+}

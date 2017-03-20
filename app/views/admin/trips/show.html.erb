@@ -2,8 +2,9 @@
   <div class="col-md-12">
     <div class="page-header">
       <div class="btn-group pull-right" role="group">
-        <%= link_to 'Editar', edit_admin_trip_path(@trip), class: 'btn btn-default', role: 'button' %>
         <%= link_to 'Voltar', admin_trips_path, class: 'btn btn-default', role: 'button' %>
+        <%= link_to 'Editar', edit_admin_trip_path(@trip), class: 'btn btn-default', role: 'button' %>
+        <%= link_to 'Novo Item', new_admin_trip_appointment_path(@trip), class: 'btn btn-primary', role: 'button' %>
       </div>
 
       <h1><%= @trip.name %> <small><%= @trip.description %> (<%= date_range @trip.starts_at, @trip.ends_at %>)</small></h1>
@@ -26,6 +27,69 @@
   <div class="tab-pane active">
     <div class="row">
       <div class="col-md-12">
+        <h2>Itinerario</h2>
+        <div class="itinerary">
+          <% @trip_dates.each do |date, appointments| %>
+            <section class="itinerary__day">
+              <div class="itinerary-day__header">
+                <div><%= l date, format: :long %></div>
+              </div>
+
+              <div class="itinerary__day-contents">
+                <% appointments.each do |appointment| %>
+                  <article class="itinerary-item no-line">
+                    <div class="itinerary-item__when">
+                      <div class="title"><%= appointment.medium %></div>
+                      <div class="time"><%= l appointment.scheduled_at, format: :time %></div>
+                    </div>
+
+                    <div class="itinerary-item__icon">
+                      <%= image_tag appointment.medium_image %>
+                    </div>
+
+                    <div class="itinerary-item__content">
+                      <h1><%= appointment.description %></h1>
+                      <p><%= appointment.info %></p>
+                      <div class="btn-group">
+                        <%= link_to 'Editar', edit_admin_trip_appointment_path(@trip, appointment), class: 'btn btn-default btn-xs' %>
+                        <%= link_to 'Remover', [:admin, @trip, appointment], class: 'btn btn-danger btn-xs', method: :delete %>
+                      </div>
+                    </div>
+                  </article>
+
+                  <% appointment.milestones.each_with_index do |milestone, index| %>
+                    <div class="itinerary-item itinerary-item--marker no-line">
+                      <div class="itinerary-item__icon">
+                        &nbsp;
+                      </div>
+
+                      <div class="itinerary-item__content">
+                        <p>
+                          <%= milestone.description %><br />
+                        </p>
+
+                        <div class="btn-group">
+                          <%= link_to 'Editar', edit_admin_trip_appointment_milestone_path(@trip, appointment, milestone), class: 'btn btn-default btn-xs' %>
+                          <%= link_to 'Remover', [:admin, @trip, appointment, milestone], class: 'btn btn-danger btn-xs', method: :delete %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+
+                  <div class="itinerary-item itinerary-item--marker itinerary-item--color-2 <%= appointment != appointments.last ? '' : 'no-line' %>">
+                    <div class="itinerary-item__icon">
+                      &nbsp;
+                    </div>
+
+                    <div class="itinerary-item__content <%= (appointment == appointments.last ? 'last' : '') %>">
+                      <%= link_to 'Novo Tópico', new_admin_trip_appointment_milestone_path(@trip, appointment), class: 'btn btn-primary btn-xs' %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </section>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

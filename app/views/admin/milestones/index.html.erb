@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to 'Novo milestone', new_admin_trip_appointment_milestone_path(@trip, @appointment), class: 'btn btn-primary pull-right' %>
+
+      <h1>Listing milestones</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+                <th>Appointment</th>
+                <th>Description</th>
+                <th>Order</th>
+                <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @milestones.each do |milestone| %>
+          <tr>
+                    <td><%= milestone.appointment %></td>
+                    <td><%= milestone.description %></td>
+                    <td><%= milestone.order %></td>
+                    <td class="text-right">
+              <div class="btn-group" role="group">
+                <%= link_to 'Ver', [:admin, @trip, @appointment, milestone], class: 'btn btn-default' %>
+                <%= link_to 'Editar', edit_admin_trip_appointment_milestone_path(@trip, @appointment, milestone), class: 'btn btn-default' %>
+                <%= link_to 'Remover', [:admin, @trip, @appointment, milestone], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

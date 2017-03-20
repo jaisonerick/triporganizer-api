@@ -20,6 +20,50 @@
 </header>
 
 <div class="itinerary">
+  <% @trip_dates.each do |date, appointments| %>
+    <section class="itinerary__day">
+      <div class="itinerary-day__header">
+        <div><%= l date, format: :long %></div>
+      </div>
+
+      <div class="itinerary__day-contents">
+        <% appointments.each do |appointment| %>
+          <article class="itinerary-item <%= appointment.milestones.size > 0 || appointment == appointments.last ? 'no-line' : '' %>">
+            <div class="itinerary-item__when">
+              <div class="title"><%= appointment.medium %></div>
+              <div class="time"><%= l appointment.scheduled_at, format: :time %></div>
+            </div>
+
+            <div class="itinerary-item__icon">
+              <%= image_tag appointment.medium_image %>
+            </div>
+
+            <div class="itinerary-item__content <%= appointment == appointments.last ? 'last' : '' %>">
+              <h1><%= appointment.description %></h1>
+              <p><%= appointment.info %></p>
+            </div>
+          </article>
+
+          <% appointment.milestones.each_with_index do |milestone, index| %>
+            <div class="itinerary-item itinerary-item--marker <%= index + 1 == appointment.milestones.size && appointment != appointments.last ? '' : 'no-line' %>">
+              <div class="itinerary-item__icon">
+                &nbsp;
+              </div>
+
+              <div class="itinerary-item__content <%= (appointment == appointments.last && index + 1 == appointment.milestones.size ? 'last' : '') %>">
+                <p>
+                  <%= milestone.description %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+</div>
+
+<div class="itinerary">
   <section class="itinerary__day">
     <div class="itinerary-day__header">
       <div>Segunda feira - 15 de março</div>

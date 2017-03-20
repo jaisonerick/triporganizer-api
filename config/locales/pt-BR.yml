@@ -309,6 +309,7 @@ pt-BR:
       default: "%d de %B de %Y, %H:%M"
       long: "%d de %B de %Y, %H:%M"
       short: "%d/%m/%Y %H:%M"
+      time: "%H:%M"
     pm: ''
 
   date_range:

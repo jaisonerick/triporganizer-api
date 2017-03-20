@@ -25,7 +25,7 @@ class Admin::AppointmentsController < ::Admin::ApplicationController
     @appointment = @trip.appointments.build(appointment_params)
 
     if @appointment.save
-      redirect_to admin_trip_appointments_path(@trip), notice: 'Appointment was successfully created.'
+      redirect_to [:admin, @trip], notice: 'Appointment was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::AppointmentsController < ::Admin::ApplicationController
   # PATCH/PUT /appointments/1
   def update
     if @appointment.update(appointment_params)
-      redirect_to admin_trip_appointments_path(@trip), notice: 'Appointment was successfully updated.'
+      redirect_to [:admin, @trip], notice: 'Appointment was successfully updated.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Admin::AppointmentsController < ::Admin::ApplicationController
   # DELETE /appointments/1
   def destroy
     @appointment.destroy
-    redirect_to admin_trip_appointments_path(@trip), notice: 'Appointment was successfully destroyed.'
+    redirect_to [:admin, @trip], notice: 'Appointment was successfully destroyed.'
   end
 
   private

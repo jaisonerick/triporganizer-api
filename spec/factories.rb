@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :milestone do
+    appointment nil
+    description "MyString"
+    order 1
+  end
   factory :appointment do
     trip nil
     type ""

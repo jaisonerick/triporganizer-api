@@ -1,0 +1,53 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>When</th>
+      <th>Details</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.type %></td>
+        <td><%= appointment.description %></td>
+        <td><%= appointment.scheduled_at %></td>
+        <td><%= appointment.details %></td>
+        <td class="text-right">
+          <div class="btn-group" role="group">
+            <%= link_to 'Adicionar Tópico', new_admin_trip_appointment_milestone_path(@trip, appointment), class: 'btn btn-default' %>
+            <%= link_to 'Editar', edit_admin_trip_appointment_path(@trip, appointment), class: 'btn btn-default' %>
+            <%= link_to 'Remover', [:admin, @trip, appointment], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+          </div>
+        </td>
+      </tr>
+
+      <% if appointment.milestones.size > 0 %>
+        <tr>
+          <td colspan="5">
+            <h3>Tópicos</h3>
+            <table class="table">
+              <tbody>
+                <% appointment.milestones.each do |milestone| %>
+                  <tr>
+                      <td><%= milestone.description %></td>
+                      <td class="text-right">
+                      <div class="btn-group" role="group">
+                        <%= link_to 'Editar', edit_admin_trip_appointment_milestone_path(@trip, appointment, milestone), class: 'btn btn-default' %>
+                        <%= link_to 'Remover', [:admin, @trip, appointment, milestone], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+                      </div>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

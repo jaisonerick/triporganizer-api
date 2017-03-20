@@ -2,14 +2,12 @@
   <div class="col-md-12">
     <div class="page-header">
       <div class="btn-group pull-right">
-        <%= link_to 'Voltar', [:admin, @trip], class: 'btn btn-default' %>
+        <%= link_to 'Voltar', admin_trip_appointment_milestones_path(@trip, @appointment), class: 'btn btn-default' %>
       </div>
-
-      <h1>Editando appointment</h1>
+      <h1>Novo milestone</h1>
     </div>
   </div>
 </div>
-
 
 <div class="row">
   <div class="col-md-12">
