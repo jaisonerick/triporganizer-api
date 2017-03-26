@@ -24,6 +24,35 @@
     <% end %>
   </div>
 </header>
-<div class="empty-state">
-  <h1>Nada por aqui ainda.</h1>
-</div>
+
+<section class="card-listing">
+  <%= link_to passport_trip_path(@trip), class: 'card card--document card--document-1' do %>
+    <article class="card__header">
+      <%= image_tag 'passport.png' %>
+    </article>
+
+    <div class="card__body">
+      Passaporte
+    </div>
+  <% end %>
+
+  <a href="" class="card card--document card--document-2">
+    <article class="card__header">
+      <%= image_tag 'lugage.png' %>
+    </article>
+
+    <div class="card__body">
+      Seguro de Viagem
+    </div>
+  </a>
+
+  <a href="" class="card card--document card--document-3">
+    <article class="card__header">
+      <%= image_tag 'tickets.png' %>
+    </article>
+
+    <div class="card__body">
+      Passagens de Avião
+    </div>
+  </a>
+</section>

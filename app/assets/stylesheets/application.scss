@@ -141,6 +141,24 @@ $card-bg-color: #fff !default;
   font-size: 14px;
 }
 
+.main-nav-bar {
+  display: flex;
+  padding: 16px;
+}
+
+.main-nav-bar__back {
+  flex: 0 0 54px;
+  padding-right: 16px;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.main-nav-bar__title {
+  margin: 0px;
+  padding-top: 3px;
+}
+
 .trip-top-bar {
   @extend .z-depth-1;
 
@@ -221,6 +239,45 @@ $card-bg-color: #fff !default;
   }
 }
 
+.card.card--document {
+  flex: 0 1 165px;
+  &, &:hover, &:active, &:visited {
+    color: #4A4A4A;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &:hover, &:active {
+    @extend .z-depth-2;
+  }
+
+  .card__header {
+    height: 127px;
+    border-radius: 2px 2px 0 0;
+    color: inherit;
+    padding: 26px;
+    text-align: center;
+  }
+
+  &.card--document-1 {
+    .card__header {
+      background: #90B9C0;
+    }
+  }
+
+  &.card--document-2 {
+    .card__header {
+      background: #EBC63A;
+    }
+  }
+
+  &.card--document-3 {
+    .card__header {
+      background: #786E57;
+    }
+  }
+}
 
 
 .trip-header {
@@ -289,5 +346,47 @@ $card-bg-color: #fff !default;
   h1 {
     font-size: 21px;
     color: #999;
+  }
+}
+
+.update-passport {
+  h1 {
+    font-size: 14px;
+  }
+}
+
+.update-passport__fields {
+  display: flex;
+  align-items: center;
+
+  input {
+    margin: 0px;
+  }
+
+  .btn {
+    flex: 0 0 auto;
+  }
+}
+
+.document-exibit {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 95px;
+
+
+  .update-passport {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: #f3f3f3;
+    padding: 16px;
+
+    .update-passport__content {
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
+    }
   }
 }

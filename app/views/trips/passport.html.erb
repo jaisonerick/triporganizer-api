@@ -1,0 +1,29 @@
+<header class="main-header">
+  <div class="main-header__top-panel main-nav-bar">
+    <div class="main-nav-bar__back">
+      <%= link_to trip_documents_path(@trip) do %>
+        <%= image_tag 'back.png' %>
+      <% end %>
+    </div>
+
+    <h1 class="main-nav-bar__title">Meu Passaporte</h1>
+  </div>
+</header>
+
+<div class="document-exibit">
+  <div class="document-exibit__document">
+  <%= image_tag (current_user.passport_url) if current_user.passport? %>
+  </div>
+
+  <%= form_for current_user, url: passport_trip_path(@trip), method: :put, html: { class: 'update-passport',  multipart: true } do |f| %>
+    <div class="update-passport__content">
+      <h1>Atualizar Imagem</h1>
+      <div class="update-passport__fields">
+        <%= f.file_field :passport, capture: 'camera', accept: 'image/*' %>
+        <%= f.hidden_field :passport_cache %>
+        <%= f.submit 'Atualizar' %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

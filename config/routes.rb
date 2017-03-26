@@ -55,7 +55,13 @@ Rails.application.routes.draw do
 
   resources :trips, only: [:index, :show] do
     resources :documents, only: :index
+
+    member do
+      get 'passport'
+      put 'passport', to: 'trips#update_passport'
+    end
   end
+
 
   root to: "trips#index"
 end
