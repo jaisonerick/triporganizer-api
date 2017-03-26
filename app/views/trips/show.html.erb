@@ -38,7 +38,7 @@
               <%= image_tag appointment.medium_image %>
             </div>
 
-            <div class="itinerary-item__content <%= appointment == appointments.last ? 'last' : '' %>">
+            <div class="itinerary-item__content <%= appoint.milestones.size == 0 && appointment == appointments.last ? 'last' : '' %>">
               <%= render appointment %>
             </div>
           </article>
