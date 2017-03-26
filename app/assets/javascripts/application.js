@@ -27,8 +27,8 @@ $(function() {
 
   $('iframe').each(function() {
     var winHeight = $(window).height(),
-      topBarHeight = $('.main-header').height(),
-      iframeHeight = winHeight - topBarHeight - 10;
+        offsetTop = $(this).offset().top,
+        iframeHeight = winHeight - offsetTop - 23;
 
     $(this).css({height: iframeHeight});
   });
