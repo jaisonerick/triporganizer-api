@@ -36,14 +36,16 @@
     </div>
   <% end %>
 
-  <%= link_to insurance_trip_path(@trip), class: 'card card--document card--document-2' do %>
-    <article class="card__header">
-      <%= image_tag 'lugage.png' %>
-    </article>
+  <% if @registration.insurance? %>
+    <%= link_to insurance_trip_path(@trip), class: 'card card--document card--document-2' do %>
+      <article class="card__header">
+        <%= image_tag 'lugage.png' %>
+      </article>
 
-    <div class="card__body">
-      Seguro de Viagem
-    </div>
+      <div class="card__body">
+        Seguro de Viagem
+      </div>
+    <% end %>
   <% end %>
 
   <a href="" class="card card--document card--document-3">
