@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :hotel_reservation do
+    registration nil
+    appointment nil
+    room "MyString"
+    notes "MyText"
+  end
   factory :flight_ticket do
     flight_appointment nil
     seat "MyString"
@@ -53,12 +59,6 @@ FactoryGirl.define do
     starts_at "2017-02-28 17:47:30"
     ends_at "2017-02-28 17:47:30"
     type ""
-  end
-  factory :hotel_reservation do
-    registration nil
-    destination nil
-    room "MyString"
-    notes "MyText"
   end
   factory :registration do
     trip nil

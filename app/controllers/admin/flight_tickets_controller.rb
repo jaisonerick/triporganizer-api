@@ -9,7 +9,7 @@ class Admin::FlightTicketsController < ::Admin::ApplicationController
     if @appointment.update(flight_appointment_params)
       redirect_to [:flight_tickets, :admin, @trip, @appointment], notice: 'Passagens atualizadas com sucesso'
     else
-      render :edit
+      render :index
     end
   end
 

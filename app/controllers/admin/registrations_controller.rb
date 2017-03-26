@@ -26,8 +26,8 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
         @registration.flight_tickets.create(appointment: appointment)
       end
 
-      @trip.destinations.each do |destination|
-        @registration.hotel_reservations.create(destination: destination)
+      @trip.hotel_appointments.each do |appointment|
+        @registration.hotel_reservations.create(appointment: appointment)
       end
 
       redirect_to admin_trip_registrations_path(@trip), notice: 'Cliente adicionado com sucesso a viagem'

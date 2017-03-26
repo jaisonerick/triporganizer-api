@@ -16,7 +16,12 @@ Rails.application.routes.draw do
         end
 
         resources :train_appointments
-        resources :hotel_appointments
+        resources :hotel_appointments do
+          member do
+            get 'hotel_reservations', to: 'hotel_reservations#index'
+            put 'hotel_reservations', to: 'hotel_reservations#update'
+          end
+        end
         resources :visit_appointments
 
         resources :appointments do
@@ -28,7 +33,6 @@ Rails.application.routes.draw do
         end
 
         resources :registrations, only: [:index, :show, :create, :destroy] do
-          resources :hotel_reservations
           resources :transits
 
           member do
