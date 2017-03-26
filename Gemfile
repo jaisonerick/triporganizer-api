@@ -62,7 +62,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'fog'
+  gem 'fog-aws'
   gem "rack-timeout"
 end
 
