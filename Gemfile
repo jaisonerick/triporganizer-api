@@ -62,6 +62,7 @@ group :test do
 end
 
 group :staging, :production do
+  gem 'fog'
   gem "rack-timeout"
 end
 
