@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :trips do
         resources :flight_appointments
         resources :train_appointments
+        resources :hotel_appointments
 
         resources :appointments do
           resources :milestones

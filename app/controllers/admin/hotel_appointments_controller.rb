@@ -1,10 +1,10 @@
-class Admin::TrainAppointmentsController < ::Admin::ApplicationController
+class Admin::HotelAppointmentsController < ::Admin::ApplicationController
   before_action :set_trip
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments/new
   def new
-    @appointment = @trip.appointments.new(type: 'TrainAppointment')
+    @appointment = @trip.appointments.new(type: 'HotelAppointment')
   end
 
   # GET /appointments/1/edit
@@ -13,7 +13,7 @@ class Admin::TrainAppointmentsController < ::Admin::ApplicationController
 
   # POST /appointments
   def create
-    @appointment = @trip.appointments.build(type: 'TrainAppointment')
+    @appointment = @trip.appointments.build(type: 'HotelAppointment')
     @appointment.assign_attributes(appointment_params)
 
     if @appointment.save
@@ -45,11 +45,11 @@ class Admin::TrainAppointmentsController < ::Admin::ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment
-      @appointment = @trip.appointments.where(type: 'TrainAppointment').find(params[:id])
+      @appointment = @trip.appointments.where(type: 'HotelAppointment').find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def appointment_params
-      params.require(:train_appointment).permit(:scheduled_at, :company_id, :end_date, :line, :from, :to, :address)
+      params.require(:hotel_appointment).permit(:scheduled_at, :company_id)
     end
 end

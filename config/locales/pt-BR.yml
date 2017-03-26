@@ -24,8 +24,11 @@ pt-BR:
       appointment: Evento
       flight_appointment: Voo
       train_appointment: Trem
+      hotel_appointment: Hospedagem
     attributes:
       flight_appointment:
+        from: Origem
+        to: Destino
         scheduled_at: Partida
         end_date: Chegada
         company: Companhia Aérea
@@ -35,8 +38,13 @@ pt-BR:
         scheduled_at: Partida
         end_date: Chegada
         company: Empresa
-        train_number: Número do Trem
-        platform: Plataforma
+        line: Linha
+        from: Origem
+        to: Destino
+        address: Endereço
+      hotel_appointment:
+        scheduled_at: Check-in
+        company: Hotel
       admin:
         name: Nome
       destination:

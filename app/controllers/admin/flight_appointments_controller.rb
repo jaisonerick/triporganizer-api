@@ -50,6 +50,6 @@ class Admin::FlightAppointmentsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def appointment_params
-      params.require(:flight_appointment).permit(:scheduled_at, :company_id, :end_date, :flight_number, :gate)
+      params.require(:flight_appointment).permit(:scheduled_at, :company_id, :end_date, :flight_number, :gate, :from, :to)
     end
 end
