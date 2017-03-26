@@ -53,8 +53,9 @@ Rails.application.routes.draw do
     root to: redirect("/admins/sign_in")
   end
 
-  resources :trips, only: [:index, :show]
-  resources :documents, only: :index
+  resources :trips, only: [:index, :show] do
+    resources :documents, only: :index
+  end
 
   root to: "trips#index"
 end

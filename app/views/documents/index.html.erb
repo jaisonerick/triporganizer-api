@@ -1,21 +1,29 @@
 <header class="main-header">
-  <div class="main-header__top-panel">
-    <div>Bem Vindo</div>
-    <div class="large"><%= current_user.name %></div>
-    <div class="small"><%= link_to 'Sair', destroy_user_session_path, method: :delete %></div>
+  <div class="trip-top-bar" style="background-image: url(<%= @trip.image %>)">
+    <div class="trip-top-bar__contents">
+      <div class="trip-top-bar__back">
+        <%= link_to trips_path do %>
+          <%= image_tag 'back.png' %>
+        <% end %>
+      </div>
+
+      <div class="trip-header">
+        <h1><%= @trip.name %></h1>
+        <h2><%= date_range @trip.starts_at, @trip.ends_at %></h2>
+      </div>
+    </div>
   </div>
 
   <div class="main-header__tabs">
-    <%= link_to trips_path, class: 'main-header__tab' do %>
-      Minhas <br />Viagens
+    <%= link_to trip_path(@trip), class: 'main-header__tab' do %>
+      Roteiro
     <% end %>
 
-    <%= link_to documents_path, class: 'main-header__tab is-selected' do %>
-      Meus <br />Documentos
+    <%= link_to trip_documents_path(@trip), class: 'main-header__tab is-selected' do %>
+      Documentos
     <% end %>
   </div>
 </header>
-
 <div class="empty-state">
   <h1>Nada por aqui ainda.</h1>
 </div>

@@ -5,14 +5,8 @@
     <div class="small"><%= link_to 'Sair', destroy_user_session_path, method: :delete %></div>
   </div>
 
-  <div class="main-header__tabs">
-    <%= link_to trips_path, class: 'main-header__tab is-selected' do %>
-      Minhas <br />Viagens
-    <% end %>
-
-    <%= link_to documents_path, class: 'main-header__tab' do %>
-      Meus <br />Documentos
-    <% end %>
+  <div class="main-header__bar">
+    <h1>Minhas Viagens</h1>
   </div>
 </header>
 

@@ -14,8 +14,14 @@
     </div>
   </div>
 
-  <div class="main-header__bar with-back">
-    <h1><%= @trip.description %></h1>
+  <div class="main-header__tabs">
+    <%= link_to trip_path(@trip), class: 'main-header__tab is-selected' do %>
+      Roteiro
+    <% end %>
+
+    <%= link_to trip_documents_path(@trip), class: 'main-header__tab' do %>
+      Documentos
+    <% end %>
   </div>
 </header>
 
