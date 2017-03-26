@@ -65,6 +65,6 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def registration_params
-      params.require(:registration).permit(:user_id, :insurance)
+      params.require(:registration).permit(:user_id, :insurance, :insurance_cache)
     end
 end
