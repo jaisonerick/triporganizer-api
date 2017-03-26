@@ -39,8 +39,7 @@
             </div>
 
             <div class="itinerary-item__content <%= appointment == appointments.last ? 'last' : '' %>">
-              <h1><%= appointment.description %></h1>
-              <p><%= appointment.info %></p>
+              <%= render appointment %>
             </div>
           </article>
 
@@ -52,7 +51,7 @@
 
               <div class="itinerary-item__content <%= (appointment == appointments.last && index + 1 == appointment.milestones.size ? 'last' : '') %>">
                 <p>
-                  <%= milestone.description %>
+                <strong><%= milestone.description %></strong>
                 </p>
               </div>
             </div>
@@ -61,84 +60,4 @@
       </div>
     </section>
   <% end %>
-</div>
-
-<div class="itinerary">
-  <section class="itinerary__day">
-    <div class="itinerary-day__header">
-      <div>Segunda feira - 15 de março</div>
-    </div>
-
-    <div class="itinerary__day-contents">
-      <article class="itinerary-item">
-        <div class="itinerary-item__when">
-          <div class="title">Van</div>
-          <div class="time">9:30</div>
-        </div>
-
-        <div class="itinerary-item__icon">
-          <%= image_tag 'bus.png' %>
-        </div>
-
-        <div class="itinerary-item__content">
-          <h1>Praça XV - Aeroporto</h1>
-          <p>Serviço de VAN para o aeroporto saindo da frente da Catedral municipal na praça XV de Novembro</p>
-        </div>
-      </article>
-
-      <div class="itinerary-item no-line">
-        <div class="itinerary-item__when">
-          <div class="title">Voo</div>
-          <div class="time">12:30</div>
-        </div>
-
-        <div class="itinerary-item__icon">
-          <%= image_tag 'plane.png' %>
-        </div>
-
-        <div class="itinerary-item__content">
-          <h1>FLN - GRU</h1>
-          <div class="itinerary-details">
-            <div>Voo <strong>G3 9204</strong></div>
-            <div>Saída: <strong>Terminal 3</strong></div>
-            <div>Poltrona: <strong>A309</strong></div>
-            <div>Chegada: <strong>14:30</strong></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="itinerary-item itinerary-item--marker">
-        <div class="itinerary-item__icon">
-          &nbsp;
-        </div>
-
-        <div class="itinerary-item__content color-2-link">
-          <p>
-            Espera de 4h em GRU para conexão de voo
-          </p>
-        </div>
-      </div>
-
-      <div class="itinerary-item itinerary-item--color-2 no-line">
-        <div class="itinerary-item__when">
-          <div class="title">Voo</div>
-          <div class="time">18:30</div>
-        </div>
-
-        <div class="itinerary-item__icon">
-          <%= image_tag 'plane.png' %>
-        </div>
-
-        <div class="itinerary-item__content last">
-          <h1>GRU - ARN</h1>
-          <div class="itinerary-details">
-            <div>Voo <strong>G3 9204</strong></div>
-            <div>Saída: <strong>Terminal 3</strong></div>
-            <div>Poltrona: <strong>A309</strong></div>
-            <div>Chegada: <strong>08:30 (+1)</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </div>

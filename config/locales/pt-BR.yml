@@ -25,6 +25,8 @@ pt-BR:
       flight_appointment: Voo
       train_appointment: Trem
       hotel_appointment: Hospedagem
+      visit_appointment: Visita Técnica
+      milestone: Tópico
     attributes:
       flight_appointment:
         from: Origem
@@ -45,6 +47,13 @@ pt-BR:
       hotel_appointment:
         scheduled_at: Check-in
         company: Hotel
+      visit_appointment:
+        scheduled_at: Inicio
+        company: Local
+        description: Detalhes
+      milestone:
+        description: Descrição
+        order: Ordem
       admin:
         name: Nome
       destination:
