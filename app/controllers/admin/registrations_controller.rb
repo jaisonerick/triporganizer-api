@@ -22,8 +22,8 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
     @registration = @trip.registrations.build(registration_params)
 
     if @registration.save
-      @trip.transports.each do |transport|
-        @registration.transits.create(transport: transport)
+      @trip.flight_appointments.each do |appointment|
+        @registration.flight_tickets.create(appointment: appointment)
       end
 
       @trip.destinations.each do |destination|

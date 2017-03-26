@@ -8,7 +8,13 @@ Rails.application.routes.draw do
       root to: "trips#index"
 
       resources :trips do
-        resources :flight_appointments
+        resources :flight_appointments do
+          member do
+            get 'flight_tickets', to: 'flight_tickets#index'
+            put 'flight_tickets', to: 'flight_tickets#update'
+          end
+        end
+
         resources :train_appointments
         resources :hotel_appointments
         resources :visit_appointments

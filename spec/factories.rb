@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :flight_ticket do
+    flight_appointment nil
+    seat "MyString"
+    details "MyText"
+  end
   factory :milestone do
     appointment nil
     description "MyString"

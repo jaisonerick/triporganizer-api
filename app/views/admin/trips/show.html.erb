@@ -17,7 +17,7 @@
     <ul class="nav nav-tabs">
       <li role="presentation" class="active"><a href="#">Detalhes</a></li>
       <li role="presentation">
-        <%= link_to 'Clientes', admin_trip_registrations_path(@trip) %>
+        <%= link_to 'Passageiros', admin_trip_registrations_path(@trip) %>
       </li>
     </ul>
   </div>
@@ -51,6 +51,10 @@
                       <%= render appointment %>
 
                       <div class="btn-group">
+                        <% if appointment.type == 'FlightAppointment' %>
+                          <%= link_to 'Passagens', [:flight_tickets, :admin, @trip, appointment], class: 'btn btn-default btn-xs' %>
+                        <% end %>
+
                         <%= link_to 'Editar', [:edit, :admin, @trip, appointment], class: 'btn btn-default btn-xs' %>
                         <%= link_to 'Remover', [:admin, @trip, appointment.becomes(Appointment)], class: 'btn btn-danger btn-xs', method: :delete %>
                       </div>

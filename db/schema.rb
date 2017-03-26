@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326160438) do
+ActiveRecord::Schema.define(version: 20170326175808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,17 @@ ActiveRecord::Schema.define(version: 20170326160438) do
     t.index ["company_id"], name: "index_events_on_company_id", using: :btree
     t.index ["destination_id"], name: "index_events_on_destination_id", using: :btree
     t.index ["place_id"], name: "index_events_on_place_id", using: :btree
+  end
+
+  create_table "flight_tickets", force: :cascade do |t|
+    t.integer  "appointment_id"
+    t.string   "seat"
+    t.text     "details"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "registration_id"
+    t.index ["appointment_id"], name: "index_flight_tickets_on_appointment_id", using: :btree
+    t.index ["registration_id"], name: "index_flight_tickets_on_registration_id", using: :btree
   end
 
   create_table "hotel_reservations", force: :cascade do |t|
@@ -228,6 +239,8 @@ ActiveRecord::Schema.define(version: 20170326160438) do
   add_foreign_key "events", "companies"
   add_foreign_key "events", "destinations"
   add_foreign_key "events", "places"
+  add_foreign_key "flight_tickets", "appointments"
+  add_foreign_key "flight_tickets", "registrations"
   add_foreign_key "hotel_reservations", "destinations"
   add_foreign_key "hotel_reservations", "registrations"
   add_foreign_key "milestones", "appointments"

@@ -3,7 +3,7 @@
     <div class="page-header">
       <div class="pull-right">
         <%= simple_form_for([:admin, @trip, @registration], wrapper: :inline_form, html: { class: 'form-inline' }) do |f| %>
-          <%= f.association :user, prompt: "Escolha um cliente" %>
+          <%= f.association :user, prompt: "Escolha um passageiro" %>
           <%= f.submit 'Registrar', class: 'btn btn-primary' %>
         <% end %>
       </div>
@@ -20,13 +20,7 @@
         <%= link_to 'Detalhes', [:admin, @trip] %>
       </li>
       <li role="presentation" class="active">
-        <a href="#">Clientes</a>
-      </li>
-      <li role="presentation">
-        <%= link_to 'Destinos', admin_trip_destinations_path(@trip) %>
-      </li>
-      <li role="presentation">
-        <%= link_to 'Transportes', admin_trip_transports_path(@trip) %>
+        <a href="#">Passageiros</a>
       </li>
     </ul>
   </div>
@@ -47,7 +41,6 @@
             <td><%= registration.user.name %></td>
             <td class="text-right">
               <div class="btn-group">
-                <%= link_to 'Acessar', admin_trip_registration_path(@trip, registration), class: 'btn btn-default' %>
                 <%= link_to 'Remover', admin_trip_registration_path(@trip, registration), method: :delete, class: 'btn btn-default' %>
               </div>
             </td>
