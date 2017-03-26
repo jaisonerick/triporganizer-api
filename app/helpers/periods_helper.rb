@@ -38,4 +38,18 @@ module PeriodsHelper
 
     I18n.t("date_range.#{format}.#{date_format}", dates.merge(sep: separator))
   end
+
+  def plane_arrival_date(departure, arrival)
+    if departure.blank? || arrival.blank?
+      return nil
+    end
+
+    days = (arrival.to_date - departure.to_date).to_i
+
+    if days > 0
+      return "#{I18n.l(arrival, format: :time)} (+#{days})"
+    else
+      return I18n.l(arrival, format: :time)
+    end
+  end
 end

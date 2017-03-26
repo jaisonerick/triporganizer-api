@@ -4,13 +4,45 @@
       <div class="btn-group pull-right">
         <%= link_to 'Voltar', [:admin, @trip], class: 'btn btn-default' %>
       </div>
-      <h1>Novo appointment</h1>
+      <h1>Novo Evento</h1>
     </div>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <%= render 'form' %>
+    <div class="appointment-selector">
+      <div class="appointment-selector__title">Tipo</div>
+      <div class="appointment-selector__types">
+        <%= link_to new_admin_trip_flight_appointment_path(@trip) do %>
+          <div>Voo</div>
+        <% end %>
+
+        <%= link_to new_admin_trip_train_appointment_path(@trip) do %>
+          <div>Trem</div>
+        <% end %>
+
+        <%= link_to new_admin_trip_flight_appointment_path(@trip) do %>
+          <div>Metrô</div>
+        <% end %>
+
+        <%= link_to new_admin_trip_flight_appointment_path(@trip) do %>
+          <div>Transporte Maritmo</div>
+        <% end %>
+
+        <%= link_to new_admin_trip_flight_appointment_path(@trip) do %>
+          <div>Ônibus</div>
+        <% end %>
+
+        <%= link_to new_admin_trip_flight_appointment_path(@trip) do %>
+          <div>Hospedagem</div>
+        <% end %>
+
+        <%= link_to new_admin_trip_flight_appointment_path(@trip) do %>
+          <div>Visita Técnica</div>
+        <% end %>
+
+      </div>
+    </div>
   </div>
 </div>

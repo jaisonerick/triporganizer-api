@@ -48,11 +48,11 @@
                     </div>
 
                     <div class="itinerary-item__content">
-                      <h1><%= appointment.description %></h1>
-                      <p><%= appointment.info %></p>
+                      <%= render appointment %>
+
                       <div class="btn-group">
-                        <%= link_to 'Editar', edit_admin_trip_appointment_path(@trip, appointment), class: 'btn btn-default btn-xs' %>
-                        <%= link_to 'Remover', [:admin, @trip, appointment], class: 'btn btn-danger btn-xs', method: :delete %>
+                        <%= link_to 'Editar', [:edit, :admin, @trip, appointment], class: 'btn btn-default btn-xs' %>
+                        <%= link_to 'Remover', [:admin, @trip, appointment.becomes(Appointment)], class: 'btn btn-danger btn-xs', method: :delete %>
                       </div>
                     </div>
                   </article>
@@ -70,7 +70,7 @@
 
                         <div class="btn-group">
                           <%= link_to 'Editar', edit_admin_trip_appointment_milestone_path(@trip, appointment, milestone), class: 'btn btn-default btn-xs' %>
-                          <%= link_to 'Remover', [:admin, @trip, appointment, milestone], class: 'btn btn-danger btn-xs', method: :delete %>
+                          <%= link_to 'Remover', [:admin, @trip, appointment.becomes(Appointment), milestone], class: 'btn btn-danger btn-xs', method: :delete %>
                         </div>
                       </div>
                     </div>

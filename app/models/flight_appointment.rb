@@ -1,7 +1,7 @@
 class FlightAppointment < Appointment
-  def self.model_name
-    Appointment.model_name
-  end
+  store_accessor :details, :gate, :flight_number
+
+  validates :company, :end_date, :flight_number, presence: true
 
   def medium
     'Voo'

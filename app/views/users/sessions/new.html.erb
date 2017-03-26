@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="login__logo">
+    <%= image_tag 'logo.png' %>
+  </div>
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form' }) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email, required: false, autofocus: true, placeholder: 'USUARIO', label: false %>
+      <%= f.input :password, required: false, placeholder: 'SENHA', label: false %>
+      <%= f.input :remember_me, as: :boolean, wrapper: :inline_checkbox if devise_mapping.rememberable? %>
+    </div>
+
+    <div class="form-actions">
+      <div class="form-group">
+        <%= f.button :submit, "Entrar" %>
+      </div>
+    </div>
+
+    <div class="login__explanations">
+      Com o trip organizer você tem acesso ao seu roteiro de viajem, suas informações e dicas úteis
+    </div>
+  <% end %>
+</div>

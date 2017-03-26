@@ -1,0 +1,10 @@
+<h1><%= flight_appointment.description %></h1>
+
+<div class="itinerary-details">
+  <div>Voo: <strong><%= flight_appointment.flight_number %></strong></div>
+  <% if flight_appointment.gate.present? %>
+    <div>Portão: <strong><%= flight_appointment.gate %></strong></div>
+  <% end %>
+  <div>Chegada: <strong><%= plane_arrival_date flight_appointment.scheduled_at, flight_appointment.end_date %></strong></div>
+</div>
+

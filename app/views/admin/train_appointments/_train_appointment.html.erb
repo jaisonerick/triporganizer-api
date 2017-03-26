@@ -1,0 +1,10 @@
+<h1><%= train_appointment.description %></h1>
+
+<div class="itinerary-details">
+  <div>Trem: <strong><%= train_appointment.company.name %> - <%= train_appointment.train_number %></strong></div>
+  <% if train_appointment.platform.present? %>
+    <div>Plataforma: <strong><%= train_appointment.platform %></strong></div>
+  <% end %>
+  <div>Chegada: <strong><%= plane_arrival_date train_appointment.scheduled_at, train_appointment.end_date %></strong></div>
+</div>
+

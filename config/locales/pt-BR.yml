@@ -21,7 +21,22 @@ pt-BR:
         other: Lugares
       company: Empresa
       event: Eventos
+      appointment: Evento
+      flight_appointment: Voo
+      train_appointment: Trem
     attributes:
+      flight_appointment:
+        scheduled_at: Partida
+        end_date: Chegada
+        company: Companhia Aérea
+        flight_number: Número do Voo
+        gate: Portão
+      train_appointment:
+        scheduled_at: Partida
+        end_date: Chegada
+        company: Empresa
+        train_number: Número do Trem
+        platform: Plataforma
       admin:
         name: Nome
       destination:
