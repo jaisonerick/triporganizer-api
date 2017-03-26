@@ -3,7 +3,6 @@ class FlightAppointment < Appointment
 
   validates :company, :from, :to, :end_date, :flight_number, presence: true
 
-
   def medium
     'Voo'
   end

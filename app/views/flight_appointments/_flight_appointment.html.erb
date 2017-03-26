@@ -6,5 +6,12 @@
     <div>Portão: <strong><%= flight_appointment.gate %></strong></div>
   <% end %>
   <div>Chegada: <strong><%= plane_arrival_date flight_appointment.scheduled_at, flight_appointment.end_date %></strong></div>
+  <% if flight_appointment.flight_ticket.seat.present? %>
+    <div>Poltrona: <strong><%= flight_appointment.flight_ticket.seat %></strong></div>
+  <% end %>
+
+  <% if flight_appointment.flight_ticket.details.present? %>
+    <div><strong><%= flight_appointment.flight_ticket.details %></strong></div>
+  <% end %>
 </div>
 

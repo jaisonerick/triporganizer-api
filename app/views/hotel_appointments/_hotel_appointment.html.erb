@@ -2,5 +2,13 @@
 
 <div class="itinerary-details">
   <div>End.: <strong><%= hotel_appointment.company.address %></strong></div>
+
+  <% if hotel_appointment.hotel_reservation.room.present? %>
+    <div>Quarto: <strong><%= hotel_appointment.hotel_reservation.room %></strong></div>
+  <% end %>
+
+  <% if hotel_appointment.hotel_reservation.notes.present? %>
+    <div><strong><%= hotel_appointment.hotel_reservation.notes %></strong></div>
+  <% end %>
 </div>
 
