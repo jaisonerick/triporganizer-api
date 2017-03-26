@@ -41,6 +41,7 @@
             <td><%= registration.user.name %></td>
             <td class="text-right">
               <div class="btn-group">
+                <%= link_to 'Editar', edit_admin_trip_registration_path(@trip, registration), class: 'btn btn-default' %>
                 <%= link_to 'Remover', admin_trip_registration_path(@trip, registration), method: :delete, class: 'btn btn-default' %>
               </div>
             </td>

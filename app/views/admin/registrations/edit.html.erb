@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right" role="group">
+        <%= link_to 'Voltar', admin_trip_registrations_path(@trip), class: 'btn btn-default', role: 'button' %>
+      </div>
+
+      <h1><%= link_to @trip.name, admin_trip_registrations_path(@trip) %> &gt; <%= @registration.user.name %> </h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= simple_form_for([:admin, @trip, @registration], html: { multipart: true }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+
+        <%= f.input :insurance %>
+        <%= f.hidden_field :insurance_cache %>
+        <% if f.object.insurance? %>
+          <strong>Arquivo Atual: <%= link_to(f.object.insurance_url, target: '_blank') %></strong>
+        <% end %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

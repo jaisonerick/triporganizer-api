@@ -1,4 +1,6 @@
 class Registration < ApplicationRecord
+  mount_uploader :insurance, PdfDocumentUploader
+
   belongs_to :trip
   belongs_to :user
 

@@ -36,7 +36,7 @@
     </div>
   <% end %>
 
-  <a href="" class="card card--document card--document-2">
+  <%= link_to insurance_trip_path(@trip), class: 'card card--document card--document-2' do %>
     <article class="card__header">
       <%= image_tag 'lugage.png' %>
     </article>
@@ -44,7 +44,7 @@
     <div class="card__body">
       Seguro de Viagem
     </div>
-  </a>
+  <% end %>
 
   <a href="" class="card card--document card--document-3">
     <article class="card__header">

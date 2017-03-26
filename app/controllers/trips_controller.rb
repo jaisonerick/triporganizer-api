@@ -1,5 +1,5 @@
 class TripsController < AuthenticatedController
-  before_action :set_trip, only: [:show, :passport, :update_passport]
+  before_action :set_trip, only: [:show, :passport, :insurance, :update_passport]
 
   def index
     @trips = current_user.trips.visible.nearest_order
@@ -12,6 +12,10 @@ class TripsController < AuthenticatedController
   end
 
   def passport
+  end
+
+  def insurance
+    @registration = @trip.registrations.find_by!(user: current_user)
   end
 
   def update_passport

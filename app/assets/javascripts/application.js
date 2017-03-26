@@ -24,4 +24,12 @@ $(function() {
       dark: '#333'
     }
   });
+
+  $('iframe').each(function() {
+    var winHeight = $(window).height(),
+      topBarHeight = $('.main-header').height(),
+      iframeHeight = winHeight - topBarHeight - 10;
+
+    $(this).css({height: iframeHeight});
+  });
 });

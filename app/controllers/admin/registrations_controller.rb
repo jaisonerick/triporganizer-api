@@ -1,6 +1,6 @@
 class Admin::RegistrationsController < ::Admin::ApplicationController
   before_action :set_trip
-  before_action :set_registration, only: [:show, :itinerary, :destroy]
+  before_action :set_registration, only: [:show, :edit, :update, :itinerary, :destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
@@ -36,6 +36,17 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @registration.update_attributes(registration_params)
+      redirect_to [:admin, @trip, :registrations]
+    else
+      render :edit
+    end
+  end
+
   # DELETE /hotels/1
   def destroy
     @registration.destroy
@@ -54,6 +65,6 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def registration_params
-      params.require(:registration).permit(:user_id)
+      params.require(:registration).permit(:user_id, :insurance)
     end
 end

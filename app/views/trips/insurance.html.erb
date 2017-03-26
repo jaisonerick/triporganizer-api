@@ -1,0 +1,19 @@
+<header class="main-header">
+  <div class="main-header__top-panel main-nav-bar">
+    <div class="main-nav-bar__back">
+      <%= link_to trip_documents_path(@trip) do %>
+        <%= image_tag 'back.png' %>
+      <% end %>
+    </div>
+
+    <h1 class="main-nav-bar__title">Meu Seguro Viagem</h1>
+  </div>
+</header>
+
+<div class="document-exibit">
+  <div class="document-exibit__document">
+    <% if @registration.insurance? %>
+      <iframe src="https://docs.google.com/gview?url=<%= @registration.insurance_url %>&embedded=true" frameborder="0"></iframe>
+    <% end %>
+  </div>
+</div>

@@ -369,11 +369,17 @@ $card-bg-color: #fff !default;
 }
 
 .document-exibit {
-  max-width: 500px;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 95px;
 
+  &.document-exibit--passport {
+    padding-bottom: 95px;
+  }
+
+  iframe {
+    width: 100%;
+    min-height: 100%;
+  }
 
   .update-passport {
     position: fixed;

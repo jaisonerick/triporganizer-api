@@ -32,13 +32,7 @@ Rails.application.routes.draw do
           resources :events
         end
 
-        resources :registrations, only: [:index, :show, :create, :destroy] do
-          resources :transits
-
-          member do
-            get :itinerary
-          end
-        end
+        resources :registrations, only: [:index, :edit, :update, :create, :destroy]
 
         resources :transports
       end
@@ -59,6 +53,8 @@ Rails.application.routes.draw do
     member do
       get 'passport'
       put 'passport', to: 'trips#update_passport'
+
+      get 'insurance'
     end
   end
 
