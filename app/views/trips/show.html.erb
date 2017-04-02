@@ -20,7 +20,7 @@
     <% end %>
 
     <%= link_to trip_documents_path(@trip), class: 'main-header__tab' do %>
-      Documentos
+      Na Palma da Mão
     <% end %>
   </div>
 </header>
@@ -34,7 +34,7 @@
 
       <div class="itinerary__day-contents">
         <% appointments.each do |appointment| %>
-          <article class="itinerary-item <%= appointment.milestones.size > 0 || appointment == appointments.last ? 'no-line' : '' %>">
+          <article class="itinerary-item <%= appointment.milestones.size > 0 || appointment == appointments.last ? 'no-line' : '' %> <%= appointment.scheduled_at > Time.zone.now ? 'itinerary-item--color-2' : '' %>">
             <div class="itinerary-item__when">
               <div class="title"><%= appointment.medium %></div>
               <div class="time"><%= l appointment.scheduled_at, format: :time %></div>

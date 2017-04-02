@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.adaptive-backgrounds
+//= require jquery.scrollTo.min
 //= require_tree ./application
 //= require_self
 
@@ -31,5 +32,9 @@ $(function() {
         iframeHeight = winHeight - offsetTop - 23;
 
     $(this).css({height: iframeHeight});
+  });
+
+  $('.itinerary-item.itinerary-item--color-2:first').parents('.itinerary__day').each(function() {
+    $(window).scrollTo($(this), 300);
   });
 });

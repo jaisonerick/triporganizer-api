@@ -80,10 +80,6 @@
   z-index: 1;
   min-height: 60px;
 
-  &.color-2-link {
-    border-left-color: #628BD7;
-  }
-
   &.last {
     border-left: 0px;
     padding-left: 54px;
@@ -128,6 +124,10 @@
 .itinerary-item--color-2 {
   .itinerary-item__icon {
     background: #628BD7;
+  }
+
+  .itinerary-item__content {
+    border-left-color: #628BD7;
   }
 }
 
