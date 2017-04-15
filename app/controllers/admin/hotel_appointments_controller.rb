@@ -50,6 +50,6 @@ class Admin::HotelAppointmentsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def appointment_params
-      params.require(:hotel_appointment).permit(:scheduled_at, :company_id)
+      params.require(:hotel_appointment).permit(:scheduled_at, :company_id, :end_date)
     end
 end

@@ -16,7 +16,7 @@
         <tr>
           <th>Passageiro</th>
           <th>Assento</th>
-          <th>Detalhes</th>
+          <th>Número de Confirmação</th>
           <th></th>
         </tr>
       </thead>
@@ -28,7 +28,7 @@
             <tr>
               <td><%= flight_ticket.registration.user.name %></td>
               <td><%= ticket_fields.input :seat, label: false %></td>
-              <td><%= ticket_fields.input :details, label: false %></td>
+              <td><%= ticket_fields.input :confirmation_number, label: false %></td>
             </tr>
           <% end %>
         <% end %>

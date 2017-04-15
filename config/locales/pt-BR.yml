@@ -35,7 +35,10 @@ pt-BR:
         end_date: Chegada
         company: Companhia Aérea
         flight_number: Número do Voo
-        gate: Portão
+        departure_gate: Portão - Partida
+        departure_platform: Plataforma - Partida
+        arrival_gate: Portão - Chegada
+        arrival_platform: Plataforma - Chegada
       train_appointment:
         scheduled_at: Partida
         end_date: Chegada
@@ -46,6 +49,7 @@ pt-BR:
         address: Endereço
       hotel_appointment:
         scheduled_at: Check-in
+        end_date: Check-out
         company: Hotel
       visit_appointment:
         scheduled_at: Inicio
@@ -341,6 +345,8 @@ pt-BR:
     formats:
       default: "%d de %B de %Y, %H:%M"
       long: "%d de %B de %Y, %H:%M"
+      date: "%d de %B"
+      medium: "%d de %b %H:%M"
       short: "%d/%m/%Y %H:%M"
       time: "%H:%M"
     pm: ''
@@ -355,3 +361,9 @@ pt-BR:
       different_years: "%{from_month} %{from_day}, %{from_year} %{sep} %{until_month} %{until_day}, %{until_year}"
       different_years: "%{from_day}/%{from_month}/%{from_year} %{sep} %{until_day}/%{until_month}/%{until_year}"
       same_month: "%{from_day} %{sep} %{until_day} de %{month}"
+
+
+  appointment:
+    stay_time:
+      one: 1 noite
+      other: "%{count} noites"

@@ -1,5 +1,8 @@
 class FlightAppointment < Appointment
-  store_accessor :details, :gate, :flight_number, :from, :to
+  store_accessor :details,
+                 :arrival_gate, :arrival_platform,
+                 :departure_gate, :departure_platform,
+                 :flight_number, :from, :to
 
   validates :company, :from, :to, :end_date, :flight_number, presence: true
 

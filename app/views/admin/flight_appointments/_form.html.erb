@@ -2,13 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :company %>
+    <%= f.association :company, collection: Company.airline %>
     <%= f.input :from %>
     <%= f.input :to %>
     <%= f.input :scheduled_at %>
     <%= f.input :end_date %>
     <%= f.input :flight_number %>
-    <%= f.input :gate %>
+    <%= f.input :departure_gate %>
+    <%= f.input :departure_platform %>
+
+    <%= f.input :arrival_gate %>
+    <%= f.input :arrival_platform %>
   </div>
 
   <div class="form-actions">

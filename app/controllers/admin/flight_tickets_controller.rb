@@ -21,6 +21,6 @@ class Admin::FlightTicketsController < ::Admin::ApplicationController
     end
 
     def flight_appointment_params
-      params.require(:flight_appointment).permit(flight_tickets_attributes: [:id, :seat, :details])
+      params.require(:flight_appointment).permit(flight_tickets_attributes: [:id, :seat, :details, :confirmation_number])
     end
 end

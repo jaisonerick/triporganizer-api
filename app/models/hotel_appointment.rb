@@ -1,5 +1,5 @@
 class HotelAppointment < Appointment
-  validates :company, presence: true
+  validates :company, :end_date, presence: true
 
   def medium
     'HOTEL'

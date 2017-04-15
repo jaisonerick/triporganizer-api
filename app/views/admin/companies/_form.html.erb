@@ -1,12 +1,28 @@
 <%= simple_form_for([:admin, @company]) do |f| %>
   <%= f.error_notification %>
 
+  <%= f.input :latitude, as: :hidden, input_html: { class: 'places-latitude' } %>
+  <%= f.input :longitude, as: :hidden, input_html: { class: 'places-longitude' } %>
+
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :phone %>
-    <%= f.input :company_type, collection: { 'Transporte Rodoviário' => :bus, 'Transporte Férreo' => :train, 'Transporte Fluvial' => :boat, 'Outros' => :other } %>
+    <%= f.input :name, input_html: { class: 'places-name' } %>
+
+    <%= f.input :company_type, collection: {
+      'Transporte Rodoviário' => :bus,
+      'Transporte Férreo' => :train,
+      'Transporte Fluvial' => :boat,
+      'Transporte Aéreo' => :airline,
+      'Hotel' => :hotel,
+      'Local' => :place,
+      'Outros' => :other
+    }, input_html: { class: 'company-type-select' } %>
+
+    <div class="company-location">
+      <%= f.input :place, as: :place %>
+    </div>
+
+    <%= f.input :address, input_html: { class: 'places-address' } %>
+    <%= f.input :phone, input_html: { class: 'places-phone' } %>
   </div>
 
   <div class="form-actions">

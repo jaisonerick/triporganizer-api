@@ -1,11 +1,29 @@
 function googleMapsLoaded() {
+  var map = null;
+  var marker = null;
+
+  $('.places-map').on('maps:reload', function() {
+    var latitude = Number($('.places-latitude').val() || -27.5953778);
+    var longitude = Number($('.places-longitude').val() || -48.5480499);
+
+    map = new google.maps.Map($(this).get(0), {
+      center: {lat: latitude, lng: longitude},
+      zoom: 15
+    });
+
+    marker = new google.maps.Marker({
+      position: {lat: latitude, lng: longitude},
+    });
+
+    marker.setMap(map);
+  });
+
+
   $('.places-autocomplete').each(function() {
     var input = $(this).get(0);
     var mapDiv = $('.places-map').get(0);
-    var map = null;
     var latitude = Number($('.places-latitude').val() || -27.5953778);
     var longitude = Number($('.places-longitude').val() || -48.5480499);
-    var marker = null;
     if(mapDiv) {
       map = new google.maps.Map(mapDiv, {
         center: {lat: latitude, lng: longitude},
@@ -35,6 +53,7 @@ function googleMapsLoaded() {
       if(place.geometry.viewport) {
         console.log("viewport", place.geometry.viewport);
       }
+
       //
       console.log("location", place.geometry.location);
       // console.log("icon", place.icon);
@@ -60,15 +79,10 @@ function googleMapsLoaded() {
 
       $(input).val(place.name);
 
-      var address = '';
-      if (place.address_components) {
-        address = [
-          (place.address_components[0] && place.address_components[0].short_name || ''),
-          (place.address_components[1] && place.address_components[1].short_name || ''),
-          (place.address_components[2] && place.address_components[2].short_name || '')
-        ].join(' ');
-      }
-      $('.places-address').val(address);
+      $('.places-address').val(place.formatted_address);
+      $('.places-phone').val(place.formatted_phone_number);
+      $('.places-name').val(place.name);
+
       if(place.photos && place.photos.length > 0) {
         var image = place.photos[Math.floor(Math.random()*place.photos.length)].getUrl({ maxWidth: 1920 });
         $('.places-image-form').val(image);
@@ -84,8 +98,6 @@ function googleMapsLoaded() {
       //     '</a>' +
       //   '</div>');
       // });
-
-      console.log("address", address);
 
     });
   });

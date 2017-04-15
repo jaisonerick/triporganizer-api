@@ -16,7 +16,7 @@
         <tr>
           <th>Passageiro</th>
           <th>Quarto</th>
-          <th>Notas</th>
+          <th>Código de Confirmação</th>
           <th></th>
         </tr>
       </thead>
@@ -28,7 +28,7 @@
             <tr>
               <td><%= hotel_reservation.registration.user.name %></td>
               <td><%= reservation_fields.input :room, label: false %></td>
-              <td><%= reservation_fields.input :notes, label: false %></td>
+              <td><%= reservation_fields.input :confirmation_code, label: false %></td>
             </tr>
           <% end %>
         <% end %>

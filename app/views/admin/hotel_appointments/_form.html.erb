@@ -2,8 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :company %>
+    <%= f.association :company, collection: Company.hotel %>
     <%= f.input :scheduled_at %>
+    <%= f.input :end_date %>
   </div>
 
   <div class="form-actions">

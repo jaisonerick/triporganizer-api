@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :company %>
+    <%= f.association :company, collection: Company.place %>
     <%= f.input :scheduled_at %>
     <%= f.input :description %>
   </div>

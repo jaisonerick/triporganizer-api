@@ -53,6 +53,7 @@ class Admin::CompaniesController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def company_params
-      params.require(:company).permit(:name, :description, :address, :phone, :company_type)
+      params.require(:company).permit(:name, :description, :address, :phone, :company_type,
+                                      :latitude, :longitude, :place)
     end
 end

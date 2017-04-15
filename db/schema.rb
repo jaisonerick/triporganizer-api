@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414203331) do
+ActiveRecord::Schema.define(version: 20170415202455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,12 @@ ActiveRecord::Schema.define(version: 20170414203331) do
     t.string   "address"
     t.string   "phone"
     t.integer  "company_type"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "google_places_id"
+    t.string   "picture_url"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -109,9 +113,10 @@ ActiveRecord::Schema.define(version: 20170414203331) do
     t.integer  "appointment_id"
     t.string   "seat"
     t.text     "details"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "registration_id"
+    t.string   "confirmation_number"
     t.index ["appointment_id"], name: "index_flight_tickets_on_appointment_id", using: :btree
     t.index ["registration_id"], name: "index_flight_tickets_on_registration_id", using: :btree
   end
@@ -120,10 +125,11 @@ ActiveRecord::Schema.define(version: 20170414203331) do
     t.integer  "registration_id"
     t.string   "room"
     t.text     "notes"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "destination_id"
     t.integer  "appointment_id"
+    t.string   "confirmation_code"
     t.index ["appointment_id"], name: "index_hotel_reservations_on_appointment_id", using: :btree
     t.index ["destination_id"], name: "index_hotel_reservations_on_destination_id", using: :btree
     t.index ["registration_id"], name: "index_hotel_reservations_on_registration_id", using: :btree
