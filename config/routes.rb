@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
 
+  namespace :api, defaults: { format: :json } do
+    resource :session, only: [:create]
+    resource :user, only: [:show]
+    resources :trips
+  end
+
   namespace :admin do
     authenticated :admin do
       root to: "trips#index"
