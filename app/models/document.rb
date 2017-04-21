@@ -2,7 +2,7 @@ class Document
   attr_accessor :key, :title, :type, :url, :display_type, :uploadable, :trip_id
 
   def self.get_all(user)
-    trips = user.trips.visible
+    trips = user.trips.include(:flight_appointments).visible
     registrations = Registration.where(user: user, trip_id: trips.map(&:id)).map { |registration| [registration.trip_id, registration] }.to_h
 
     documents = []
