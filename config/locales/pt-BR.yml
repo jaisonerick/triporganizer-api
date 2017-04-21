@@ -349,6 +349,7 @@ pt-BR:
       medium: "%d de %b %H:%M"
       short: "%d/%m/%Y %H:%M"
       time: "%H:%M"
+      simple_date: "%d/%m"
     pm: ''
 
   date_range:

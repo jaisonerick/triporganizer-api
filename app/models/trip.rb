@@ -14,4 +14,8 @@ class Trip < ApplicationRecord
   validates :name, :starts_at, :ends_at, :image, :description, presence: true
 
   attr_accessor :place
+
+  def documents(current_user)
+    @documents ||= Document.get_all(self, current_user)
+  end
 end

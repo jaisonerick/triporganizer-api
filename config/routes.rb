@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create]
     resource :user, only: [:show]
     resources :trips, only: :index
-    resources :documents, only: :index
   end
 
   namespace :admin do

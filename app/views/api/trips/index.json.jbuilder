@@ -1,9 +1,18 @@
-json.array! @trips do |(trip, trip_dates)|
+json.array! @trips do |(trip, trip_documents, trip_dates)|
   json.id trip.id
   json.name trip.name
   json.dates date_range(trip.starts_at, trip.ends_at)
   json.description trip.description
   json.image trip.image
+
+  json.documents trip_documents do |document|
+    json.key document.key
+    json.type document.type
+    json.title document.title
+    json.url document.url
+    json.display_type document.display_type
+    json.uploadable document.uploadable
+  end
 
   json.trip_dates trip_dates do |date, appointments|
     json.date l(date, format: :long)
@@ -15,6 +24,7 @@ json.array! @trips do |(trip, trip_dates)|
       json.medium appointment.medium
       json.medium_image image_url(appointment.medium_image)
       json.time l(appointment.scheduled_at, format: :time)
+      json.date l(appointment.scheduled_at, format: :simple_date)
 
       json.type appointment.type
 

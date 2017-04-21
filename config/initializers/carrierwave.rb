@@ -1,6 +1,7 @@
 CarrierWave.configure do |config|
   if Rails.env.development? || Rails.env.test?
     config.storage = :file
+    config.asset_host = ActionController::Base.asset_host
   else
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
