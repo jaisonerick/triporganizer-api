@@ -59,6 +59,10 @@
                           <%= link_to 'Reservas', [:hotel_reservations, :admin, @trip, appointment], class: 'btn btn-default btn-xs' %>
                         <% end %>
 
+                        <% if appointment.type == 'TrainAppointment' %>
+                          <%= link_to 'Passagens', [:train_tickets, :admin, @trip, appointment], class: 'btn btn-default btn-xs' %>
+                        <% end %>
+
                         <%= link_to 'Editar', [:edit, :admin, @trip, appointment], class: 'btn btn-default btn-xs' %>
                         <%= link_to 'Remover', [:admin, @trip, appointment.becomes(Appointment)], class: 'btn btn-danger btn-xs', method: :delete %>
                       </div>

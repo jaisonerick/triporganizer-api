@@ -43,7 +43,7 @@ pt-BR:
         scheduled_at: Partida
         end_date: Chegada
         company: Empresa
-        line: Linha
+        ticket: Ticket
         from: Origem
         to: Destino
         address: Endereço

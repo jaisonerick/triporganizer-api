@@ -6,6 +6,7 @@ class Trip < ApplicationRecord
   has_many :transports
   has_many :appointments
   has_many :flight_appointments
+  has_many :train_appointments
   has_many :hotel_appointments
 
   scope :visible, -> { where('ends_at >= ?', Time.zone.now) }

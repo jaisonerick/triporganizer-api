@@ -21,7 +21,12 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :train_appointments
+        resources :train_appointments do
+          member do
+            get 'train_tickets', to: 'train_tickets#index'
+            put 'train_tickets', to: 'train_tickets#update'
+          end
+        end
         resources :hotel_appointments do
           member do
             get 'hotel_reservations', to: 'hotel_reservations#index'

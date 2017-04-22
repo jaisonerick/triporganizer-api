@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415202455) do
+ActiveRecord::Schema.define(version: 20170422132925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170415202455) do
     t.decimal  "longitude"
     t.string   "google_places_id"
     t.string   "picture_url"
+    t.string   "site"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -181,6 +182,15 @@ ActiveRecord::Schema.define(version: 20170415202455) do
     t.index ["user_id"], name: "index_registrations_on_user_id", using: :btree
   end
 
+  create_table "train_tickets", force: :cascade do |t|
+    t.integer "appointment_id"
+    t.integer "registration_id"
+    t.text    "details"
+    t.string  "ticket"
+    t.index ["appointment_id"], name: "index_train_tickets_on_appointment_id", using: :btree
+    t.index ["registration_id"], name: "index_train_tickets_on_registration_id", using: :btree
+  end
+
   create_table "transits", force: :cascade do |t|
     t.integer  "registration_id"
     t.integer  "transport_id"
@@ -258,6 +268,8 @@ ActiveRecord::Schema.define(version: 20170415202455) do
   add_foreign_key "milestones", "appointments"
   add_foreign_key "registrations", "trips"
   add_foreign_key "registrations", "users"
+  add_foreign_key "train_tickets", "appointments"
+  add_foreign_key "train_tickets", "registrations"
   add_foreign_key "transits", "registrations"
   add_foreign_key "transits", "transports"
   add_foreign_key "transports", "companies"

@@ -26,6 +26,10 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
         @registration.flight_tickets.create(appointment: appointment)
       end
 
+      @trip.train_appointments.each do |appointment|
+        @registration.train_tickets.create(appointment: appointment)
+      end
+
       @trip.hotel_appointments.each do |appointment|
         @registration.hotel_reservations.create(appointment: appointment)
       end

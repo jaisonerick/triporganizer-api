@@ -82,6 +82,7 @@ function googleMapsLoaded() {
       $('.places-address').val(place.formatted_address);
       $('.places-phone').val(place.formatted_phone_number);
       $('.places-name').val(place.name);
+      $('.places-site').val(place.site);
 
       if(place.photos && place.photos.length > 0) {
         var image = place.photos[Math.floor(Math.random()*place.photos.length)].getUrl({ maxWidth: 1920 });

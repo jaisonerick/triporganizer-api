@@ -1,7 +1,7 @@
 class TrainAppointment < Appointment
-  store_accessor :details, :line, :from, :to, :address
+  store_accessor :details, :line, :from, :to, :address, :info
 
-  validates :company, :end_date, :line, :from, :to, :address, presence: true
+  validates :company, :end_date, :from, :to, presence: true
 
   def medium
     'Trem'

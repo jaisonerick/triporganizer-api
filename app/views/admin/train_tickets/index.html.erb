@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to 'Voltar', [:admin, @trip], class: 'btn btn-default pull-right' %>
+
+      <h1>Passagens de Trem <small><%= @appointment.from %> - <%= @appointment.to %></small></h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= simple_form_for([:train_tickets, :admin, @trip, @appointment], method: :put) do |f| %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Passageiro</th>
+          <th>Ticket</th>
+          <th>Informações</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @train_tickets.each do |train_ticket| %>
+          <%= f.simple_fields_for "train_tickets_attributes[]", train_ticket do |ticket_fields| %>
+            <%= ticket_fields.input :id, as: :hidden %>
+            <tr>
+              <td><%= train_ticket.registration.user.name %></td>
+              <td><%= ticket_fields.input :ticket, label: false %></td>
+              <td><%= ticket_fields.input :details, label: false %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+  </div>
+</div>

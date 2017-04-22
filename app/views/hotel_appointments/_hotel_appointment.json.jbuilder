@@ -9,3 +9,4 @@ json.phone appointment.company.phone
 json.room appointment.hotel_reservation.room
 json.notes appointment.hotel_reservation.notes
 json.confirmation_code appointment.hotel_reservation.confirmation_code
+json.site appointment.company.site
