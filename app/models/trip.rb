@@ -1,4 +1,6 @@
 class Trip < ApplicationRecord
+  mount_uploader :promo, PdfDocumentUploader
+
   has_many :destinations
   has_many :hotels, through: :destinations
   has_many :registrations
@@ -10,6 +12,8 @@ class Trip < ApplicationRecord
   has_many :hotel_appointments
 
   scope :visible, -> { where('ends_at >= ?', Time.zone.now) }
+  scope :upcoming, -> { where('starts_at >= ?', Time.zone.now) }
+
   scope :nearest_order, -> { order(starts_at: :asc) }
 
   validates :name, :starts_at, :ends_at, :image, :description, presence: true

@@ -1,4 +1,14 @@
-json.array! @trips do |(trip, trip_documents, trip_dates)|
+json.upcoming @upcoming do |trip|
+  json.id trip.id
+  json.upcoming true
+  json.name trip.name
+  json.dates date_range(trip.starts_at, trip.ends_at)
+  json.description trip.description
+  json.image trip.image
+  json.promo trip.promo_url
+end
+
+json.trips @trips do |(trip, trip_documents, trip_dates)|
   json.id trip.id
   json.name trip.name
   json.dates date_range(trip.starts_at, trip.ends_at)

@@ -1,4 +1,4 @@
-<%= simple_form_for([:admin, @trip]) do |f| %>
+<%= simple_form_for([:admin, @trip], html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
 
@@ -16,6 +16,12 @@
       </div>
     </div>
     <%= f.input :image, as: :hidden, input_html: { class: 'places-image-form' } %>
+
+    <%= f.input :promo %>
+    <%= f.hidden_field :promo_cache %>
+    <% if f.object.promo? %>
+      <strong>Promo Atual: <%= link_to(f.object.promo_url, target: '_blank') %></strong>
+    <% end %>
   </div>
 
   <div class="form-actions">
