@@ -6,6 +6,12 @@ json.upcoming @upcoming do |trip|
   json.description trip.description
   json.image trip.image
   json.promo trip.promo_url
+
+  json.sponsors trip.sponsors do |sponsor|
+    json.id sponsor.id
+    json.name sponsor.name
+    json.image sponsor.image_url
+  end
 end
 
 json.trips @trips do |(trip, trip_documents, trip_dates)|
@@ -14,6 +20,12 @@ json.trips @trips do |(trip, trip_documents, trip_dates)|
   json.dates date_range(trip.starts_at, trip.ends_at)
   json.description trip.description
   json.image trip.image
+
+  json.sponsors trip.sponsors do |sponsor|
+    json.id sponsor.id
+    json.name sponsor.name
+    json.image sponsor.image_url
+  end
 
   json.documents trip_documents do |document|
     json.key document.key

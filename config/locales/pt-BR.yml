@@ -27,6 +27,9 @@ pt-BR:
       hotel_appointment: Hospedagem
       visit_appointment: Visita Técnica
       milestone: Tópico
+      sponsor:
+        one: Patrocinador
+        other: Patrocinadores
     attributes:
       flight_appointment:
         from: Origem
@@ -129,6 +132,9 @@ pt-BR:
         ends_at: Fim
         event_type: Tipo
         company: Empresa
+      sponsor:
+        name: Nome
+        image: Imagem
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

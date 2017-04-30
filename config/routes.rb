@@ -46,6 +46,7 @@ Rails.application.routes.draw do
         resources :registrations, only: [:index, :edit, :update, :create, :destroy]
 
         resources :transports
+        resources :sponsors, except: :show
       end
 
       resources :users

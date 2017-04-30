@@ -10,6 +10,7 @@ class Trip < ApplicationRecord
   has_many :flight_appointments
   has_many :train_appointments
   has_many :hotel_appointments
+  has_many :sponsors
 
   scope :visible, -> { where('ends_at >= ?', Time.zone.now) }
   scope :upcoming, -> { where('starts_at >= ?', Time.zone.now) }

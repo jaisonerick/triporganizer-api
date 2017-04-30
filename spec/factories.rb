@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :sponsor do
+    name "MyString"
+    image "MyString"
+    trip nil
+  end
   factory :hotel_reservation do
     registration nil
     appointment nil
