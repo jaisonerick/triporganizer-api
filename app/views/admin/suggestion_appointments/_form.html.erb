@@ -1,0 +1,15 @@
+<%= simple_form_for([:admin, @trip, @appointment]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.association :company, collection: Company.place %>
+    <%= f.input :description %>
+    <%= f.input :scheduled_at %>
+    <%= f.input :period, collection: { 'Manhã' => :morning, 'Tarde' => :afternoon, 'Noite' => :night } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

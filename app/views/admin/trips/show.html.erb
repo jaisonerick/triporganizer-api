@@ -43,7 +43,7 @@
                   <article class="itinerary-item no-line">
                     <div class="itinerary-item__when">
                       <div class="title"><%= appointment.medium %></div>
-                      <div class="time"><%= l appointment.scheduled_at, format: :time %></div>
+                      <div class="time"><%= appointment.formatted_time %></div>
                     </div>
 
                     <div class="itinerary-item__icon">

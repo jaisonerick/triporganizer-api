@@ -45,7 +45,7 @@ json.trips @trips do |(trip, trip_documents, trip_dates)|
       json.upcoming(appointment.scheduled_at > Time.zone.now)
       json.medium appointment.medium
       json.medium_image image_url(appointment.medium_image)
-      json.time l(appointment.scheduled_at, format: :time)
+      json.time appointment.formatted_time
       json.date l(appointment.scheduled_at, format: :simple_date)
 
       json.type appointment.type

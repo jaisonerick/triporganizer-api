@@ -21,6 +21,9 @@ Rails.application.routes.draw do
           end
         end
 
+        resources :suggestion_appointments
+        resources :bus_appointments
+
         resources :train_appointments do
           member do
             get 'train_tickets', to: 'train_tickets#index'

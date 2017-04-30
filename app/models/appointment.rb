@@ -22,4 +22,8 @@ class Appointment < ApplicationRecord
     self.train_ticket = train_tickets.select { |ticket| ticket.registration.user == passenger }.first.presence || TrainTicket.new
     self.hotel_reservation = hotel_reservations.select { |reservation| reservation.registration.user == passenger }.first.presence || HotelReservation.new
   end
+
+  def formatted_time
+    I18n.l(scheduled_at, format: :time)
+  end
 end

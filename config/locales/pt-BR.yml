@@ -23,9 +23,11 @@ pt-BR:
       event: Eventos
       appointment: Evento
       flight_appointment: Voo
+      suggestion_appointment: Sugestão
       train_appointment: Trem
       hotel_appointment: Hospedagem
       visit_appointment: Visita Técnica
+      bus_appointment: Ônibus
       milestone: Tópico
       sponsor:
         one: Patrocinador
@@ -50,6 +52,14 @@ pt-BR:
         from: Origem
         to: Destino
         address: Endereço
+      bus_appointment:
+        scheduled_at: Partida
+        end_date: Chegada
+        company: Empresa
+        from: Origem
+        to: Destino
+        description: Detalhes
+        name: Titulo
       hotel_appointment:
         scheduled_at: Check-in
         end_date: Check-out
@@ -58,6 +68,11 @@ pt-BR:
         scheduled_at: Inicio
         company: Local
         description: Detalhes
+      suggestion_appointment:
+        name: Nome
+        scheduled_at: Data
+        company: Local
+        period: Periodo
       milestone:
         description: Descrição
         order: Ordem
