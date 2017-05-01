@@ -9,7 +9,7 @@ class Document
                                 title: 'Passaporte',
                                 type: :passport,
                                 url: user.passport_url,
-                                display_type: :image,
+                                display_type: :document,
                                 uploadable: true))
 
     if registration.insurance?
