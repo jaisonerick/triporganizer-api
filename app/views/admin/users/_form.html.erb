@@ -9,7 +9,7 @@
     <%= f.input :passport %>
     <%= f.hidden_field :passport_cache %>
     <% if f.object.passport? %>
-      <strong>Arquivo Atual: <%= link_to(f.object.passport_url, target: '_blank') %></strong>
+      <strong>Arquivo Atual: <%= link_to(f.object.passport_url, f.object.passport_url, target: '_blank') %></strong>
     <% end %>
   </div>
 
