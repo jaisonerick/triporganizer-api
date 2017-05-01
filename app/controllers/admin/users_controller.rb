@@ -6,10 +6,6 @@ class Admin::UsersController < ::Admin::ApplicationController
     @admin_users = User.all
   end
 
-  # GET /admin/users/1
-  def show
-  end
-
   # GET /admin/users/new
   def new
     @admin_user = User.new
@@ -27,7 +23,7 @@ class Admin::UsersController < ::Admin::ApplicationController
     if @admin_user.save
       @admin_user.send_reset_password_instructions
 
-      redirect_to [:admin, @admin_user], notice: 'Cliente criado com sucesso.'
+      redirect_to admin_users_path, notice: 'Cliente criado com sucesso.'
     else
       render :new
     end
@@ -36,7 +32,7 @@ class Admin::UsersController < ::Admin::ApplicationController
   # PATCH/PUT /admin/users/1
   def update
     if @admin_user.update(admin_user_params)
-      redirect_to [:admin, @admin_user], notice: 'Cliente atualizado com sucesso.'
+      redirect_to admin_users_path, notice: 'Cliente criado com sucesso.'
     else
       render :edit
     end

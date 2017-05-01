@@ -8,6 +8,6 @@ class PdfDocumentUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{DateTime.current.to_i}_#{original_filename}" if original_filename
+    "#{model.id}.pdf"
   end
 end

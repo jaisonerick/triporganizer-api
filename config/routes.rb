@@ -52,7 +52,7 @@ Rails.application.routes.draw do
         resources :sponsors, except: :show
       end
 
-      resources :users
+      resources :users, except: :show
       resources :admins
       resources :companies
       resources :hotels
