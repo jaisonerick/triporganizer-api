@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430125745) do
+ActiveRecord::Schema.define(version: 20170501140425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 20170430125745) do
     t.text     "description"
     t.datetime "scheduled_at"
     t.jsonb    "details"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "company_id"
     t.datetime "end_date"
+    t.string   "origin_time_zone"
+    t.string   "destination_time_zone"
     t.index ["company_id"], name: "index_appointments_on_company_id", using: :btree
     t.index ["trip_id"], name: "index_appointments_on_trip_id", using: :btree
   end
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170430125745) do
     t.string   "google_places_id"
     t.string   "picture_url"
     t.string   "site"
+    t.string   "time_zone"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -232,10 +235,11 @@ ActiveRecord::Schema.define(version: 20170430125745) do
     t.string   "description"
     t.date     "starts_at"
     t.date     "ends_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "image"
     t.string   "promo"
+    t.string   "default_time_zone"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,10 +3,29 @@
 
   <div class="form-inputs">
     <%= f.association :company, collection: Company.airline %>
-    <%= f.input :from %>
-    <%= f.input :to %>
-    <%= f.input :scheduled_at %>
-    <%= f.input :end_date %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :from %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :origin_time_zone %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :to %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :destination_time_zone %>
+      </div>
+    </div>
+    <% Time.use_zone(f.object.origin_time_zone) do %>
+      <%= f.input :scheduled_at %>
+    <% end %>
+
+    <% Time.use_zone(f.object.destination_time_zone) do %>
+      <%= f.input :end_date %>
+    <% end %>
     <%= f.input :flight_number %>
     <%= f.input :departure_gate %>
     <%= f.input :departure_platform %>

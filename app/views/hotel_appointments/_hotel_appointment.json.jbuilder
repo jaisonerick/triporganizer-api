@@ -1,6 +1,6 @@
 json.name appointment.company.name
-json.checkout_at l(appointment.end_date, format: :date)
-json.checkin_at l(appointment.scheduled_at, format: :date)
+json.checkout_at l(appointment.end_date_local_time, format: :date)
+json.checkin_at l(appointment.scheduled_at_local_time, format: :date)
 json.stay_time t('appointment.stay_time', count: (appointment.end_date.to_date - appointment.scheduled_at.to_date).to_i)
 json.latitude appointment.company.latitude.to_f
 json.longitude appointment.company.longitude.to_f

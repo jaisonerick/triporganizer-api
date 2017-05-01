@@ -4,7 +4,7 @@ class Company < ApplicationRecord
   enum company_type: [:other, :bus, :train, :boat,
                       :airline, :hotel, :place]
 
-  validates :name, presence: true
+  validates :name, :time_zone, presence: true
 
   attr_accessor :place
 end

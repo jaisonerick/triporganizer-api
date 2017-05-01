@@ -2,6 +2,6 @@
 
 <div class="itinerary-details">
   <div>Voo: <strong><%= flight_appointment.flight_number %></strong></div>
-  <div>Chegada: <strong><%= plane_arrival_date flight_appointment.scheduled_at, flight_appointment.end_date %></strong></div>
+  <div>Chegada: <strong><%= plane_arrival_date flight_appointment.scheduled_at_local_time, flight_appointment.end_date_local_time %></strong></div>
 </div>
 

@@ -18,6 +18,8 @@ json.trips @trips do |(trip, trip_documents, trip_dates)|
   json.id trip.id
   json.name trip.name
   json.dates date_range(trip.starts_at, trip.ends_at)
+  json.date_start trip.starts_at.iso8601
+  json.date_end trip.ends_at.iso8601
   json.description trip.description
   json.image trip.image
 
@@ -42,11 +44,14 @@ json.trips @trips do |(trip, trip_documents, trip_dates)|
     json.appointments appointments do |appointment|
       json.id appointment.id
       json.last(appointment.milestones.size == 0 && appointment == appointments.last)
-      json.upcoming(appointment.scheduled_at > Time.zone.now)
+
       json.medium appointment.medium
       json.medium_image image_url(appointment.medium_image)
       json.time appointment.formatted_time
-      json.date l(appointment.scheduled_at, format: :simple_date)
+      json.date l(appointment.scheduled_at_local_time, format: :simple_date)
+
+      json.datetime appointment.scheduled_at.iso8601
+      json.time_zone appointment.iso_time_zone
 
       json.type appointment.type
 

@@ -35,7 +35,9 @@ pt-BR:
     attributes:
       flight_appointment:
         from: Origem
+        origin_time_zone: Timezone da Origem
         to: Destino
+        destination_time_zone: Timezone do Destino
         scheduled_at: Partida
         end_date: Chegada
         company: Companhia Aérea
@@ -50,14 +52,18 @@ pt-BR:
         company: Empresa
         ticket: Ticket
         from: Origem
+        origin_time_zone: Timezone da Origem
         to: Destino
+        destination_time_zone: Timezone do Destino
         address: Endereço
       bus_appointment:
         scheduled_at: Partida
         end_date: Chegada
         company: Empresa
         from: Origem
+        origin_time_zone: Timezone da Origem
         to: Destino
+        destination_time_zone: Timezone do Destino
         description: Detalhes
         name: Titulo
       hotel_appointment:
@@ -106,6 +112,7 @@ pt-BR:
         starts_at: Partida
         ends_at: Retorno
         place: Procure um lugar para a imagem
+        default_time_zone: TimeZone Padrão
       user:
         name: Nome
         picture_url: Foto

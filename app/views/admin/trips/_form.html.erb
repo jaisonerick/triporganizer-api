@@ -10,6 +10,7 @@
       <div class="col-md-6">
         <%= f.input :starts_at %>
         <%= f.input :ends_at %>
+        <%= f.input :default_time_zone %>
       </div>
       <div class="col-md-6">
         <%= image_tag(@trip.image.presence || 'no_image.png' , class: 'img-responsive places-image-tag') %>

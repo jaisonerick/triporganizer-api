@@ -5,10 +5,30 @@
     <%= f.association :company, collection: Company.bus %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :scheduled_at %>
-    <%= f.input :end_date %>
-    <%= f.input :from %>
-    <%= f.input :to %>
+    <% Time.use_zone(f.object.origin_time_zone) do %>
+      <%= f.input :scheduled_at %>
+    <% end %>
+
+    <% Time.use_zone(f.object.destination_time_zone) do %>
+      <%= f.input :end_date %>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :from %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :origin_time_zone %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :to %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :destination_time_zone %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">

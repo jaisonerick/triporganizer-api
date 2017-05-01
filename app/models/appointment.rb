@@ -17,6 +17,26 @@ class Appointment < ApplicationRecord
 
   attr_accessor :flight_ticket, :train_ticket, :hotel_reservation
 
+  before_validation :fix_time_zone
+
+  after_initialize :init
+
+  def init
+    self.origin_time_zone ||= trip.try(:default_time_zone)
+    self.destination_time_zone ||= trip.try(:default_time_zone)
+  end
+
+  def fix_time_zone
+    if scheduled_at? && time_zone.present?
+      self.scheduled_at = ActiveSupport::TimeZone.new(time_zone).local_to_utc(scheduled_at)
+    end
+
+    if end_date? && time_zone.present?
+      self.end_date = ActiveSupport::TimeZone.new(time_zone).local_to_utc(end_date)
+    end
+  end
+
+
   def passenger=(passenger)
     self.flight_ticket = flight_tickets.select { |ticket| ticket.registration.user == passenger }.first.presence || FlightTicket.new
     self.train_ticket = train_tickets.select { |ticket| ticket.registration.user == passenger }.first.presence || TrainTicket.new
@@ -24,6 +44,22 @@ class Appointment < ApplicationRecord
   end
 
   def formatted_time
-    I18n.l(scheduled_at, format: :time)
+    I18n.l(scheduled_at_local_time, format: :time)
+  end
+
+  def scheduled_at_local_time
+    Time.use_zone(time_zone) { scheduled_at }
+  end
+
+  def end_date_local_time
+    Time.use_zone(time_zone) { end_date }
+  end
+
+  def iso_time_zone
+    ActiveSupport::TimeZone::MAPPING[company.time_zone]
+  end
+
+  def time_zone
+    company.time_zone
   end
 end
