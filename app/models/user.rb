@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mount_uploader :passport, DocumentUploader
+  mount_uploader :passport, PdfDocumentUploader
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :trips, through: :registrations
   has_many :registrations
 
-  validates :name, presence: true
+  validates :name, :email, :password, presence: true
 
   def generate_auth_token
     token = SecureRandom.hex

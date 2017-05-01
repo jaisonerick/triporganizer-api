@@ -14,4 +14,4 @@ json.seat appointment.flight_ticket.seat
 json.details appointment.flight_ticket.details
 json.confirmation_number appointment.flight_ticket.confirmation_number
 
-
+json.duration duration_time(appointment.scheduled_at, appointment.end_date)

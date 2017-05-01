@@ -52,4 +52,12 @@ module PeriodsHelper
       return I18n.l(arrival, format: :time)
     end
   end
+
+  def duration_time(from, to)
+    total_seconds = to - from
+    mins = (total_seconds / 60) % 60
+    hours = total_seconds / 3600
+
+    hours > 0 ? format("%1dh %1dmin", hours, mins) : format("%1dmin", mins)
+  end
 end
