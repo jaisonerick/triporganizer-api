@@ -16,7 +16,7 @@ class TrainAppointment < Appointment
   end
 
   def end_date_local_time
-    Time.use_zone(destination_time_zone) { end_date }
+    end_date.in_time_zone(destination_time_zone)
   end
 
   def time_zone

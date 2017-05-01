@@ -48,11 +48,11 @@ class Appointment < ApplicationRecord
   end
 
   def scheduled_at_local_time
-    Time.use_zone(time_zone) { scheduled_at }
+    scheduled_at.in_time_zone(time_zone)
   end
 
   def end_date_local_time
-    Time.use_zone(time_zone) { end_date }
+    end_date.in_time_zone(time_zone)
   end
 
   def iso_time_zone
