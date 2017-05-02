@@ -17,6 +17,10 @@ class Admin::HotelAppointmentsController < ::Admin::ApplicationController
     @appointment.assign_attributes(appointment_params)
 
     if @appointment.save
+      @trip.registrations.each do |registration|
+        @appointment.hotel_reservations.create(registration: registration)
+      end
+
       redirect_to [:admin, @trip], notice: 'Appointment was successfully created.'
     else
       render :new
