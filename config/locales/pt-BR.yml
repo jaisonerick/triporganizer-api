@@ -32,7 +32,11 @@ pt-BR:
       sponsor:
         one: Patrocinador
         other: Patrocinadores
+      custom_document: Documento
     attributes:
+      custom_document:
+        name: Nome
+        document: Documento
       flight_appointment:
         from: Origem
         origin_time_zone: Timezone da Origem

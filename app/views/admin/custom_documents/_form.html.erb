@@ -1,0 +1,22 @@
+<%= simple_form_for([:admin, @trip, @custom_document]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+
+    <%= f.input :document %>
+    <%= f.hidden_field :document_cache %>
+    <% if f.object.document? %>
+      <div class="form-group">
+        <label class="control-label">Documento Atual</label>
+        <div>
+          <%= link_to(f.object.document_url, f.object.document_url, target: '_blank') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

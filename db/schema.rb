@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501140425) do
+ActiveRecord::Schema.define(version: 20170502001405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20170501140425) do
     t.string   "picture_url"
     t.string   "site"
     t.string   "time_zone"
+  end
+
+  create_table "custom_documents", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.string   "document"
+    t.string   "name"
+    t.integer  "registration_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["registration_id"], name: "index_custom_documents_on_registration_id", using: :btree
+    t.index ["trip_id"], name: "index_custom_documents_on_trip_id", using: :btree
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -270,6 +281,8 @@ ActiveRecord::Schema.define(version: 20170501140425) do
 
   add_foreign_key "appointments", "companies"
   add_foreign_key "appointments", "trips"
+  add_foreign_key "custom_documents", "registrations"
+  add_foreign_key "custom_documents", "trips"
   add_foreign_key "destinations", "hotels"
   add_foreign_key "destinations", "trips"
   add_foreign_key "events", "companies"

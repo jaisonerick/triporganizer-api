@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <div class="btn-group pull-right">
+        <%= link_to 'Voltar', admin_custom_documents_path, class: 'btn btn-default' %>
+        <%= link_to 'Editar', edit_admin_custom_document_path(@custom_document), class: 'btn btn-default' %>
+      </div>
+
+      <h1>Visualizando custom_document</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Trip:</dt>
+      <dd><%= @custom_document.trip %></dd>
+
+      <dt>Url:</dt>
+      <dd><%= @custom_document.url %></dd>
+
+      <dt>Name:</dt>
+      <dd><%= @custom_document.name %></dd>
+
+      <dt>Registration:</dt>
+      <dd><%= @custom_document.registration %></dd>
+
+    </dl>
+  </div>
+</div>

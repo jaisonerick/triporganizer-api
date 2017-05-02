@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
         resources :transports
         resources :sponsors, except: :show
+        resources :custom_documents, except: :show
       end
 
       resources :users, except: :show

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
-      <%= link_to 'Novo Patrocinador', new_admin_trip_sponsor_path(@trip), class: 'btn btn-primary pull-right' %>
+      <%= link_to 'Novo Documento', new_admin_trip_custom_document_path(@trip), class: 'btn btn-primary pull-right' %>
 
       <h1><%= @trip.name %> </h1>
     </div>
@@ -17,11 +17,11 @@
       <li role="presentation">
         <%= link_to 'Passageiros', admin_trip_registrations_path(@trip) %>
       </li>
-      <li role="presentation" class="active">
-        <a href="#">Patrocinadores</a>
-      </li>
       <li role="presentation">
-        <%= link_to 'Documentos', admin_trip_custom_documents_path(@trip) %>
+        <%= link_to 'Patrocinadores', admin_trip_sponsors_path(@trip) %>
+      </li>
+      <li role="presentation" class="active">
+        <a href="#">Documentos</a>
       </li>
     </ul>
   </div>
@@ -32,21 +32,19 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Imagem</th>
+          <th>Name</th>
           <th></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @sponsors.each do |sponsor| %>
+        <% @custom_documents.each do |custom_document| %>
           <tr>
-            <td><%= sponsor.name %></td>
-            <td><%= image_tag sponsor.image, class: 'sponsor-image' %></td>
+            <td><%= custom_document.name %></td>
             <td class="text-right">
               <div class="btn-group" role="group">
-                <%= link_to 'Editar', edit_admin_trip_sponsor_path(@trip, sponsor), class: 'btn btn-default' %>
-                <%= link_to 'Remover', [:admin, @trip, sponsor], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
+                <%= link_to 'Editar', edit_admin_trip_custom_document_path(@trip, custom_document), class: 'btn btn-default' %>
+                <%= link_to 'Remover', [:admin, @trip, custom_document], method: :delete, data: { confirm: 'Você tem certeza disso?' }, class: 'btn btn-danger' %>
               </div>
             </td>
           </tr>

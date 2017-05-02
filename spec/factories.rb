@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :custom_document do
+    trip nil
+    url "MyString"
+    name "MyString"
+    registration nil
+  end
   factory :sponsor do
     name "MyString"
     image "MyString"

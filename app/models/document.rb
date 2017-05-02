@@ -4,7 +4,15 @@ class Document
   def self.get_all(trip, user)
     registration = trip.registrations.find_by(user: user)
 
-    documents = []
+    documents = trip.custom_documents.map do |document|
+      Document.new(key: "custom-#{document.id}".to_sym,
+                   title: document.name,
+                   type: :custom_document,
+                   url: document.document_url,
+                   display_type: :document,
+                   uploadable: false)
+    end.presence || []
+
     documents.push(Document.new(key: :passport,
                                 title: 'Passaporte',
                                 type: :passport,
