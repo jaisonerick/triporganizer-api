@@ -78,11 +78,14 @@ pt-BR:
         scheduled_at: Inicio
         company: Local
         description: Detalhes
+        long_description: Mais Informações
       suggestion_appointment:
         name: Nome
         scheduled_at: Data
         company: Local
         period: Periodo
+        description: Detalhes
+        long_description: Mais Informações
       milestone:
         description: Descrição
         order: Ordem

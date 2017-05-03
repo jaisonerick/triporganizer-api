@@ -3,8 +3,9 @@
 
   <div class="form-inputs">
     <%= f.association :company, collection: Company.place %>
-    <%= f.input :scheduled_at %>
     <%= f.input :description %>
+    <%= f.input :long_description %>
+    <%= f.input :scheduled_at %>
   </div>
 
   <div class="form-actions">
