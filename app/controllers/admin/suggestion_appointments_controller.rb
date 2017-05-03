@@ -50,6 +50,6 @@ class Admin::SuggestionAppointmentsController < ::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def appointment_params
-      params.require(:suggestion_appointment).permit(:scheduled_at, :company_id, :period, :name, :description)
+      params.require(:suggestion_appointment).permit(:scheduled_at, :company_id, :period, :name, :description, :long_description)
     end
 end
