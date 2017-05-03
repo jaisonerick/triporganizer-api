@@ -5,7 +5,7 @@ class SuggestionAppointment < Appointment
   validates :description, :name, presence: true
 
   def medium
-    'SUGESTÃO'
+    'LIVRE'
   end
 
   def medium_image
