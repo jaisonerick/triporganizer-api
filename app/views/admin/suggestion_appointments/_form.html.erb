@@ -6,7 +6,6 @@
     <%= f.association :company, collection: Company.place %>
     <%= f.input :description %>
     <%= f.input :scheduled_at %>
-    <%= f.input :period, collection: { 'Manhã' => :morning, 'Tarde' => :afternoon, 'Noite' => :night } %>
   </div>
 
   <div class="form-actions">
