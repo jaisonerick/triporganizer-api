@@ -4,6 +4,10 @@ class SuggestionAppointment < Appointment
 
   validates :description, :name, presence: true
 
+  def medium
+    'SUGESTÃO'
+  end
+
   def medium_image
     'suggestion.png'
   end

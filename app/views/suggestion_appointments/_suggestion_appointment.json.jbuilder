@@ -1,4 +1,4 @@
-json.name "Sugestão - #{appointment.name}"
+json.name appointment.name
 json.description appointment.description
 
 json.address appointment.company.address
