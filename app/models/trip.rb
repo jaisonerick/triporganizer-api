@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   mount_uploader :promo, PdfDocumentUploader
+  mount_uploader :image, ImageUploader
 
   has_many :destinations
   has_many :hotels, through: :destinations

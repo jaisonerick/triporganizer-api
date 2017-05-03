@@ -13,10 +13,12 @@
         <%= f.input :default_time_zone %>
       </div>
       <div class="col-md-6">
+        <%= f.input :image %>
+        <%= f.hidden_field :image_cache %>
+
         <%= image_tag(@trip.image.presence || 'no_image.png' , class: 'img-responsive places-image-tag') %>
       </div>
     </div>
-    <%= f.input :image, as: :hidden, input_html: { class: 'places-image-form' } %>
 
     <%= f.input :promo %>
     <%= f.hidden_field :promo_cache %>
