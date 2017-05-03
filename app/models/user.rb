@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  default_scope { order(name: :asc) }
+
   mount_uploader :passport, PdfDocumentUploader
 
   # Include default devise modules. Others available are:

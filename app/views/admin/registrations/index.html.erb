@@ -3,7 +3,7 @@
     <div class="page-header">
       <div class="pull-right">
         <%= simple_form_for([:admin, @trip, @registration], wrapper: :inline_form, html: { class: 'form-inline' }) do |f| %>
-          <%= f.association :user, prompt: "Escolha um passageiro" %>
+          <%= f.association :user, prompt: "Escolha um passageiro", label_method: ->(user) { "#{user.name} (#{user.id})" } %>
           <%= f.submit 'Registrar', class: 'btn btn-primary' %>
         <% end %>
       </div>
@@ -37,6 +37,7 @@
 
     <table class="table">
       <thead>
+        <th>ID</th>
         <th>Nome</th>
         <th>&nbsp;</td>
       </thead>
@@ -44,6 +45,7 @@
       <tbody>
         <% @registrations.each do |registration| %>
           <tr>
+            <td><%= registration.user.id %></td>
             <td><%= registration.user.name %></td>
             <td class="text-right">
               <div class="btn-group">

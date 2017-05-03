@@ -4,7 +4,7 @@ class Admin::RegistrationsController < ::Admin::ApplicationController
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @registrations = @trip.registrations.includes(:user)
+    @registrations = @trip.registrations.includes(:user).order('users.name asc')
     @registration = @trip.registrations.build
   end
 
