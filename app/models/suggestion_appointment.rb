@@ -1,6 +1,6 @@
 class SuggestionAppointment < Appointment
   store_accessor :details,
-                 :period, :name
+                 :period, :name, :long_description
 
   validates :description, :name, :company, presence: true
 

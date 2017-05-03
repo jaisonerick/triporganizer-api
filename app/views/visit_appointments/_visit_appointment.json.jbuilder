@@ -1,4 +1,5 @@
 json.description appointment.description
+json.long_description appointment.long_description.presence || appointment.description
 
 json.name appointment.company.name
 json.address appointment.company.address
