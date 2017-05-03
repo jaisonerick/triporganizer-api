@@ -3,8 +3,12 @@
 
   <div class="form-inputs">
     <%= f.association :company, collection: Company.hotel %>
-    <%= f.input :scheduled_at %>
-    <%= f.input :end_date %>
+    <% Time.use_zone(f.object.time_zone) do %>
+      <%= f.input :scheduled_at %>
+    <% end %>
+    <% Time.use_zone(f.object.time_zone) do %>
+      <%= f.input :end_date %>
+    <% end %>
   </div>
 
   <div class="form-actions">
