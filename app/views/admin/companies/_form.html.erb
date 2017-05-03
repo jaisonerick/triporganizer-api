@@ -3,7 +3,6 @@
 
   <%= f.input :latitude, as: :hidden, input_html: { class: 'places-latitude' } %>
   <%= f.input :longitude, as: :hidden, input_html: { class: 'places-longitude' } %>
-  <%= f.input :picture_url, as: :hidden, input_html: { class: 'places-image-form' } %>
 
   <div class="form-inputs">
     <%= f.input :company_type, collection: {
@@ -21,12 +20,21 @@
 
     <div class="company-location">
       <%= f.input :place, as: :place %>
-    </div>
 
-    <%= f.input :time_zone %>
-    <%= f.input :address, input_html: { class: 'places-address' } %>
-    <%= f.input :phone, input_html: { class: 'places-phone' } %>
-    <%= f.input :site, input_html: { class: 'places-site' } %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :time_zone %>
+          <%= f.input :address, input_html: { class: 'places-address' } %>
+          <%= f.input :phone, input_html: { class: 'places-phone' } %>
+          <%= f.input :site, input_html: { class: 'places-site' } %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :picture %>
+
+          <%= image_tag(@company.picture_url.presence || 'no_image.png' , class: 'img-responsive') %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
