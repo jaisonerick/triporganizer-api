@@ -150,6 +150,7 @@ pt-BR:
         address: Endereço
         phone: Telefone
         company_type: Tipo
+        picture: Imagem
       event:
         name: Nome
         description: Descrição
