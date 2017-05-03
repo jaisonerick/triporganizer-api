@@ -2,7 +2,7 @@ class SuggestionAppointment < Appointment
   store_accessor :details,
                  :period, :name
 
-  validates :description, :name, presence: true
+  validates :description, :name, :company, presence: true
 
   def medium
     'LIVRE'
