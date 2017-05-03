@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.association :company, collection: Company.place %>
     <%= f.input :description %>
-    <%= f.input :long_description %>
+    <%= f.input :long_description, as: :text %>
     <%= f.input :scheduled_at %>
   </div>
 
