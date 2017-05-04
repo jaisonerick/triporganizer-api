@@ -59,9 +59,9 @@ json.trips @trips do |(trip, trip_documents, trip_dates)|
         json.partial! appointment.to_partial_path, appointment: appointment
       end
 
-      json.milestones appointment.milestones.each_with_index.to_a do |(milestone)|
+      json.milestones appointment.milestones.each_with_index.to_a do |(milestone, index)|
         json.id milestone.id
-        json.last(appointment != appointments.last)
+        json.last(index + 1 == appointment.milestones.size || appointment == appointments.last)
         json.description milestone.description
       end
     end
