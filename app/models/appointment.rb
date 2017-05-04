@@ -56,10 +56,10 @@ class Appointment < ApplicationRecord
   end
 
   def iso_time_zone
-    ActiveSupport::TimeZone::MAPPING[company.time_zone]
+    ActiveSupport::TimeZone::MAPPING[time_zone]
   end
 
   def time_zone
-    company.time_zone
+    company.try(:time_zone)
   end
 end
