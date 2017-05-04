@@ -61,7 +61,7 @@ json.trips @trips do |(trip, trip_documents, trip_dates)|
 
       json.milestones appointment.milestones.each_with_index.to_a do |(milestone, index)|
         json.id milestone.id
-        json.last(index + 1 == appointment.milestones.size || appointment == appointments.last)
+        json.last(index + 1 == appointment.milestones.size && appointment == appointments.last)
         json.description milestone.description
       end
     end
