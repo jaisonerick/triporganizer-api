@@ -32,7 +32,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>Passageiro</th>
+          <th>Nome</th>
           <th></th>
         </tr>
       </thead>
@@ -40,6 +41,7 @@
       <tbody>
         <% @custom_documents.each do |custom_document| %>
           <tr>
+            <td><%= custom_document.registration_name %></td>
             <td><%= custom_document.name %></td>
             <td class="text-right">
               <div class="btn-group" role="group">

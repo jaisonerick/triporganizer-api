@@ -4,7 +4,7 @@ class Document
   def self.get_all(trip, user)
     registration = trip.registrations.find_by(user: user)
 
-    documents = trip.custom_documents.map do |document|
+    documents = CustomDocument.where(trip: trip).where('registration_id = ? or registration_id is null', registration.id).map do |document|
       Document.new(key: "custom-#{document.id}".to_sym,
                    title: document.name,
                    type: :custom_document,

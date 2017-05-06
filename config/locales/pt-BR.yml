@@ -37,6 +37,7 @@ pt-BR:
       custom_document:
         name: Nome
         document: Documento
+        registration: Passageiro
       flight_appointment:
         from: Origem
         origin_time_zone: Timezone da Origem

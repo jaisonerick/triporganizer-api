@@ -5,7 +5,7 @@ class Admin::CustomDocumentsController < ::Admin::ApplicationController
   # GET /custom_documents
   # GET /custom_documents.json
   def index
-    @custom_documents = @trip.custom_documents
+    @custom_documents = @trip.custom_documents.includes(registration: [:user]).order('users.name asc', 'custom_documents.name asc')
   end
 
   # GET /custom_documents/new

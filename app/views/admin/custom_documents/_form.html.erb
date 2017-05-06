@@ -3,8 +3,9 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <%= f.association :registration, collection: @trip.registrations, label_method: ->(registration) { "#{registration.user.name} (#{registration.user.id})" } %>
 
-    <%= f.input :document %>
+    <%= f.input :document, required: false %>
     <%= f.hidden_field :document_cache %>
     <% if f.object.document? %>
       <div class="form-group">

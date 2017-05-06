@@ -9,6 +9,7 @@ class Registration < ApplicationRecord
   has_many :hotel_reservations, dependent: :destroy
   has_many :flight_tickets, dependent: :destroy
   has_many :train_tickets, dependent: :destroy
+  has_many :custom_documents, dependent: :destroy
 
   validates :user, :trip, presence: true
   validates :user, uniqueness: { scope: :trip, message: 'já registrado' }
