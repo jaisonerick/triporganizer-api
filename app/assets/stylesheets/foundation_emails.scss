@@ -1,0 +1,26 @@
+@import "foundation-emails";
+
+.trip-background {
+  background-color: #3647AB;
+  color: white;
+  padding-top: 16px;
+  h1 {
+    color: white;
+    margin-bottom: 0px;
+    font-weight: normal;
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+.body {
+  padding: 16px;
+
+  p {
+    margin-bottom: 16px;
+  }
+}
+
+.access-link {
+  font-size: 18px;
+}

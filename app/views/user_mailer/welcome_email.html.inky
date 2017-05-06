@@ -1,0 +1,27 @@
+<container>
+  <row>
+    <columns class="trip-background">
+      <div>
+        <h1>Bem vindo ao <strong>TripOrganizer</strong></h1>
+      </div>
+    </columns>
+  </row>
+
+  <row>
+    <column>
+      <div class="body">
+        <p>Você foi convidado para fazer parte do <strong>Trip Organizer</strong></p>
+
+        <p>O Trip Organizer é um aplicativo criado com o objetivo de auxiliar em sua viagem.  Dando acesso ao seu roteiro completo, documentos e dicas úteis.</p>
+
+        <p>Para começar a utilizar, acesse o endereço abaixo e crie sua senha. Seu usuário é o email <strong><%= @user.email %></strong></p>
+
+        <p class="text-center"><%= link_to root_url, root_url, class: 'access-link' %></p>
+
+        <p>Atenciosamente,<br />
+        <strong>TripOrganizer</strong>
+        </p>
+      </div>
+    </column>
+  </row>
+</container>

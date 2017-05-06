@@ -29,6 +29,8 @@ gem "bootstrap-generators", "~> 3.3.4"
 gem "carrierwave", "~> 1.0"
 gem "mini_magick"
 gem "jbuilder"
+gem 'inky-rb', require: 'inky'
+gem 'premailer-rails'
 
 group :development do
   gem "listen"
