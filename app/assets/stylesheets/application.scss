@@ -17,7 +17,7 @@ $light-primary-color: #3E50B4;
 @import "itinerary";
 
 body {
-  &.devise-sessions {
+  &.devise-sessions, &.passwords, &.home {
     background-color: $light-primary-color;
   }
 }
@@ -28,6 +28,33 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 
 $card-padding: 16px !default;
 $card-bg-color: #fff !default;
+
+.devise-password-callout {
+  color: white;
+  text-align: center;
+  margin-bottom: 26px;
+  font-size: 20px;
+}
+
+.download-callout {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  a {
+    &, &:visited, &:active, &:hover {
+      color: white;
+      text-decoration: underline;
+      display: block;
+      margin-bottom: 16px;
+    }
+  }
+}
 
 .login {
   max-width: 332px;

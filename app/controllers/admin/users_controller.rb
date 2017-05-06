@@ -1,5 +1,5 @@
 class Admin::UsersController < ::Admin::ApplicationController
-  before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_user, only: [:show, :edit, :update, :destroy, :invite]
 
   # GET /admin/users
   def index
@@ -18,7 +18,6 @@ class Admin::UsersController < ::Admin::ApplicationController
   # POST /admin/users
   def create
     @admin_user = User.new(admin_user_params)
-    @admin_user.password = Devise.friendly_token.first(8)
 
     if @admin_user.save
       @admin_user.send_reset_password_instructions
@@ -36,6 +35,11 @@ class Admin::UsersController < ::Admin::ApplicationController
     else
       render :edit
     end
+  end
+
+  def invite
+    @admin_user.send_reset_password_instructions
+    redirect_to admin_users_path, notice: 'Convite enviado com sucesso.'
   end
 
   # DELETE /admin/users/1

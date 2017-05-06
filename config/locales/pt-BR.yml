@@ -127,6 +127,7 @@ pt-BR:
         birthday: Aniversário
         address: Endereço
         phone: Telefone
+        reset_password_token: Chave de Segurança
       transport:
         company: Empresa
         departure_at: Partida

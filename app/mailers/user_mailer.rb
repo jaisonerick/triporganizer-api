@@ -1,7 +1,6 @@
-class UserMailer < ApplicationMailer
-  def welcome_email(user_id, password)
-    @user = User.find(user_id)
-    @password = password
-    mail(to: @user.email, subject: 'Bem Vindo ao Trip Organizer')
-  end
+class UserMailer < Devise::Mailer
+  helper :application
+  include Devise::Controllers::UrlHelpers
+  default template_path: 'devise/mailer'
+  layout 'mailer'
 end

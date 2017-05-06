@@ -1,5 +1,5 @@
 class UserMailerPreview < ActionMailer::Preview
-  def welcome_email
-    UserMailer.welcome_email(User.first.id, '1234')
+  def reset_password_instructions
+    UserMailer.reset_password_instructions(User.first, '1234', {})
   end
 end

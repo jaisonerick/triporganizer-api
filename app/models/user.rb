@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :trips, through: :registrations
   has_many :registrations
 
-  validates :name, :email, presence: true
+  validates :name, :email, :password, presence: true
 
   def generate_auth_token
     token = SecureRandom.hex

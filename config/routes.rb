@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { passwords: 'passwords' }
   devise_for :admins
 
   namespace :api, defaults: { format: :json } do
@@ -53,7 +53,12 @@ Rails.application.routes.draw do
         resources :custom_documents, except: :show
       end
 
-      resources :users, except: :show
+      resources :users, except: [:show] do
+        member do
+          post :invite
+        end
+      end
+
       resources :admins
       resources :companies
       resources :hotels
@@ -74,6 +79,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'success', to: 'home#password_changed', as: :password_changed
 
-  root to: "trips#index"
+  root to: "home#index"
 end
