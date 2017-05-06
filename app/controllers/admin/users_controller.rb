@@ -20,8 +20,6 @@ class Admin::UsersController < ::Admin::ApplicationController
     @admin_user = User.new(admin_user_params)
 
     if @admin_user.save
-      @admin_user.send_reset_password_instructions
-
       redirect_to admin_users_path, notice: 'Cliente criado com sucesso.'
     else
       render :new

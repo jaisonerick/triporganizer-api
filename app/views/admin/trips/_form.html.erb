@@ -12,7 +12,7 @@
         <%= f.input :default_time_zone %>
       </div>
       <div class="col-md-6">
-        <%= f.input :image %>
+        <%= f.input :image, required: false %>
         <%= f.hidden_field :image_cache %>
 
         <%= image_tag(@trip.image.presence || 'no_image.png' , class: 'img-responsive') %>
@@ -22,7 +22,7 @@
     <%= f.input :promo %>
     <%= f.hidden_field :promo_cache %>
     <% if f.object.promo? %>
-      <strong>Promo Atual: <%= link_to(f.object.promo_url, target: '_blank') %></strong>
+      <strong>Promo Atual: <%= link_to(f.object.promo_url, f.object.promo_url, target: '_blank') %></strong>
     <% end %>
   </div>
 
