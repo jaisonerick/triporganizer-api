@@ -1,4 +1,5 @@
 json.company_name appointment.company.name
+json.company_phone appointment.company.phone
 json.from appointment.from
 json.to appointment.to
 json.flight_number appointment.flight_number

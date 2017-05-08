@@ -2,6 +2,7 @@ json.title appointment.name
 json.description appointment.description
 
 json.company_name appointment.company.name
+json.company_phone appointment.company.phone
 json.from appointment.from
 json.to appointment.to
 json.address appointment.company.address
