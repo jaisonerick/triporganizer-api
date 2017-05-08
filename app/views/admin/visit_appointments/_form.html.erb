@@ -5,7 +5,9 @@
     <%= f.association :company, collection: Company.place %>
     <%= f.input :description %>
     <%= f.input :long_description, as: :text %>
-    <%= f.input :scheduled_at %>
+    <% Time.use_zone(f.object.time_zone) do %>
+      <%= f.input :scheduled_at %>
+    <% end %>
   </div>
 
   <div class="form-actions">
