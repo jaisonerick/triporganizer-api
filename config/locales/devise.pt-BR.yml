@@ -19,7 +19,7 @@ pt-BR:
       confirmation_instructions:
         subject: "Instruções de confirmação"
       reset_password_instructions:
-        subject: "Bem vindo ao Trip Organizer"
+        subject: "Bem vindo ao TripOrganizer"
       unlock_instructions:
         subject: "Instruções de desbloqueio"
     omniauth_callbacks:

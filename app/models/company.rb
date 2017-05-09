@@ -2,6 +2,8 @@ class Company < ApplicationRecord
   mount_uploader :picture, ImageUploader
   has_many :events
 
+  default_scope { order(name: :asc) }
+
   enum company_type: [:other, :bus, :train, :boat,
                       :airline, :hotel, :place]
 

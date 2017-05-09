@@ -3,7 +3,7 @@ class Admin::TripsController < ::Admin::ApplicationController
 
   # GET /trips
   def index
-    @trips = Trip.order(starts_at: :desc).visible
+    @trips = Trip.order(starts_at: :asc).visible
   end
 
   # GET /trips/1
