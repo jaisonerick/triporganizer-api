@@ -17,6 +17,7 @@
 
     <%= f.input :name, input_html: { class: 'places-name' } %>
     <%= f.input :description %>
+    <%= f.input :phone, input_html: { class: 'places-phone' } %>
 
     <div class="company-location">
       <%= f.input :place, as: :place %>
@@ -25,7 +26,6 @@
         <div class="col-md-6">
           <%= f.input :time_zone %>
           <%= f.input :address, input_html: { class: 'places-address' } %>
-          <%= f.input :phone, input_html: { class: 'places-phone' } %>
           <%= f.input :site, input_html: { class: 'places-site' } %>
         </div>
         <div class="col-md-6">
