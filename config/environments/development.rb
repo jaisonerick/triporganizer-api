@@ -26,8 +26,8 @@ Rails.application.configure do
   config.assets.quiet = true
   config.action_view.raise_on_missing_translations = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
-  config.action_controller.asset_host = "http://localhost:3000"
-  config.action_mailer.asset_host = "http://localhost:3000"
+  config.action_mailer.default_url_options = { host: "192.168.1.6:3000" }
+  config.action_controller.asset_host = "http://192.168.1.6:3000"
+  config.action_mailer.asset_host = "http://192.168.1.6:3000"
   config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
 end

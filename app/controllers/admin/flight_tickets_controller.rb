@@ -2,7 +2,7 @@ class Admin::FlightTicketsController < ::Admin::ApplicationController
   before_action :set_appointment
 
   def index
-    @flight_tickets = @appointment.flight_tickets
+    @flight_tickets = @appointment.flight_tickets.includes(registration: [:user]).order('users.name asc')
   end
 
   def update

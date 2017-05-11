@@ -3,7 +3,7 @@ class Admin::HotelReservationsController < ::Admin::ApplicationController
 
   # GET /hotel_reservations
   def index
-    @hotel_reservations = @appointment.hotel_reservations
+    @hotel_reservations = @appointment.hotel_reservations.includes(registration: [:user]).order('users.name asc')
   end
 
   # GET /hotel_reservations/1
