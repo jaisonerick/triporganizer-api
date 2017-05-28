@@ -1,6 +1,6 @@
 class Api::TripsController < Api::BaseController
   def index
-    @trips = current_user.trips.visible.nearest_order
+    @trips = current_user.trips.nearest_order
     @upcoming = Trip.upcoming.where.not(id: @trips.map(&:id)).nearest_order
 
     @trips = @trips.map do |trip|
